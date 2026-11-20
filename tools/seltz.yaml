@@ -1,0 +1,17 @@
+tool: seltz
+name: Seltz
+env:
+- SELTZ_API_KEY
+setups:
+  seltz-companies:
+    class: main
+    endpoint: POST https://api.seltz.ai/v1/answer
+    settings:
+      scope: companies
+      response_format: json_schema
+      output_schema: enrichment
+      max_workers: 6
+    pricing:
+      usd: 0.005
+      unit: request
+      source: https://docs.seltz.ai/pricing

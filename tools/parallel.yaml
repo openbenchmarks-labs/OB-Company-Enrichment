@@ -1,0 +1,17 @@
+tool: parallel
+name: Parallel
+env:
+- PARALLEL_API_KEY
+setups:
+  parallel-research:
+    class: main
+    endpoint: POST https://api.parallel.ai/v1/responses
+    settings:
+      model: parallel
+      reasoning_effort: medium
+      output_schema: enrichment
+      max_workers: 8
+    pricing:
+      usd: 0.05
+      unit: request
+      source: https://docs.parallel.ai/getting-started/pricing

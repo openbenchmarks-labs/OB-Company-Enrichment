@@ -1,0 +1,19 @@
+tool: apollo
+name: Apollo
+env:
+- APOLLO_API_KEY
+setups:
+  apollo:
+    class: main
+    endpoint: POST https://api.apollo.io/api/v1/mixed_companies/search, then GET https://api.apollo.io/api/v1/organizations/<id>
+    settings:
+      search:
+        q_organization_domains_list:
+        - <domain>
+        per_page: 1
+      max_workers: 1
+    pricing:
+      usd: 0.0196
+      unit: credit
+      source: https://www.apollo.io/pricing?solution=enrichment
+      note: 'A usage proxy, modeled from the Basic plan: $49 per seat per month billed annually, 30,000 annual credits.'

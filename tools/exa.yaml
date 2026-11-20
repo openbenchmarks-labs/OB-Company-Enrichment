@@ -1,0 +1,23 @@
+tool: exa
+name: Exa
+env:
+- EXA_API_KEY
+setups:
+  exa-research-v2:
+    class: main
+    endpoint: POST https://api.exa.ai/search
+    settings:
+      type: deep-reasoning
+      category: company
+      num_results: 10
+      additional_queries:
+      - site:<domain>
+      - site:linkedin.com/company "<company name>"
+      highlights_max_characters: 6000
+      output_schema: enrichment
+      seconds_between_requests: 0.2
+      max_workers: 5
+    pricing:
+      usd: 0.015
+      unit: request
+      source: https://exa.ai/pricing?tab=api
