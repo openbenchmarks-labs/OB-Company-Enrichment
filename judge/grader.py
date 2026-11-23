@@ -206,6 +206,8 @@ def _parse_band(raw: Any) -> tuple[int, int | None] | None:
     if raw is None:
         return None
     s = str(raw).replace(",", "").strip()
+    if s.lower() == "myself only":  # LinkedIn's size label for a one-person company
+        return (1, 1)
     if m := re.match(r"^(\d+)\s*[-–]\s*(\d+)$", s):
         return (int(m.group(1)), int(m.group(2)))
     if m := re.match(r"^(\d+)\+$", s):
