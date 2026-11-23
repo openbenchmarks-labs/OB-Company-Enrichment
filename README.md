@@ -11,8 +11,8 @@ Published and maintained by **[OpenBenchmarks Labs](https://openbenchmarks.com)*
 Every tool receives the same company domains and is evaluated on five structured fields:
 
 - `hq`: Headquarters city and country (normalized via `judge/places.json` and US metro-area mappings in `judge/metros.json`; city names come from [GeoNames](https://www.geonames.org) under CC BY 4.0, metros from US Census Bureau data).
-- `industry`: Normalized industry classification.
-- `employee_band`: Standardized headcount range.
+- `industry`: The key's LinkedIn industry, or a broader or narrower one on the same branch of LinkedIn's industry hierarchy (`judge/industries.json`, from LinkedIn's published industry, V1 and NAICS tables).
+- `employee_band`: Headcount range: the same band, an exact count inside it, or an open band such as `10001+` holding any larger count.
 - `founded_year`: Founding year.
 - `linkedin_url`: Canonical or verified alternate company LinkedIn URL.
 

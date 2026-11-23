@@ -1,0 +1,3207 @@
+{
+ "_source": "LinkedIn Industry Codes V2: each active industry with its parent in LinkedIn's hierarchy. `names` reads older LinkedIn industry names (V1) and NAICS titles as the V2 industry LinkedIn lists for them. Built by build_industries.py from the pages below.",
+ "sources": [
+  {
+   "url": "https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2",
+   "sha256": "668bdb0f79b14f3c97b904e8954041f7c7ca13f0774f11331da2f244c8036b5c"
+  },
+  {
+   "url": "https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes",
+   "sha256": "b8577ba6795a4cd6c54e45a46414c4ed5c898664eca5fa4d382242f3d56d0a0b"
+  },
+  {
+   "url": "https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2-naics",
+   "sha256": "1cf624bd84131673ea010a0d7a3571bc0459634d11c54bbe030d806b8c532e44"
+  }
+ ],
+ "industries": {
+  "1": {
+   "label": "Defense and Space Manufacturing",
+   "parent": "1029"
+  },
+  "3": {
+   "label": "Computer Hardware Manufacturing",
+   "parent": "24"
+  },
+  "4": {
+   "label": "Software Development",
+   "parent": "6"
+  },
+  "5": {
+   "label": "Computer Networking Products",
+   "parent": "4"
+  },
+  "6": {
+   "label": "Technology, Information and Internet",
+   "parent": "1594"
+  },
+  "7": {
+   "label": "Semiconductor Manufacturing",
+   "parent": "24"
+  },
+  "8": {
+   "label": "Telecommunications",
+   "parent": "3133"
+  },
+  "9": {
+   "label": "Law Practice",
+   "parent": "10"
+  },
+  "10": {
+   "label": "Legal Services",
+   "parent": "1810"
+  },
+  "11": {
+   "label": "Business Consulting and Services",
+   "parent": "1810"
+  },
+  "12": {
+   "label": "Biotechnology Research",
+   "parent": "70"
+  },
+  "13": {
+   "label": "Medical Practices",
+   "parent": "14"
+  },
+  "14": {
+   "label": "Hospitals and Health Care",
+   "parent": null
+  },
+  "15": {
+   "label": "Pharmaceutical Manufacturing",
+   "parent": "54"
+  },
+  "16": {
+   "label": "Veterinary Services",
+   "parent": "1810"
+  },
+  "17": {
+   "label": "Medical Equipment Manufacturing",
+   "parent": "25"
+  },
+  "18": {
+   "label": "Personal Care Product Manufacturing",
+   "parent": "54"
+  },
+  "19": {
+   "label": "Retail Apparel and Fashion",
+   "parent": "27"
+  },
+  "20": {
+   "label": "Sporting Goods Manufacturing",
+   "parent": "25"
+  },
+  "21": {
+   "label": "Tobacco Manufacturing",
+   "parent": "25"
+  },
+  "22": {
+   "label": "Retail Groceries",
+   "parent": "1339"
+  },
+  "23": {
+   "label": "Food and Beverage Manufacturing",
+   "parent": "25"
+  },
+  "24": {
+   "label": "Computers and Electronics Manufacturing",
+   "parent": "25"
+  },
+  "25": {
+   "label": "Manufacturing",
+   "parent": null
+  },
+  "26": {
+   "label": "Furniture and Home Furnishings Manufacturing",
+   "parent": "25"
+  },
+  "27": {
+   "label": "Retail",
+   "parent": null
+  },
+  "28": {
+   "label": "Entertainment Providers",
+   "parent": null
+  },
+  "29": {
+   "label": "Gambling Facilities and Casinos",
+   "parent": "40"
+  },
+  "30": {
+   "label": "Travel Arrangements",
+   "parent": "1912"
+  },
+  "31": {
+   "label": "Hospitality",
+   "parent": "2190"
+  },
+  "32": {
+   "label": "Restaurants",
+   "parent": "34"
+  },
+  "33": {
+   "label": "Spectator Sports",
+   "parent": "2130"
+  },
+  "34": {
+   "label": "Food and Beverage Services",
+   "parent": "2190"
+  },
+  "35": {
+   "label": "Movies, Videos and Sound",
+   "parent": "3133"
+  },
+  "36": {
+   "label": "Broadcast Media Production and Distribution",
+   "parent": "3133"
+  },
+  "37": {
+   "label": "Museums, Historical Sites, and Zoos",
+   "parent": "28"
+  },
+  "38": {
+   "label": "Artists and Writers",
+   "parent": "28"
+  },
+  "39": {
+   "label": "Performing Arts",
+   "parent": "2130"
+  },
+  "40": {
+   "label": "Recreational Facilities",
+   "parent": "28"
+  },
+  "41": {
+   "label": "Banking",
+   "parent": "1673"
+  },
+  "42": {
+   "label": "Insurance",
+   "parent": "43"
+  },
+  "43": {
+   "label": "Financial Services",
+   "parent": null
+  },
+  "44": {
+   "label": "Real Estate",
+   "parent": "1757"
+  },
+  "45": {
+   "label": "Investment Banking",
+   "parent": "129"
+  },
+  "46": {
+   "label": "Investment Management",
+   "parent": "129"
+  },
+  "47": {
+   "label": "Accounting",
+   "parent": "1810"
+  },
+  "48": {
+   "label": "Construction",
+   "parent": null
+  },
+  "49": {
+   "label": "Wholesale Building Materials",
+   "parent": "133"
+  },
+  "50": {
+   "label": "Architecture and Planning",
+   "parent": "1810"
+  },
+  "51": {
+   "label": "Civil Engineering",
+   "parent": "48"
+  },
+  "52": {
+   "label": "Aviation and Aerospace Component Manufacturing",
+   "parent": "1029"
+  },
+  "53": {
+   "label": "Motor Vehicle Manufacturing",
+   "parent": "1029"
+  },
+  "54": {
+   "label": "Chemical Manufacturing",
+   "parent": "25"
+  },
+  "55": {
+   "label": "Machinery Manufacturing",
+   "parent": "25"
+  },
+  "56": {
+   "label": "Mining",
+   "parent": "332"
+  },
+  "57": {
+   "label": "Oil and Gas",
+   "parent": "332"
+  },
+  "58": {
+   "label": "Shipbuilding",
+   "parent": "1029"
+  },
+  "59": {
+   "label": "Utilities",
+   "parent": null
+  },
+  "60": {
+   "label": "Textile Manufacturing",
+   "parent": "25"
+  },
+  "61": {
+   "label": "Paper and Forest Product Manufacturing",
+   "parent": "25"
+  },
+  "62": {
+   "label": "Railroad Equipment Manufacturing",
+   "parent": "1029"
+  },
+  "63": {
+   "label": "Farming",
+   "parent": "201"
+  },
+  "64": {
+   "label": "Ranching",
+   "parent": "256"
+  },
+  "65": {
+   "label": "Dairy Product Manufacturing",
+   "parent": "23"
+  },
+  "66": {
+   "label": "Fisheries",
+   "parent": "256"
+  },
+  "67": {
+   "label": "Primary and Secondary Education",
+   "parent": "1999"
+  },
+  "68": {
+   "label": "Higher Education",
+   "parent": "1999"
+  },
+  "69": {
+   "label": "Education Administration Programs",
+   "parent": "2353"
+  },
+  "70": {
+   "label": "Research Services",
+   "parent": "1810"
+  },
+  "71": {
+   "label": "Armed Forces",
+   "parent": "2391"
+  },
+  "72": {
+   "label": "Legislative Offices",
+   "parent": "79"
+  },
+  "73": {
+   "label": "Administration of Justice",
+   "parent": "75"
+  },
+  "74": {
+   "label": "International Affairs",
+   "parent": "2391"
+  },
+  "75": {
+   "label": "Government Administration",
+   "parent": null
+  },
+  "76": {
+   "label": "Executive Offices",
+   "parent": "79"
+  },
+  "77": {
+   "label": "Law Enforcement",
+   "parent": "73"
+  },
+  "78": {
+   "label": "Public Safety",
+   "parent": "73"
+  },
+  "79": {
+   "label": "Public Policy Offices",
+   "parent": "75"
+  },
+  "80": {
+   "label": "Advertising Services",
+   "parent": "1810"
+  },
+  "81": {
+   "label": "Newspaper Publishing",
+   "parent": "82"
+  },
+  "82": {
+   "label": "Book and Periodical Publishing",
+   "parent": "3133"
+  },
+  "83": {
+   "label": "Printing Services",
+   "parent": "25"
+  },
+  "84": {
+   "label": "Information Services",
+   "parent": "6"
+  },
+  "85": {
+   "label": "Libraries",
+   "parent": "84"
+  },
+  "86": {
+   "label": "Environmental Services",
+   "parent": "11"
+  },
+  "87": {
+   "label": "Freight and Package Transportation",
+   "parent": "116"
+  },
+  "88": {
+   "label": "Individual and Family Services",
+   "parent": "14"
+  },
+  "89": {
+   "label": "Religious Institutions",
+   "parent": "91"
+  },
+  "90": {
+   "label": "Civic and Social Organizations",
+   "parent": "91"
+  },
+  "91": {
+   "label": "Consumer Services",
+   "parent": null
+  },
+  "92": {
+   "label": "Truck Transportation",
+   "parent": "116"
+  },
+  "93": {
+   "label": "Warehousing and Storage",
+   "parent": "116"
+  },
+  "94": {
+   "label": "Airlines and Aviation",
+   "parent": "116"
+  },
+  "95": {
+   "label": "Maritime Transportation",
+   "parent": "116"
+  },
+  "96": {
+   "label": "IT Services and IT Consulting",
+   "parent": "1810"
+  },
+  "97": {
+   "label": "Market Research",
+   "parent": "80"
+  },
+  "98": {
+   "label": "Public Relations and Communications Services",
+   "parent": "80"
+  },
+  "99": {
+   "label": "Design Services",
+   "parent": "1810"
+  },
+  "100": {
+   "label": "Non-profit Organizations",
+   "parent": "91"
+  },
+  "101": {
+   "label": "Fundraising",
+   "parent": "1912"
+  },
+  "102": {
+   "label": "Strategic Management Services",
+   "parent": "11"
+  },
+  "103": {
+   "label": "Writing and Editing",
+   "parent": "1912"
+  },
+  "104": {
+   "label": "Staffing and Recruiting",
+   "parent": "1912"
+  },
+  "105": {
+   "label": "Professional Training and Coaching",
+   "parent": "1999"
+  },
+  "106": {
+   "label": "Venture Capital and Private Equity Principals",
+   "parent": "129"
+  },
+  "107": {
+   "label": "Political Organizations",
+   "parent": "90"
+  },
+  "108": {
+   "label": "Translation and Localization",
+   "parent": "1912"
+  },
+  "109": {
+   "label": "Computer Games",
+   "parent": "4"
+  },
+  "110": {
+   "label": "Events Services",
+   "parent": "1912"
+  },
+  "111": {
+   "label": "Retail Art Supplies",
+   "parent": "27"
+  },
+  "112": {
+   "label": "Appliances, Electrical, and Electronics Manufacturing",
+   "parent": "25"
+  },
+  "113": {
+   "label": "Online Audio and Video Media",
+   "parent": "3132"
+  },
+  "114": {
+   "label": "Nanotechnology Research",
+   "parent": "70"
+  },
+  "115": {
+   "label": "Musicians",
+   "parent": "28"
+  },
+  "116": {
+   "label": "Transportation, Logistics, Supply Chain and Storage",
+   "parent": null
+  },
+  "117": {
+   "label": "Plastics Manufacturing",
+   "parent": "743"
+  },
+  "118": {
+   "label": "Computer and Network Security",
+   "parent": "96"
+  },
+  "119": {
+   "label": "Wireless Services",
+   "parent": "8"
+  },
+  "120": {
+   "label": "Alternative Dispute Resolution",
+   "parent": "10"
+  },
+  "121": {
+   "label": "Security and Investigations",
+   "parent": "1912"
+  },
+  "122": {
+   "label": "Facilities Services",
+   "parent": "1912"
+  },
+  "123": {
+   "label": "Outsourcing and Offshoring Consulting",
+   "parent": "11"
+  },
+  "124": {
+   "label": "Wellness and Fitness Services",
+   "parent": "40"
+  },
+  "125": {
+   "label": "Alternative Medicine",
+   "parent": "13"
+  },
+  "126": {
+   "label": "Media Production",
+   "parent": "35"
+  },
+  "127": {
+   "label": "Animation and Post-production",
+   "parent": "35"
+  },
+  "128": {
+   "label": "Leasing Non-residential Real Estate",
+   "parent": "44"
+  },
+  "129": {
+   "label": "Capital Markets",
+   "parent": "43"
+  },
+  "130": {
+   "label": "Think Tanks",
+   "parent": "70"
+  },
+  "131": {
+   "label": "Philanthropic Fundraising Services",
+   "parent": "91"
+  },
+  "132": {
+   "label": "E-Learning Providers",
+   "parent": "1999"
+  },
+  "133": {
+   "label": "Wholesale",
+   "parent": null
+  },
+  "134": {
+   "label": "Wholesale Import and Export",
+   "parent": "133"
+  },
+  "135": {
+   "label": "Industrial Machinery Manufacturing",
+   "parent": "55"
+  },
+  "136": {
+   "label": "Photography",
+   "parent": "1810"
+  },
+  "137": {
+   "label": "Human Resources Services",
+   "parent": "11"
+  },
+  "138": {
+   "label": "Retail Office Equipment",
+   "parent": "27"
+  },
+  "139": {
+   "label": "Mental Health Care",
+   "parent": "13"
+  },
+  "140": {
+   "label": "Graphic Design",
+   "parent": "99"
+  },
+  "141": {
+   "label": "International Trade and Development",
+   "parent": "1673"
+  },
+  "142": {
+   "label": "Beverage Manufacturing",
+   "parent": "23"
+  },
+  "143": {
+   "label": "Retail Luxury Goods and Jewelry",
+   "parent": "27"
+  },
+  "144": {
+   "label": "Renewable Energy Semiconductor Manufacturing",
+   "parent": "7"
+  },
+  "145": {
+   "label": "Glass, Ceramics and Concrete Manufacturing",
+   "parent": "25"
+  },
+  "146": {
+   "label": "Packaging and Containers Manufacturing",
+   "parent": "743"
+  },
+  "147": {
+   "label": "Automation Machinery Manufacturing",
+   "parent": "55"
+  },
+  "148": {
+   "label": "Government Relations Services",
+   "parent": "80"
+  },
+  "150": {
+   "label": "Horticulture",
+   "parent": "63"
+  },
+  "201": {
+   "label": "Farming, Ranching, Forestry",
+   "parent": null
+  },
+  "256": {
+   "label": "Ranching and Fisheries",
+   "parent": "201"
+  },
+  "298": {
+   "label": "Forestry and Logging",
+   "parent": "201"
+  },
+  "332": {
+   "label": "Oil, Gas, and Mining",
+   "parent": null
+  },
+  "341": {
+   "label": "Coal Mining",
+   "parent": "56"
+  },
+  "345": {
+   "label": "Metal Ore Mining",
+   "parent": "56"
+  },
+  "356": {
+   "label": "Nonmetallic Mineral Mining",
+   "parent": "56"
+  },
+  "382": {
+   "label": "Electric Power Transmission, Control, and Distribution",
+   "parent": "59"
+  },
+  "383": {
+   "label": "Electric Power Generation",
+   "parent": "59"
+  },
+  "384": {
+   "label": "Hydroelectric Power Generation",
+   "parent": "3240"
+  },
+  "385": {
+   "label": "Fossil Fuel Electric Power Generation",
+   "parent": "383"
+  },
+  "386": {
+   "label": "Nuclear Electric Power Generation",
+   "parent": "383"
+  },
+  "387": {
+   "label": "Solar Electric Power Generation",
+   "parent": "3240"
+  },
+  "388": {
+   "label": "Environmental Quality Programs",
+   "parent": "75"
+  },
+  "389": {
+   "label": "Geothermal Electric Power Generation",
+   "parent": "3240"
+  },
+  "390": {
+   "label": "Biomass Electric Power Generation",
+   "parent": "3240"
+  },
+  "397": {
+   "label": "Natural Gas Distribution",
+   "parent": "59"
+  },
+  "398": {
+   "label": "Water, Waste, Steam, and Air Conditioning Services",
+   "parent": "59"
+  },
+  "400": {
+   "label": "Water Supply and Irrigation Systems",
+   "parent": "398"
+  },
+  "404": {
+   "label": "Steam and Air-Conditioning Supply",
+   "parent": "398"
+  },
+  "406": {
+   "label": "Building Construction",
+   "parent": "48"
+  },
+  "408": {
+   "label": "Residential Building Construction",
+   "parent": "406"
+  },
+  "413": {
+   "label": "Nonresidential Building Construction",
+   "parent": "406"
+  },
+  "419": {
+   "label": "Utility System Construction",
+   "parent": "51"
+  },
+  "428": {
+   "label": "Subdivision of Land",
+   "parent": "51"
+  },
+  "431": {
+   "label": "Highway, Street, and Bridge Construction",
+   "parent": "51"
+  },
+  "435": {
+   "label": "Specialty Trade Contractors",
+   "parent": "48"
+  },
+  "436": {
+   "label": "Building Structure and Exterior Contractors",
+   "parent": "435"
+  },
+  "453": {
+   "label": "Building Equipment Contractors",
+   "parent": "435"
+  },
+  "460": {
+   "label": "Building Finishing Contractors",
+   "parent": "435"
+  },
+  "481": {
+   "label": "Animal Feed Manufacturing",
+   "parent": "23"
+  },
+  "495": {
+   "label": "Sugar and Confectionery Product Manufacturing",
+   "parent": "23"
+  },
+  "504": {
+   "label": "Fruit and Vegetable Preserves Manufacturing",
+   "parent": "23"
+  },
+  "521": {
+   "label": "Meat Products Manufacturing",
+   "parent": "23"
+  },
+  "528": {
+   "label": "Seafood Product Manufacturing",
+   "parent": "23"
+  },
+  "529": {
+   "label": "Baked Goods Manufacturing",
+   "parent": "23"
+  },
+  "562": {
+   "label": "Breweries",
+   "parent": null
+  },
+  "564": {
+   "label": "Distilleries",
+   "parent": null
+  },
+  "598": {
+   "label": "Apparel Manufacturing",
+   "parent": "25"
+  },
+  "615": {
+   "label": "Fashion Accessories Manufacturing",
+   "parent": "598"
+  },
+  "616": {
+   "label": "Leather Product Manufacturing",
+   "parent": "25"
+  },
+  "622": {
+   "label": "Footwear Manufacturing",
+   "parent": "616"
+  },
+  "625": {
+   "label": "Women's Handbag Manufacturing",
+   "parent": "616"
+  },
+  "679": {
+   "label": "Oil and Coal Product Manufacturing",
+   "parent": "25"
+  },
+  "690": {
+   "label": "Chemical Raw Materials Manufacturing",
+   "parent": "54"
+  },
+  "703": {
+   "label": "Artificial Rubber and Synthetic Fiber Manufacturing",
+   "parent": "54"
+  },
+  "709": {
+   "label": "Agricultural Chemical Manufacturing",
+   "parent": "54"
+  },
+  "722": {
+   "label": "Paint, Coating, and Adhesive Manufacturing",
+   "parent": "54"
+  },
+  "727": {
+   "label": "Soap and Cleaning Product Manufacturing",
+   "parent": "54"
+  },
+  "743": {
+   "label": "Plastics and Rubber Product Manufacturing",
+   "parent": "25"
+  },
+  "763": {
+   "label": "Rubber Products Manufacturing",
+   "parent": "743"
+  },
+  "773": {
+   "label": "Clay and Refractory Products Manufacturing",
+   "parent": "145"
+  },
+  "779": {
+   "label": "Glass Product Manufacturing",
+   "parent": "145"
+  },
+  "784": {
+   "label": "Wood Product Manufacturing",
+   "parent": "25"
+  },
+  "794": {
+   "label": "Lime and Gypsum Products Manufacturing",
+   "parent": "145"
+  },
+  "799": {
+   "label": "Abrasives and Nonmetallic Minerals Manufacturing",
+   "parent": "145"
+  },
+  "807": {
+   "label": "Primary Metal Manufacturing",
+   "parent": "25"
+  },
+  "840": {
+   "label": "Fabricated Metal Products",
+   "parent": "25"
+  },
+  "849": {
+   "label": "Cutlery and Handtool Manufacturing",
+   "parent": "840"
+  },
+  "852": {
+   "label": "Architectural and Structural Metal Manufacturing",
+   "parent": "840"
+  },
+  "861": {
+   "label": "Boilers, Tanks, and Shipping Container Manufacturing",
+   "parent": "840"
+  },
+  "871": {
+   "label": "Construction Hardware Manufacturing",
+   "parent": "840"
+  },
+  "873": {
+   "label": "Spring and Wire Product Manufacturing",
+   "parent": "840"
+  },
+  "876": {
+   "label": "Turned Products and Fastener Manufacturing",
+   "parent": "840"
+  },
+  "883": {
+   "label": "Metal Treatments",
+   "parent": "840"
+  },
+  "887": {
+   "label": "Metal Valve, Ball, and Roller Manufacturing",
+   "parent": "840"
+  },
+  "901": {
+   "label": "Agriculture, Construction, Mining Machinery Manufacturing",
+   "parent": "55"
+  },
+  "918": {
+   "label": "Commercial and Service Industry Machinery Manufacturing",
+   "parent": "55"
+  },
+  "923": {
+   "label": "HVAC and Refrigeration Equipment Manufacturing",
+   "parent": "55"
+  },
+  "928": {
+   "label": "Metalworking Machinery Manufacturing",
+   "parent": "55"
+  },
+  "935": {
+   "label": "Engines and Power Transmission Equipment Manufacturing",
+   "parent": "55"
+  },
+  "964": {
+   "label": "Communications Equipment Manufacturing",
+   "parent": "24"
+  },
+  "973": {
+   "label": "Audio and Video Equipment Manufacturing",
+   "parent": "24"
+  },
+  "983": {
+   "label": "Measuring and Control Instrument Manufacturing",
+   "parent": "24"
+  },
+  "994": {
+   "label": "Magnetic and Optical Media Manufacturing",
+   "parent": "24"
+  },
+  "998": {
+   "label": "Electric Lighting Equipment Manufacturing",
+   "parent": "112"
+  },
+  "1005": {
+   "label": "Household Appliance Manufacturing",
+   "parent": "112"
+  },
+  "1029": {
+   "label": "Transportation Equipment Manufacturing",
+   "parent": "25"
+  },
+  "1042": {
+   "label": "Motor Vehicle Parts Manufacturing",
+   "parent": "1029"
+  },
+  "1080": {
+   "label": "Household and Institutional Furniture Manufacturing",
+   "parent": "26"
+  },
+  "1090": {
+   "label": "Office Furniture and Fixtures Manufacturing",
+   "parent": "26"
+  },
+  "1095": {
+   "label": "Mattress and Blinds Manufacturing",
+   "parent": "26"
+  },
+  "1128": {
+   "label": "Wholesale Motor Vehicles and Parts",
+   "parent": "133"
+  },
+  "1137": {
+   "label": "Wholesale Furniture and Home Furnishings",
+   "parent": "133"
+  },
+  "1153": {
+   "label": "Wholesale Photography Equipment and Supplies",
+   "parent": "133"
+  },
+  "1157": {
+   "label": "Wholesale Computer Equipment",
+   "parent": "133"
+  },
+  "1166": {
+   "label": "Wholesale Metals and Minerals",
+   "parent": "133"
+  },
+  "1171": {
+   "label": "Wholesale Appliances, Electrical, and Electronics",
+   "parent": "133"
+  },
+  "1178": {
+   "label": "Wholesale Hardware, Plumbing, Heating Equipment",
+   "parent": "133"
+  },
+  "1187": {
+   "label": "Wholesale Machinery",
+   "parent": "133"
+  },
+  "1206": {
+   "label": "Wholesale Recyclable Materials",
+   "parent": "133"
+  },
+  "1208": {
+   "label": "Wholesale Luxury Goods and Jewelry",
+   "parent": "133"
+  },
+  "1212": {
+   "label": "Wholesale Paper Products",
+   "parent": "133"
+  },
+  "1221": {
+   "label": "Wholesale Drugs and Sundries",
+   "parent": "133"
+  },
+  "1222": {
+   "label": "Wholesale Apparel and Sewing Supplies",
+   "parent": "133"
+  },
+  "1230": {
+   "label": "Wholesale Footwear",
+   "parent": "133"
+  },
+  "1231": {
+   "label": "Wholesale Food and Beverage",
+   "parent": "133"
+  },
+  "1250": {
+   "label": "Wholesale Raw Farm Products",
+   "parent": "133"
+  },
+  "1257": {
+   "label": "Wholesale Chemical and Allied Products",
+   "parent": "133"
+  },
+  "1262": {
+   "label": "Wholesale Petroleum and Petroleum Products",
+   "parent": "133"
+  },
+  "1267": {
+   "label": "Wholesale Alcoholic Beverages",
+   "parent": "133"
+  },
+  "1285": {
+   "label": "Internet Marketplace Platforms",
+   "parent": "6"
+  },
+  "1292": {
+   "label": "Retail Motor Vehicles",
+   "parent": "27"
+  },
+  "1309": {
+   "label": "Retail Furniture and Home Furnishings",
+   "parent": "27"
+  },
+  "1319": {
+   "label": "Retail Appliances, Electrical, and Electronic Equipment",
+   "parent": "27"
+  },
+  "1324": {
+   "label": "Retail Building Materials and Garden Equipment",
+   "parent": "27"
+  },
+  "1339": {
+   "label": "Food and Beverage Retail",
+   "parent": "27"
+  },
+  "1359": {
+   "label": "Retail Health and Personal Care Products",
+   "parent": "27"
+  },
+  "1370": {
+   "label": "Retail Gasoline",
+   "parent": "27"
+  },
+  "1407": {
+   "label": "Retail Musical Instruments",
+   "parent": "27"
+  },
+  "1409": {
+   "label": "Retail Books and Printed News",
+   "parent": "27"
+  },
+  "1423": {
+   "label": "Retail Florists",
+   "parent": "27"
+  },
+  "1424": {
+   "label": "Retail Office Supplies and Gifts",
+   "parent": "27"
+  },
+  "1431": {
+   "label": "Retail Recyclable Materials & Used Merchandise",
+   "parent": "27"
+  },
+  "1445": {
+   "label": "Online and Mail Order Retail",
+   "parent": "27"
+  },
+  "1481": {
+   "label": "Rail Transportation",
+   "parent": "116"
+  },
+  "1495": {
+   "label": "Ground Passenger Transportation",
+   "parent": "116"
+  },
+  "1497": {
+   "label": "Urban Transit Services",
+   "parent": "1495"
+  },
+  "1504": {
+   "label": "Interurban and Rural Bus Services",
+   "parent": "1495"
+  },
+  "1505": {
+   "label": "Taxi and Limousine Services",
+   "parent": "1495"
+  },
+  "1512": {
+   "label": "School and Employee Bus Services",
+   "parent": "1495"
+  },
+  "1517": {
+   "label": "Shuttles and Special Needs Transportation Services",
+   "parent": "1495"
+  },
+  "1520": {
+   "label": "Pipeline Transportation",
+   "parent": "116"
+  },
+  "1532": {
+   "label": "Sightseeing Transportation",
+   "parent": "1495"
+  },
+  "1573": {
+   "label": "Postal Services",
+   "parent": "116"
+  },
+  "1594": {
+   "label": "Technology, Information and Media",
+   "parent": null
+  },
+  "1600": {
+   "label": "Periodical Publishing",
+   "parent": "82"
+  },
+  "1602": {
+   "label": "Book Publishing",
+   "parent": "82"
+  },
+  "1611": {
+   "label": "Movies and Sound Recording",
+   "parent": "35"
+  },
+  "1623": {
+   "label": "Sound Recording",
+   "parent": "1611"
+  },
+  "1625": {
+   "label": "Sheet Music Publishing",
+   "parent": "35"
+  },
+  "1633": {
+   "label": "Radio and Television Broadcasting",
+   "parent": "36"
+  },
+  "1641": {
+   "label": "Cable and Satellite Programming",
+   "parent": "36"
+  },
+  "1644": {
+   "label": "Telecommunications Carriers",
+   "parent": "8"
+  },
+  "1649": {
+   "label": "Satellite Telecommunications",
+   "parent": "8"
+  },
+  "1673": {
+   "label": "Credit Intermediation",
+   "parent": "43"
+  },
+  "1678": {
+   "label": "Savings Institutions",
+   "parent": "1673"
+  },
+  "1696": {
+   "label": "Loan Brokers",
+   "parent": "1673"
+  },
+  "1713": {
+   "label": "Securities and Commodity Exchanges",
+   "parent": "129"
+  },
+  "1720": {
+   "label": "Investment Advice",
+   "parent": "129"
+  },
+  "1725": {
+   "label": "Insurance Carriers",
+   "parent": "42"
+  },
+  "1737": {
+   "label": "Insurance Agencies and Brokerages",
+   "parent": "42"
+  },
+  "1738": {
+   "label": "Claims Adjusting, Actuarial Services",
+   "parent": "42"
+  },
+  "1742": {
+   "label": "Funds and Trusts",
+   "parent": "43"
+  },
+  "1743": {
+   "label": "Insurance and Employee Benefit Funds",
+   "parent": "1742"
+  },
+  "1745": {
+   "label": "Pension Funds",
+   "parent": "1742"
+  },
+  "1750": {
+   "label": "Trusts and Estates",
+   "parent": "1742"
+  },
+  "1757": {
+   "label": "Real Estate and Equipment Rental Services",
+   "parent": null
+  },
+  "1759": {
+   "label": "Leasing Residential Real Estate",
+   "parent": "44"
+  },
+  "1770": {
+   "label": "Real Estate Agents and Brokers",
+   "parent": "44"
+  },
+  "1779": {
+   "label": "Equipment Rental Services",
+   "parent": "1757"
+  },
+  "1786": {
+   "label": "Consumer Goods Rental",
+   "parent": "1779"
+  },
+  "1798": {
+   "label": "Commercial and Industrial Equipment Rental",
+   "parent": "1779"
+  },
+  "1810": {
+   "label": "Professional Services",
+   "parent": null
+  },
+  "1855": {
+   "label": "IT System Design Services",
+   "parent": "96"
+  },
+  "1862": {
+   "label": "Marketing Services",
+   "parent": "11"
+  },
+  "1905": {
+   "label": "Holding Companies",
+   "parent": null
+  },
+  "1909": {
+   "label": "Industry Associations",
+   "parent": "90"
+  },
+  "1911": {
+   "label": "Professional Organizations",
+   "parent": "90"
+  },
+  "1912": {
+   "label": "Administrative and Support Services",
+   "parent": null
+  },
+  "1916": {
+   "label": "Office Administration",
+   "parent": "1912"
+  },
+  "1923": {
+   "label": "Executive Search Services",
+   "parent": "104"
+  },
+  "1925": {
+   "label": "Temporary Help Services",
+   "parent": "104"
+  },
+  "1931": {
+   "label": "Telephone Call Centers",
+   "parent": "1912"
+  },
+  "1938": {
+   "label": "Collection Agencies",
+   "parent": "1912"
+  },
+  "1956": {
+   "label": "Security Guards and Patrol Services",
+   "parent": "121"
+  },
+  "1958": {
+   "label": "Security Systems Services",
+   "parent": "121"
+  },
+  "1965": {
+   "label": "Janitorial Services",
+   "parent": "122"
+  },
+  "1981": {
+   "label": "Waste Collection",
+   "parent": "398"
+  },
+  "1986": {
+   "label": "Waste Treatment and Disposal",
+   "parent": "398"
+  },
+  "1999": {
+   "label": "Education",
+   "parent": null
+  },
+  "2012": {
+   "label": "Secretarial Schools",
+   "parent": "2018"
+  },
+  "2018": {
+   "label": "Technical and Vocational Training",
+   "parent": "1999"
+  },
+  "2019": {
+   "label": "Cosmetology and Barber Schools",
+   "parent": "2018"
+  },
+  "2020": {
+   "label": "Flight Training",
+   "parent": "2018"
+  },
+  "2025": {
+   "label": "Fine Arts Schools",
+   "parent": "2018"
+  },
+  "2027": {
+   "label": "Sports and Recreation Instruction",
+   "parent": "2018"
+  },
+  "2029": {
+   "label": "Language Schools",
+   "parent": "2018"
+  },
+  "2040": {
+   "label": "Physicians",
+   "parent": "13"
+  },
+  "2045": {
+   "label": "Dentists",
+   "parent": "13"
+  },
+  "2048": {
+   "label": "Chiropractors",
+   "parent": "13"
+  },
+  "2050": {
+   "label": "Optometrists",
+   "parent": "13"
+  },
+  "2054": {
+   "label": "Physical, Occupational and Speech Therapists",
+   "parent": "13"
+  },
+  "2060": {
+   "label": "Family Planning Centers",
+   "parent": "13"
+  },
+  "2063": {
+   "label": "Outpatient Care Centers",
+   "parent": "13"
+  },
+  "2069": {
+   "label": "Medical and Diagnostic Laboratories",
+   "parent": "13"
+  },
+  "2074": {
+   "label": "Home Health Care Services",
+   "parent": "13"
+  },
+  "2077": {
+   "label": "Ambulance Services",
+   "parent": "13"
+  },
+  "2081": {
+   "label": "Hospitals",
+   "parent": "14"
+  },
+  "2091": {
+   "label": "Nursing Homes and Residential Care Facilities",
+   "parent": "14"
+  },
+  "2112": {
+   "label": "Services for the Elderly and Disabled",
+   "parent": "2115"
+  },
+  "2115": {
+   "label": "Community Services",
+   "parent": "14"
+  },
+  "2122": {
+   "label": "Emergency and Relief Services",
+   "parent": "88"
+  },
+  "2125": {
+   "label": "Vocational Rehabilitation Services",
+   "parent": "88"
+  },
+  "2128": {
+   "label": "Child Day Care Services",
+   "parent": "88"
+  },
+  "2130": {
+   "label": "Performing Arts and Spectator Sports",
+   "parent": "28"
+  },
+  "2133": {
+   "label": "Theater Companies",
+   "parent": "2130"
+  },
+  "2135": {
+   "label": "Dance Companies",
+   "parent": "2130"
+  },
+  "2139": {
+   "label": "Circuses and Magic Shows",
+   "parent": "2130"
+  },
+  "2142": {
+   "label": "Sports Teams and Clubs",
+   "parent": "33"
+  },
+  "2143": {
+   "label": "Racetracks",
+   "parent": "33"
+  },
+  "2159": {
+   "label": "Museums",
+   "parent": "37"
+  },
+  "2161": {
+   "label": "Historical Sites",
+   "parent": "37"
+  },
+  "2163": {
+   "label": "Zoos and Botanical Gardens",
+   "parent": "37"
+  },
+  "2167": {
+   "label": "Amusement Parks and Arcades",
+   "parent": "40"
+  },
+  "2179": {
+   "label": "Golf Courses and Country Clubs",
+   "parent": "40"
+  },
+  "2181": {
+   "label": "Skiing Facilities",
+   "parent": "40"
+  },
+  "2190": {
+   "label": "Accommodation Services",
+   "parent": null
+  },
+  "2194": {
+   "label": "Hotels and Motels",
+   "parent": "31"
+  },
+  "2197": {
+   "label": "Bed-and-Breakfasts, Hostels, Homestays",
+   "parent": "31"
+  },
+  "2212": {
+   "label": "Caterers",
+   "parent": "34"
+  },
+  "2214": {
+   "label": "Mobile Food Services",
+   "parent": "34"
+  },
+  "2217": {
+   "label": "Bars, Taverns, and Nightclubs",
+   "parent": "34"
+  },
+  "2225": {
+   "label": "Repair and Maintenance",
+   "parent": "91"
+  },
+  "2226": {
+   "label": "Vehicle Repair and Maintenance",
+   "parent": "2225"
+  },
+  "2240": {
+   "label": "Electronic and Precision Equipment Maintenance",
+   "parent": "2225"
+  },
+  "2247": {
+   "label": "Commercial and Industrial Machinery Maintenance",
+   "parent": "2225"
+  },
+  "2253": {
+   "label": "Reupholstery and Furniture Repair",
+   "parent": "2225"
+  },
+  "2255": {
+   "label": "Footwear and Leather Goods Repair",
+   "parent": "2225"
+  },
+  "2258": {
+   "label": "Personal and Laundry Services",
+   "parent": "91"
+  },
+  "2259": {
+   "label": "Personal Care Services",
+   "parent": "2258"
+  },
+  "2272": {
+   "label": "Laundry and Drycleaning Services",
+   "parent": "2258"
+  },
+  "2282": {
+   "label": "Pet Services",
+   "parent": "2258"
+  },
+  "2318": {
+   "label": "Household Services",
+   "parent": "91"
+  },
+  "2353": {
+   "label": "Health and Human Services",
+   "parent": "75"
+  },
+  "2358": {
+   "label": "Public Health",
+   "parent": "2353"
+  },
+  "2360": {
+   "label": "Public Assistance Programs",
+   "parent": "2353"
+  },
+  "2366": {
+   "label": "Air, Water, and Waste Program Management",
+   "parent": "388"
+  },
+  "2368": {
+   "label": "Conservation Programs",
+   "parent": "388"
+  },
+  "2369": {
+   "label": "Housing and Community Development",
+   "parent": "75"
+  },
+  "2374": {
+   "label": "Community Development and Urban Planning",
+   "parent": "2369"
+  },
+  "2375": {
+   "label": "Economic Programs",
+   "parent": "75"
+  },
+  "2391": {
+   "label": "Military and International Affairs",
+   "parent": "75"
+  },
+  "2401": {
+   "label": "Operations Consulting",
+   "parent": "11"
+  },
+  "2458": {
+   "label": "Data Infrastructure and Analytics",
+   "parent": "6"
+  },
+  "2468": {
+   "label": "Electrical Equipment Manufacturing",
+   "parent": "112"
+  },
+  "2489": {
+   "label": "Wind Electric Power Generation",
+   "parent": "3240"
+  },
+  "2500": {
+   "label": "Wineries",
+   "parent": null
+  },
+  "2934": {
+   "label": "Landscaping Services",
+   "parent": "122"
+  },
+  "3065": {
+   "label": "Courts of Law",
+   "parent": "73"
+  },
+  "3068": {
+   "label": "Correctional Institutions",
+   "parent": "73"
+  },
+  "3070": {
+   "label": "Fire Protection",
+   "parent": "73"
+  },
+  "3081": {
+   "label": "Housing Programs",
+   "parent": "2369"
+  },
+  "3085": {
+   "label": "Transportation Programs",
+   "parent": "2375"
+  },
+  "3086": {
+   "label": "Utilities Administration",
+   "parent": "2375"
+  },
+  "3089": {
+   "label": "Space Research and Technology",
+   "parent": "75"
+  },
+  "3095": {
+   "label": "Oil Extraction",
+   "parent": "57"
+  },
+  "3096": {
+   "label": "Natural Gas Extraction",
+   "parent": "57"
+  },
+  "3099": {
+   "label": "Embedded Software Products",
+   "parent": "4"
+  },
+  "3100": {
+   "label": "Mobile Computing Software Products",
+   "parent": "4"
+  },
+  "3101": {
+   "label": "Desktop Computing Software Products",
+   "parent": "4"
+  },
+  "3102": {
+   "label": "IT System Custom Software Development",
+   "parent": "96"
+  },
+  "3103": {
+   "label": "IT System Operations and Maintenance",
+   "parent": "96"
+  },
+  "3104": {
+   "label": "IT System Installation and Disposal",
+   "parent": "96"
+  },
+  "3105": {
+   "label": "IT System Training and Support",
+   "parent": "96"
+  },
+  "3106": {
+   "label": "IT System Data Services",
+   "parent": "96"
+  },
+  "3107": {
+   "label": "IT System Testing and Evaluation",
+   "parent": "96"
+  },
+  "3124": {
+   "label": "Internet News",
+   "parent": "113"
+  },
+  "3125": {
+   "label": "Blogs",
+   "parent": "3132"
+  },
+  "3126": {
+   "label": "Interior Design",
+   "parent": "99"
+  },
+  "3127": {
+   "label": "Social Networking Platforms",
+   "parent": "6"
+  },
+  "3128": {
+   "label": "Business Intelligence Platforms",
+   "parent": "2458"
+  },
+  "3129": {
+   "label": "Business Content",
+   "parent": "3132"
+  },
+  "3130": {
+   "label": "Data Security Software Products",
+   "parent": "4"
+  },
+  "3131": {
+   "label": "Mobile Gaming Apps",
+   "parent": "109"
+  },
+  "3132": {
+   "label": "Internet Publishing",
+   "parent": "84"
+  },
+  "3133": {
+   "label": "Media & Telecommunications",
+   "parent": "1594"
+  },
+  "3134": {
+   "label": "Blockchain Services",
+   "parent": "2458"
+  },
+  "3186": {
+   "label": "Retail Art Dealers",
+   "parent": "27"
+  },
+  "3240": {
+   "label": "Renewable Energy Power Generation",
+   "parent": "383"
+  },
+  "3241": {
+   "label": "Renewable Energy Equipment Manufacturing",
+   "parent": "935"
+  },
+  "3242": {
+   "label": "Engineering Services",
+   "parent": "1810"
+  },
+  "3243": {
+   "label": "Services for Renewable Energy",
+   "parent": "1810"
+  },
+  "3244": {
+   "label": "Digital Accessibility Services",
+   "parent": "96"
+  },
+  "3245": {
+   "label": "Accessible Hardware Manufacturing",
+   "parent": "3"
+  },
+  "3246": {
+   "label": "Accessible Architecture and Design",
+   "parent": "50"
+  },
+  "3247": {
+   "label": "Robot Manufacturing",
+   "parent": "147"
+  },
+  "3248": {
+   "label": "Robotics Engineering",
+   "parent": "3242"
+  },
+  "3249": {
+   "label": "Surveying and Mapping Services",
+   "parent": "3242"
+  },
+  "3250": {
+   "label": "Retail Pharmacies",
+   "parent": "1359"
+  },
+  "3251": {
+   "label": "Climate Technology Product Manufacturing",
+   "parent": "25"
+  },
+  "3252": {
+   "label": "Climate Data and Analytics",
+   "parent": "2458"
+  },
+  "3253": {
+   "label": "Alternative Fuel Vehicle Manufacturing",
+   "parent": "53"
+  },
+  "3254": {
+   "label": "Smart Meter Manufacturing",
+   "parent": "983"
+  },
+  "3255": {
+   "label": "Fuel Cell Manufacturing",
+   "parent": "2468"
+  },
+  "3256": {
+   "label": "Regenerative Design",
+   "parent": "99"
+  }
+ },
+ "names": {
+  "abrasive product manufacturing": "799",
+  "accounting tax preparation bookkeeping and payroll services": "47",
+  "activities related to credit intermediation": "1673",
+  "adhesive manufacturing": "722",
+  "administration of air and water resource and solid waste management programs": "2366",
+  "administration of conservation programs": "2368",
+  "administration of economic programs": "2375",
+  "administration of education programs": "69",
+  "administration of environmental quality programs": "388",
+  "administration of general economic programs": "2375",
+  "administration of housing programs": "2369",
+  "administration of housing programs urban planning and community development": "2369",
+  "administration of human resource programs": "2353",
+  "administration of human resource programs except education public health and veterans affairs programs": "2360",
+  "administration of public health programs": "2358",
+  "administration of urban planning and community and rural development": "2374",
+  "administration of veterans affairs": "2353",
+  "administrative and support and waste management and remediation services": "1912",
+  "administrative management and general management consulting services": "102",
+  "advertising agencies": "1862",
+  "advertising material distribution services": "1862",
+  "advertising public relations and related services": "1862",
+  "aerospace product and parts manufacturing": "52",
+  "agencies brokerages and other insurance related activities": "42",
+  "agents and managers for artists athletes entertainers and other public figures": "2130",
+  "agricultural implement manufacturing": "901",
+  "agriculture construction and mining machinery manufacturing": "901",
+  "agriculture forestry fishing and hunting": "201",
+  "air and gas compressor manufacturing": "55",
+  "air conditioning and warm air heating equipment and commercial and industrial refrigeration equipment manufacturing": "923",
+  "air traffic control": "116",
+  "air transportation": "94",
+  "aircraft engine and engine parts manufacturing": "52",
+  "aircraft manufacturing": "52",
+  "airlines aviation": "94",
+  "airport operations": "116",
+  "all other ambulatory health care services": "13",
+  "all other amusement and recreation industries": "40",
+  "all other animal production": "256",
+  "all other automotive repair and maintenance": "2226",
+  "all other basic organic chemical manufacturing": "690",
+  "all other business support services": "101",
+  "all other chemical product and preparation manufacturing": "54",
+  "all other consumer goods rental": "1786",
+  "all other converted paper product manufacturing": "61",
+  "all other crop farming": "63",
+  "all other electrical equipment and component manufacturing": "112",
+  "all other fabricated metal product manufacturing": "887",
+  "all other financial investment activities": "46",
+  "all other food manufacturing": "23",
+  "all other general merchandise stores": "27",
+  "all other general purpose machinery manufacturing": "55",
+  "all other grain farming": "63",
+  "all other health and personal care stores": "1359",
+  "all other home furnishings stores": "1309",
+  "all other information services": "84",
+  "all other insurance related activities": "1738",
+  "all other leather good and allied product manufacturing": "616",
+  "all other legal services": "10",
+  "all other metal ore mining": "345",
+  "all other miscellaneous ambulatory health care services": "13",
+  "all other miscellaneous chemical product and preparation manufacturing": "54",
+  "all other miscellaneous crop farming": "63",
+  "all other miscellaneous electrical equipment and component manufacturing": "112",
+  "all other miscellaneous fabricated metal product manufacturing": "887",
+  "all other miscellaneous food manufacturing": "23",
+  "all other miscellaneous general purpose machinery manufacturing": "55",
+  "all other miscellaneous manufacturing": "25",
+  "all other miscellaneous nonmetallic mineral product manufacturing": "799",
+  "all other miscellaneous schools and instruction": "1999",
+  "all other miscellaneous store retailers": "27",
+  "all other miscellaneous store retailers except tobacco stores": "27",
+  "all other miscellaneous textile product mills": "25",
+  "all other miscellaneous waste management services": "1912",
+  "all other miscellaneous wood product manufacturing": "784",
+  "all other nondepository credit intermediation": "1673",
+  "all other nonmetallic mineral mining": "356",
+  "all other nonmetallic mineral product manufacturing": "799",
+  "all other outpatient care centers": "2063",
+  "all other personal services": "2258",
+  "all other petroleum and coal products manufacturing": "679",
+  "all other pipeline transportation": "1520",
+  "all other plastics product manufacturing": "117",
+  "all other professional scientific and technical services": "1810",
+  "all other publishers": "82",
+  "all other rubber product manufacturing": "763",
+  "all other schools and instruction": "1999",
+  "all other specialty food stores": "1339",
+  "all other specialty trade contractors": "435",
+  "all other support activities for transportation": "116",
+  "all other support services": "1912",
+  "all other telecommunications": "8",
+  "all other textile product mills": "25",
+  "all other transit and ground passenger transportation": "1517",
+  "all other transportation equipment manufacturing": "1029",
+  "all other travel arrangement and reservation services": "30",
+  "all other traveler accommodation": "2197",
+  "all other waste management services": "1912",
+  "all other wood product manufacturing": "784",
+  "alumina and aluminum production and processing": "807",
+  "alumina refining and primary aluminum production": "807",
+  "aluminum foundries except die casting": "807",
+  "aluminum sheet plate and foil manufacturing": "807",
+  "ambulatory health care services": "13",
+  "american indian and alaska native tribal governments": "79",
+  "ammunition except small arms manufacturing": "887",
+  "amusement and theme parks": "2167",
+  "amusement arcades": "2167",
+  "amusement gambling and recreation industries": "40",
+  "analytical laboratory instrument manufacturing": "983",
+  "animal except poultry slaughtering": "521",
+  "animal food manufacturing": "481",
+  "animal production and aquaculture": "256",
+  "animal slaughtering and processing": "521",
+  "animation": "127",
+  "anthracite mining": "341",
+  "apiculture": "256",
+  "apparel accessories and other apparel manufacturing": "615",
+  "apparel and fashion": "19",
+  "apparel knitting mills": "598",
+  "apparel piece goods and notions merchant wholesalers": "1222",
+  "apple orchards": "63",
+  "appliance repair and maintenance": "2225",
+  "apprenticeship training": "2018",
+  "aquaculture": "256",
+  "architectural and structural metals manufacturing": "852",
+  "architectural engineering and related services": "1810",
+  "architectural services": "3246",
+  "armored car services": "121",
+  "art dealers": "27",
+  "artificial and synthetic fibers and filaments manufacturing": "703",
+  "arts and crafts": "111",
+  "arts entertainment and recreation": "28",
+  "asphalt paving mixture and block manufacturing": "679",
+  "asphalt paving roofing and saturated materials manufacturing": "679",
+  "asphalt shingle and coating materials manufacturing": "679",
+  "assisted living facilities for the elderly": "2091",
+  "automatic environmental control manufacturing for residential commercial and appliance use": "983",
+  "automobile and light duty motor vehicle manufacturing": "53",
+  "automobile and other motor vehicle merchant wholesalers": "1128",
+  "automobile dealers": "1292",
+  "automobile driving schools": "1999",
+  "automobile manufacturing": "53",
+  "automotive": "53",
+  "automotive body paint and interior repair and maintenance": "2226",
+  "automotive body paint interior and glass repair": "2226",
+  "automotive equipment rental and leasing": "1779",
+  "automotive exhaust system repair": "2226",
+  "automotive glass replacement shops": "2226",
+  "automotive mechanical and electrical repair and maintenance": "2226",
+  "automotive oil change and lubrication shops": "2226",
+  "automotive parts accessories and tire stores": "27",
+  "automotive parts and accessories stores": "27",
+  "automotive repair and maintenance": "2226",
+  "automotive transmission repair": "2226",
+  "aviation and aerospace": "52",
+  "baked goods stores": "1339",
+  "bakeries and tortilla manufacturing": "529",
+  "ball and roller bearing manufacturing": "887",
+  "barber shops": "2259",
+  "bare printed circuit board manufacturing": "24",
+  "basic chemical manufacturing": "690",
+  "battery manufacturing": "112",
+  "beauty salons": "2259",
+  "bed and breakfast inns": "2197",
+  "beef cattle ranching and farming": "64",
+  "beef cattle ranching and farming including feedlots": "64",
+  "beer and ale merchant wholesalers": "1267",
+  "beer wine and distilled alcoholic beverage merchant wholesalers": "1267",
+  "beer wine and liquor stores": "1339",
+  "beet sugar manufacturing": "495",
+  "berry except strawberry farming": "63",
+  "beverage and tobacco product manufacturing": "25",
+  "biological product except diagnostic manufacturing": "15",
+  "biotechnology": "12",
+  "bituminous coal and lignite surface mining": "341",
+  "bituminous coal underground mining": "341",
+  "blank magnetic and optical recording media manufacturing": "994",
+  "blind and shade manufacturing": "1095",
+  "blood and organ banks": "13",
+  "boat building": "58",
+  "boat dealers": "27",
+  "boiler tank and shipping container manufacturing": "861",
+  "bolt nut screw rivet and washer manufacturing": "876",
+  "book periodical and newspaper merchant wholesalers": "133",
+  "book publishers": "1602",
+  "book stores": "1409",
+  "book stores and news dealers": "1409",
+  "books printing": "83",
+  "bottled water manufacturing": "142",
+  "bowling centers": "40",
+  "bread and bakery product manufacturing": "529",
+  "breakfast cereal manufacturing": "23",
+  "brick stone and related construction material merchant wholesalers": "49",
+  "broadcast media": "36",
+  "broadcasting except internet": "36",
+  "broadwoven fabric mills": "60",
+  "broilers and other meat type chicken production": "256",
+  "broom brush and mop manufacturing": "25",
+  "building inspection services": "1810",
+  "building material and garden equipment and supplies dealers": "1324",
+  "building material and supplies dealers": "1324",
+  "building materials": "49",
+  "burial casket manufacturing": "25",
+  "bus and other motor vehicle transit systems": "1497",
+  "business and secretarial schools": "2012",
+  "business associations": "1909",
+  "business professional labor political and similar organizations": "107",
+  "business schools and computer and management training": "105",
+  "business service centers": "1912",
+  "business supplies and equipment": "138",
+  "business support services": "1912",
+  "business to business electronic markets": "1285",
+  "cable and other subscription programming": "1641",
+  "cafeterias grill buffets and buffets": "32",
+  "cane sugar manufacturing": "495",
+  "capacitor resistor coil transformer and other inductor manufacturing": "24",
+  "car washes": "2226",
+  "carbon and graphite product manufacturing": "112",
+  "carpet and rug mills": "25",
+  "carpet and upholstery cleaning services": "1912",
+  "casino hotels": "31",
+  "casinos except casino hotels": "29",
+  "cattle feedlots": "64",
+  "cattle ranching and farming": "64",
+  "cement and concrete product manufacturing": "145",
+  "cement manufacturing": "145",
+  "cemeteries and crematories": "2258",
+  "charter bus industry": "1495",
+  "cheese manufacturing": "65",
+  "chemical and allied products merchant wholesalers": "1257",
+  "chemicals": "54",
+  "chicken egg production": "256",
+  "child and youth services": "88",
+  "children s and infants clothing stores": "19",
+  "chocolate and confectionery manufacturing": "495",
+  "chocolate and confectionery manufacturing from cacao beans": "495",
+  "citrus except orange groves": "63",
+  "civic and social organization": "90",
+  "claims adjusting": "1738",
+  "clay and ceramic and refractory minerals mining": "356",
+  "clay building material and refractories manufacturing": "773",
+  "clay product and refractory manufacturing": "773",
+  "clothing accessories stores": "19",
+  "clothing and clothing accessories stores": "19",
+  "clothing stores": "19",
+  "coal and other mineral and ore merchant wholesalers": "1166",
+  "coastal and great lakes freight transportation": "95",
+  "coastal and great lakes passenger transportation": "95",
+  "coating engraving heat treating and allied activities": "883",
+  "coffee and tea manufacturing": "23",
+  "coin operated laundries and drycleaners": "2272",
+  "colleges universities and professional schools": "68",
+  "commercial air rail and water transportation equipment rental and leasing": "1798",
+  "commercial and industrial machinery and equipment except automotive and electronic repair and maintenance": "2247",
+  "commercial and industrial machinery and equipment rental and leasing": "1798",
+  "commercial and institutional building construction": "413",
+  "commercial bakeries": "529",
+  "commercial banking": "41",
+  "commercial industrial and institutional electric lighting fixture manufacturing": "998",
+  "commercial photography": "136",
+  "commercial printing except screen and books": "83",
+  "commercial real estate": "128",
+  "commercial screen printing": "83",
+  "commodity contracts brokerage": "129",
+  "commodity contracts dealing": "129",
+  "communication and energy wire and cable manufacturing": "112",
+  "communication equipment repair and maintenance": "2240",
+  "community food and housing and emergency and other relief services": "2115",
+  "community food services": "2115",
+  "community housing services": "2115",
+  "commuter rail systems": "1497",
+  "computer and computer peripheral equipment and software merchant wholesalers": "1157",
+  "computer and electronic product manufacturing": "24",
+  "computer and office machine repair and maintenance": "2240",
+  "computer and peripheral equipment manufacturing": "3",
+  "computer facilities management services": "3103",
+  "computer hardware": "3",
+  "computer networking": "5",
+  "computer software": "4",
+  "computer storage device manufacturing": "3",
+  "computer systems design and related services": "96",
+  "computer systems design services": "1855",
+  "computer terminal and other computer peripheral equipment manufacturing": "3",
+  "computer training": "105",
+  "concrete block and brick manufacturing": "145",
+  "concrete pipe brick and block manufacturing": "145",
+  "concrete pipe manufacturing": "145",
+  "confectionery and nut stores": "1339",
+  "confectionery manufacturing from purchased chocolate": "495",
+  "confectionery merchant wholesalers": "1231",
+  "construction and mining except oil well machinery and equipment merchant wholesalers": "1187",
+  "construction machinery manufacturing": "901",
+  "construction mining and forestry machinery and equipment rental and leasing": "1798",
+  "construction of buildings": "406",
+  "construction sand and gravel mining": "356",
+  "construction transportation mining and forestry machinery and equipment rental and leasing": "1798",
+  "consumer electronics": "24",
+  "consumer electronics and appliances rental": "1786",
+  "consumer electronics repair and maintenance": "2240",
+  "consumer goods": "25",
+  "consumer lending": "1673",
+  "continuing care retirement communities": "2091",
+  "continuing care retirement communities and assisted living facilities for the elderly": "2091",
+  "convenience stores": "1339",
+  "convention and trade show organizers": "110",
+  "convention and visitors bureaus": "30",
+  "converted paper product manufacturing": "61",
+  "conveyor and conveying equipment manufacturing": "55",
+  "cookie and cracker manufacturing": "529",
+  "cookie cracker and pasta manufacturing": "529",
+  "copper nickel lead and zinc mining": "345",
+  "copper rolling drawing extruding and alloying": "807",
+  "corn farming": "63",
+  "corporate subsidiary and regional managing offices": "1905",
+  "corrugated and solid fiber box manufacturing": "61",
+  "cosmetics": "18",
+  "cosmetics beauty supplies and perfume stores": "1359",
+  "cotton farming": "63",
+  "cotton ginning": "201",
+  "couriers and express delivery services": "87",
+  "couriers and messengers": "87",
+  "court reporting and stenotype services": "1912",
+  "courts": "73",
+  "creamery butter manufacturing": "65",
+  "credit bureaus": "1912",
+  "credit card issuing": "1673",
+  "credit intermediation and related activities": "1673",
+  "credit unions": "1673",
+  "crop harvesting primarily by machine": "201",
+  "crop production": "63",
+  "crude petroleum extraction": "3095",
+  "crushed and broken granite mining and quarrying": "356",
+  "crushed and broken limestone mining and quarrying": "356",
+  "current carrying wiring device manufacturing": "112",
+  "curtain and linen mills": "25",
+  "custom architectural woodwork and millwork manufacturing": "1090",
+  "custom compounding of purchased resins": "54",
+  "custom computer programming services": "3102",
+  "custom roll forming": "840",
+  "cut and sew apparel contractors": "598",
+  "cut and sew apparel manufacturing": "598",
+  "cut stock resawing lumber and planing": "784",
+  "cut stone and stone product manufacturing": "799",
+  "cutting tool and machine tool accessory manufacturing": "928",
+  "cyclic crude intermediate and gum and wood chemical manufacturing": "690",
+  "dairy": "65",
+  "dairy cattle and milk production": "64",
+  "dairy product except dried or canned merchant wholesalers": "1231",
+  "dairy product except frozen manufacturing": "65",
+  "data processing hosting and related services": "2458",
+  "death care services": "2258",
+  "deep sea coastal and great lakes water transportation": "95",
+  "deep sea freight transportation": "95",
+  "deep sea passenger transportation": "95",
+  "defense and space": "1",
+  "dental equipment and supplies manufacturing": "17",
+  "dental laboratories": "17",
+  "department stores": "27",
+  "depository credit intermediation": "1673",
+  "design": "99",
+  "diagnostic imaging centers": "2069",
+  "diet and weight reducing centers": "2259",
+  "dimension stone mining and quarrying": "356",
+  "direct health and medical insurance carriers": "1725",
+  "direct insurance except life health and medical carriers": "1725",
+  "direct life health and medical insurance carriers": "1725",
+  "direct life insurance carriers": "1725",
+  "direct mail advertising": "1862",
+  "direct property and casualty insurance carriers": "1725",
+  "direct selling establishments": "27",
+  "direct title insurance carriers": "1725",
+  "directory and mailing list publishers": "82",
+  "document preparation services": "103",
+  "dog and cat food manufacturing": "481",
+  "doll toy and game manufacturing": "25",
+  "drafting services": "1810",
+  "dried and dehydrated food manufacturing": "504",
+  "drilling oil and gas wells": "332",
+  "drinking places alcoholic beverages": "2217",
+  "drive in motion picture theaters": "1611",
+  "drugs and druggists sundries merchant wholesalers": "1221",
+  "dry condensed and evaporated dairy product manufacturing": "65",
+  "dry pasta dough and flour mixes manufacturing from purchased flour": "529",
+  "dry pea and bean farming": "63",
+  "drycleaning and laundry services": "2272",
+  "drycleaning and laundry services except coin operated": "2272",
+  "drywall and insulation contractors": "460",
+  "dual purpose cattle ranching and farming": "64",
+  "e learning": "132",
+  "education management": "69",
+  "educational services": "1999",
+  "educational support services": "1999",
+  "electric bulk power transmission and control": "382",
+  "electric lamp bulb and part manufacturing": "998",
+  "electric power distribution": "382",
+  "electric power generation transmission and distribution": "59",
+  "electrical apparatus and equipment wiring supplies and related equipment merchant wholesalers": "1171",
+  "electrical contractors and other wiring installation contractors": "453",
+  "electrical electronic manufacturing": "112",
+  "electrical equipment appliance and component manufacturing": "112",
+  "electromedical and electrotherapeutic apparatus manufacturing": "983",
+  "electronic and precision equipment repair and maintenance": "2240",
+  "electronic computer manufacturing": "3",
+  "electronic connector manufacturing": "24",
+  "electronic shopping and mail order houses": "1445",
+  "electronics and appliance stores": "1319",
+  "electronics stores": "1319",
+  "electroplating plating polishing anodizing and coloring": "883",
+  "elementary and secondary schools": "67",
+  "elevator and moving stairway manufacturing": "55",
+  "emergency and other relief services": "2122",
+  "employment placement agencies": "104",
+  "employment placement agencies and executive search services": "104",
+  "employment services": "104",
+  "engine turbine and power transmission equipment manufacturing": "935",
+  "engineered wood member except truss manufacturing": "784",
+  "entertainment": "28",
+  "environment conservation and wildlife organizations": "91",
+  "environmental consulting services": "86",
+  "ethyl alcohol manufacturing": "690",
+  "exam preparation and tutoring": "1999",
+  "executive and legislative offices combined": "79",
+  "executive legislative and other general government support": "79",
+  "executive office": "76",
+  "explosives manufacturing": "54",
+  "exterminating and pest control services": "1912",
+  "fabric coating mills": "60",
+  "fabric mills": "60",
+  "fabricated metal product manufacturing": "840",
+  "fabricated pipe and pipe fitting manufacturing": "887",
+  "fabricated structural metal manufacturing": "852",
+  "facilities support services": "122",
+  "family clothing stores": "19",
+  "farm and garden machinery and equipment merchant wholesalers": "1187",
+  "farm labor contractors and crew leaders": "201",
+  "farm machinery and equipment manufacturing": "901",
+  "farm management services": "201",
+  "farm product raw material merchant wholesalers": "1250",
+  "farm product warehousing and storage": "93",
+  "farm supplies merchant wholesalers": "133",
+  "fastener button needle and pin manufacturing": "25",
+  "fats and oils refining and blending": "23",
+  "ferrous metal foundries": "807",
+  "fertilizer manufacturing": "709",
+  "fertilizer mixing only manufacturing": "709",
+  "fiber optic cable manufacturing": "112",
+  "fiber yarn and thread mills": "60",
+  "finance and insurance": "43",
+  "financial transactions processing reserve and clearinghouse activities": "1673",
+  "fine art": "38",
+  "finfish farming and fish hatcheries": "256",
+  "finfish fishing": "66",
+  "finish carpentry contractors": "460",
+  "fish and seafood markets": "1339",
+  "fish and seafood merchant wholesalers": "1231",
+  "fishery": "66",
+  "fishing": "66",
+  "fishing hunting and trapping": "201",
+  "fitness and recreational sports centers": "124",
+  "flat glass manufacturing": "779",
+  "flavoring syrup and concentrate manufacturing": "23",
+  "floor covering stores": "1309",
+  "flooring contractors": "460",
+  "floriculture production": "63",
+  "florists": "1423",
+  "flour milling": "23",
+  "flour milling and malt manufacturing": "23",
+  "flower nursery stock and florists supplies merchant wholesalers": "133",
+  "fluid milk manufacturing": "65",
+  "fluid power cylinder and actuator manufacturing": "55",
+  "fluid power pump and motor manufacturing": "55",
+  "fluid power valve and hose fitting manufacturing": "887",
+  "folding paperboard box manufacturing": "61",
+  "food and beverage stores": "1339",
+  "food and beverages": "34",
+  "food crops grown under cover": "63",
+  "food health supplement stores": "1359",
+  "food manufacturing": "23",
+  "food product machinery manufacturing": "135",
+  "food production": "23",
+  "food service contractors": "34",
+  "food services and drinking places": "34",
+  "footwear merchant wholesalers": "1230",
+  "forest nurseries and gathering of forest products": "298",
+  "forging and stamping": "840",
+  "formal wear and costume rental": "1786",
+  "foundation structure and building exterior contractors": "436",
+  "foundries": "807",
+  "framing contractors": "436",
+  "freestanding ambulatory surgical and emergency centers": "2063",
+  "freight transportation arrangement": "116",
+  "fresh fruit and vegetable merchant wholesalers": "1231",
+  "frozen cakes pies and other pastries manufacturing": "529",
+  "frozen food manufacturing": "504",
+  "frozen fruit juice and vegetable manufacturing": "504",
+  "frozen specialty food manufacturing": "504",
+  "fruit and tree nut combination farming": "63",
+  "fruit and tree nut farming": "63",
+  "fruit and vegetable canning": "504",
+  "fruit and vegetable canning pickling and drying": "504",
+  "fruit and vegetable markets": "1339",
+  "fruit and vegetable preserving and specialty food manufacturing": "504",
+  "fuel dealers": "27",
+  "full service restaurants": "32",
+  "fund raising": "101",
+  "funds trusts and other financial vehicles": "1742",
+  "funeral homes and funeral services": "2258",
+  "fur bearing animal and rabbit production": "256",
+  "furniture": "26",
+  "furniture and home furnishing merchant wholesalers": "1137",
+  "furniture and home furnishings stores": "1309",
+  "furniture and related product manufacturing": "26",
+  "furniture merchant wholesalers": "1137",
+  "furniture stores": "1309",
+  "gambling and casinos": "29",
+  "gambling industries": "29",
+  "gasket packing and sealing device manufacturing": "25",
+  "gasoline stations": "1370",
+  "gasoline stations with convenience stores": "1370",
+  "general automotive repair": "2226",
+  "general freight trucking": "92",
+  "general freight trucking local": "92",
+  "general freight trucking long distance": "92",
+  "general freight trucking long distance less than truckload": "92",
+  "general freight trucking long distance truckload": "92",
+  "general line grocery merchant wholesalers": "1231",
+  "general medical and surgical hospitals": "2081",
+  "general merchandise stores": "27",
+  "general merchandise stores including warehouse clubs and supercenters": "27",
+  "general rental centers": "1779",
+  "general warehousing and storage": "93",
+  "geophysical surveying and mapping services": "1810",
+  "gift novelty and souvenir stores": "1424",
+  "glass and glass product manufacturing": "779",
+  "glass and glazing contractors": "436",
+  "glass ceramics and concrete": "145",
+  "glass container manufacturing": "779",
+  "glass product manufacturing made of purchased glass": "779",
+  "goat farming": "256",
+  "gold ore and silver ore mining": "345",
+  "gold ore mining": "345",
+  "government relations": "148",
+  "grain and field bean merchant wholesalers": "1250",
+  "grain and oilseed milling": "23",
+  "grantmaking and giving services": "131",
+  "grantmaking foundations": "131",
+  "grape vineyards": "63",
+  "graphic design services": "140",
+  "greenhouse nursery and floriculture production": "63",
+  "greeting card publishers": "82",
+  "grocery and related product merchant wholesalers": "1231",
+  "grocery stores": "1339",
+  "ground or treated mineral and earth manufacturing": "799",
+  "guided missile and space vehicle manufacturing": "1",
+  "guided missile and space vehicle propulsion unit and propulsion unit parts manufacturing": "52",
+  "gypsum product manufacturing": "794",
+  "hair nail and skin care services": "2259",
+  "hardware and plumbing and heating equipment and supplies merchant wholesalers": "1178",
+  "hardware manufacturing": "871",
+  "hardware merchant wholesalers": "1178",
+  "hardware stores": "1324",
+  "hardwood veneer and plywood manufacturing": "784",
+  "hay farming": "63",
+  "hazardous waste collection": "1981",
+  "hazardous waste treatment and disposal": "1986",
+  "health and personal care stores": "1359",
+  "health and welfare funds": "1743",
+  "health care and social assistance": "14",
+  "health wellness and fitness": "124",
+  "heating equipment except warm air furnaces manufacturing": "923",
+  "heavy and civil engineering construction": "51",
+  "heavy duty truck manufacturing": "53",
+  "hmo medical centers": "2063",
+  "hobby toy and game stores": "27",
+  "hog and pig farming": "256",
+  "home and garden equipment and appliance repair and maintenance": "2225",
+  "home and garden equipment repair and maintenance": "2225",
+  "home centers": "1324",
+  "home furnishing merchant wholesalers": "1137",
+  "home furnishings stores": "1309",
+  "home health equipment rental": "1786",
+  "horses and other equine production": "256",
+  "hosiery and sock mills": "598",
+  "hospital and health care": "14",
+  "hotels except casino hotels and motels": "2194",
+  "household and institutional furniture and kitchen cabinet manufacturing": "1080",
+  "household appliance stores": "1319",
+  "household appliances and electrical and electronic goods merchant wholesalers": "1171",
+  "household appliances electric housewares and consumer electronics merchant wholesalers": "1171",
+  "household furniture except wood and metal manufacturing": "1080",
+  "human resources": "137",
+  "human resources consulting services": "137",
+  "human rights organizations": "91",
+  "hunting and trapping": "201",
+  "ice cream and frozen dessert manufacturing": "65",
+  "ice manufacturing": "142",
+  "import and export": "134",
+  "in vitro diagnostic substance manufacturing": "15",
+  "independent artists writers and performers": "38",
+  "industrial and commercial fan and blower and air purification equipment manufacturing": "923",
+  "industrial and personal service paper merchant wholesalers": "1212",
+  "industrial automation": "147",
+  "industrial building construction": "413",
+  "industrial design services": "99",
+  "industrial gas manufacturing": "690",
+  "industrial launderers": "2272",
+  "industrial machinery and equipment merchant wholesalers": "1187",
+  "industrial mold manufacturing": "928",
+  "industrial process furnace and oven manufacturing": "55",
+  "industrial sand mining": "356",
+  "industrial supplies merchant wholesalers": "1187",
+  "industrial truck tractor trailer and stacker machinery manufacturing": "55",
+  "industrial valve manufacturing": "887",
+  "information": "1594",
+  "information technology and services": "96",
+  "inland water freight transportation": "95",
+  "inland water passenger transportation": "95",
+  "inland water transportation": "95",
+  "institutional furniture manufacturing": "1080",
+  "instrument manufacturing for measuring and testing electricity and electrical signals": "983",
+  "instruments and related products manufacturing for measuring displaying and controlling industrial process variables": "983",
+  "insurance carriers and related activities": "42",
+  "interior design services": "3126",
+  "international trade financing": "141",
+  "internet": "6",
+  "internet publishing and broadcasting and web search portals": "3124",
+  "interurban and rural bus transportation": "1504",
+  "investigation and security services": "121",
+  "investigation guard and armored car services": "121",
+  "investigation services": "121",
+  "investment banking and securities dealing": "45",
+  "iron and steel forging": "840",
+  "iron and steel mills and ferroalloy manufacturing": "807",
+  "iron and steel pipe and tube manufacturing from purchased steel": "807",
+  "iron foundries": "807",
+  "iron ore mining": "345",
+  "irradiation apparatus manufacturing": "983",
+  "jewelry and silverware manufacturing": "25",
+  "jewelry luggage and leather goods stores": "143",
+  "jewelry stores": "143",
+  "jewelry watch precious stone and precious metal merchant wholesalers": "1208",
+  "judiciary": "73",
+  "junior colleges": "1999",
+  "justice public order and safety activities": "75",
+  "kaolin and ball clay mining": "356",
+  "kidney dialysis centers": "2063",
+  "knit fabric mills": "60",
+  "labor unions and similar labor organizations": "107",
+  "laminated plastics plate sheet except packaging and shape manufacturing": "117",
+  "land subdivision": "428",
+  "landscape architectural services": "1810",
+  "lawn and garden equipment and supplies stores": "1324",
+  "lawn and garden tractor and home lawn and garden equipment manufacturing": "901",
+  "leather and allied product manufacturing": "616",
+  "leather and hide tanning and finishing": "616",
+  "legal counsel and prosecution": "75",
+  "legislative bodies": "72",
+  "legislative office": "72",
+  "leisure travel and tourism": "30",
+  "lessors of nonfinancial intangible assets except copyrighted works": "1757",
+  "lessors of nonresidential buildings except miniwarehouses": "128",
+  "lessors of residential buildings and dwellings": "1759",
+  "libraries and archives": "85",
+  "light truck and utility vehicle manufacturing": "53",
+  "lighting fixture manufacturing": "998",
+  "lime and gypsum product manufacturing": "794",
+  "lime manufacturing": "794",
+  "limited service restaurants": "32",
+  "limousine service": "1505",
+  "line haul railroads": "1481",
+  "linen and uniform supply": "2272",
+  "linen supply": "2272",
+  "livestock merchant wholesalers": "1250",
+  "local messengers and local delivery": "87",
+  "locksmiths": "1958",
+  "logging": "298",
+  "logistics and supply chain": "116",
+  "luggage and leather goods stores": "143",
+  "lumber and other construction materials merchant wholesalers": "49",
+  "lumber plywood millwork and wood panel merchant wholesalers": "49",
+  "luxury goods and jewelry": "143",
+  "machine shops": "876",
+  "machine shops turned product and screw nut and bolt manufacturing": "876",
+  "machine tool manufacturing": "928",
+  "machinery": "55",
+  "machinery equipment and supplies merchant wholesalers": "1187",
+  "major household appliance manufacturing": "1005",
+  "malt manufacturing": "23",
+  "management consulting": "11",
+  "management consulting services": "11",
+  "management of companies and enterprises": "1905",
+  "management scientific and technical consulting services": "11",
+  "manufactured home mobile home manufacturing": "784",
+  "manufactured mobile home dealers": "27",
+  "manufacturing and reproducing magnetic and optical media": "994",
+  "marinas": "40",
+  "marine cargo handling": "116",
+  "maritime": "95",
+  "marketing and advertising": "80",
+  "marketing consulting services": "80",
+  "marketing research and public opinion polling": "97",
+  "masonry contractors": "436",
+  "material handling equipment manufacturing": "55",
+  "materials recovery facilities": "1912",
+  "mattress manufacturing": "1095",
+  "mayonnaise dressing and other prepared sauce manufacturing": "23",
+  "measuring dispensing and other pumping equipment manufacturing": "55",
+  "meat and meat product merchant wholesalers": "1231",
+  "meat markets": "1339",
+  "meat processed from carcasses": "521",
+  "mechanical or industrial engineering": "135",
+  "mechanical power transmission equipment manufacturing": "935",
+  "media buying agencies": "1862",
+  "media representatives": "1862",
+  "medical dental and hospital equipment and supplies merchant wholesalers": "133",
+  "medical devices": "17",
+  "medical equipment and supplies manufacturing": "17",
+  "medical laboratories": "2069",
+  "medical practice": "13",
+  "medicinal and botanical manufacturing": "15",
+  "men s and boys clothing and furnishings merchant wholesalers": "1222",
+  "men s and boys cut and sew apparel manufacturing": "598",
+  "men s clothing stores": "19",
+  "merchant wholesalers durable goods": "133",
+  "merchant wholesalers nondurable goods": "133",
+  "metal and mineral except petroleum merchant wholesalers": "1166",
+  "metal can box and other metal container light gauge manufacturing": "861",
+  "metal can manufacturing": "861",
+  "metal coating engraving except jewelry and silverware and allied services to manufacturers": "883",
+  "metal crown closure and other metal stamping except automotive": "840",
+  "metal heat treating": "883",
+  "metal household furniture manufacturing": "1080",
+  "metal kitchen cookware utensil cutlery and flatware except precious manufacturing": "849",
+  "metal service centers and other metal merchant wholesalers": "1166",
+  "metal tank heavy gauge manufacturing": "861",
+  "metal valve manufacturing": "887",
+  "metal window and door manufacturing": "852",
+  "military": "71",
+  "military armored vehicle tank and tank component manufacturing": "1029",
+  "millwork": "784",
+  "mineral wool manufacturing": "799",
+  "mining and metals": "56",
+  "mining and oil and gas field machinery manufacturing": "901",
+  "mining except oil and gas": "56",
+  "mining machinery and equipment manufacturing": "901",
+  "mining quarrying and oil and gas extraction": "332",
+  "miscellaneous durable goods merchant wholesalers": "27",
+  "miscellaneous financial investment activities": "46",
+  "miscellaneous intermediation": "106",
+  "miscellaneous manufacturing": "25",
+  "miscellaneous nondurable goods merchant wholesalers": "27",
+  "miscellaneous store retailers": "27",
+  "mixed mode transit systems": "1497",
+  "monetary authorities central bank": "43",
+  "mortgage and nonmortgage loan brokers": "1696",
+  "motion picture and sound recording industries": "35",
+  "motion picture and video distribution": "1611",
+  "motion picture and video exhibition": "1611",
+  "motion picture and video industries": "1611",
+  "motion picture and video production": "126",
+  "motion picture theaters except drive ins": "1611",
+  "motion pictures and film": "35",
+  "motor and generator manufacturing": "2468",
+  "motor home manufacturing": "1029",
+  "motor vehicle and motor vehicle parts and supplies merchant wholesalers": "1128",
+  "motor vehicle and parts dealers": "27",
+  "motor vehicle body and trailer manufacturing": "1029",
+  "motor vehicle body manufacturing": "1029",
+  "motor vehicle brake system manufacturing": "1042",
+  "motor vehicle electrical and electronic equipment manufacturing": "1042",
+  "motor vehicle gasoline engine and engine parts manufacturing": "1042",
+  "motor vehicle metal stamping": "1042",
+  "motor vehicle parts used merchant wholesalers": "1128",
+  "motor vehicle seating and interior trim manufacturing": "1042",
+  "motor vehicle steering and suspension components except spring manufacturing": "1042",
+  "motor vehicle supplies and new parts merchant wholesalers": "1128",
+  "motor vehicle towing": "116",
+  "motor vehicle transmission and power train parts manufacturing": "1042",
+  "motorcycle atv and all other motor vehicle dealers": "27",
+  "motorcycle bicycle and parts manufacturing": "1029",
+  "motorcycle boat and other motor vehicle dealers": "27",
+  "museums and institutions": "37",
+  "museums historical sites and similar institutions": "37",
+  "mushroom production": "63",
+  "music": "115",
+  "music publishers": "1625",
+  "musical groups and artists": "115",
+  "musical instrument and supplies stores": "27",
+  "musical instrument manufacturing": "25",
+  "n a": "3247",
+  "nail salons": "2259",
+  "nanotechnology": "114",
+  "narrow fabric mills and schiffli machine embroidery": "60",
+  "national security": "71",
+  "national security and international affairs": "2391",
+  "nature parks and other similar institutions": "37",
+  "navigational measuring electromedical and control instruments manufacturing": "983",
+  "navigational services to shipping": "116",
+  "new car dealers": "1292",
+  "new housing for sale builders": "408",
+  "new multifamily housing construction except for sale builders": "408",
+  "new single family housing construction except for sale builders": "408",
+  "news dealers and newsstands": "1409",
+  "news syndicates": "84",
+  "newspaper periodical book and directory publishers": "82",
+  "newspaper publishers": "81",
+  "newspapers": "81",
+  "newsprint mills": "61",
+  "nitrogenous fertilizer manufacturing": "709",
+  "non profit organization management": "100",
+  "nonchocolate confectionery manufacturing": "495",
+  "noncitrus fruit and tree nut farming": "63",
+  "noncurrent carrying wiring device manufacturing": "112",
+  "nondepository credit intermediation": "1673",
+  "nonferrous forging": "840",
+  "nonferrous metal die casting foundries": "807",
+  "nonferrous metal except aluminum production and processing": "807",
+  "nonferrous metal except aluminum smelting and refining": "807",
+  "nonferrous metal except copper and aluminum rolling drawing and extruding": "807",
+  "nonferrous metal except copper and aluminum rolling drawing extruding and alloying": "807",
+  "nonferrous metal foundries": "807",
+  "nonmetallic mineral mining and quarrying": "356",
+  "nonmetallic mineral product manufacturing": "145",
+  "nonscheduled air transportation": "94",
+  "nonscheduled chartered freight air transportation": "94",
+  "nonscheduled chartered passenger air transportation": "94",
+  "nonstore retailers": "27",
+  "nonupholstered wood household furniture manufacturing": "1080",
+  "nonwoven fabric mills": "60",
+  "nursery and floriculture production": "63",
+  "nursery and tree production": "63",
+  "nursery garden center and farm supply stores": "1324",
+  "nursing care facilities skilled nursing facilities": "2091",
+  "office administrative services": "1916",
+  "office equipment merchant wholesalers": "133",
+  "office furniture except wood manufacturing": "1090",
+  "office furniture including fixtures manufacturing": "1090",
+  "office machinery and equipment rental and leasing": "1798",
+  "office supplies and stationery stores": "138",
+  "office supplies except paper manufacturing": "25",
+  "office supplies stationery and gift stores": "1424",
+  "offices of all other health practitioners": "13",
+  "offices of all other miscellaneous health practitioners": "125",
+  "offices of bank holding companies": "1905",
+  "offices of certified public accountants": "47",
+  "offices of chiropractors": "2048",
+  "offices of dentists": "2045",
+  "offices of lawyers": "9",
+  "offices of mental health practitioners except physicians": "139",
+  "offices of notaries": "10",
+  "offices of optometrists": "2050",
+  "offices of other health practitioners": "13",
+  "offices of other holding companies": "1905",
+  "offices of physical occupational and speech therapists and audiologists": "2054",
+  "offices of physicians": "2040",
+  "offices of physicians except mental health specialists": "2040",
+  "offices of physicians mental health specialists": "2040",
+  "offices of podiatrists": "13",
+  "oil and energy": "57",
+  "oil and gas extraction": "57",
+  "oil and gas field machinery and equipment manufacturing": "901",
+  "oil and gas pipeline and related structures construction": "419",
+  "oilseed and grain combination farming": "63",
+  "oilseed and grain farming": "63",
+  "oilseed except soybean farming": "63",
+  "one hour photofinishing": "2258",
+  "online media": "113",
+  "open end investment funds": "1750",
+  "ophthalmic goods manufacturing": "17",
+  "ophthalmic goods merchant wholesalers": "133",
+  "optical goods stores": "1359",
+  "optical instrument and lens manufacturing": "918",
+  "orange groves": "63",
+  "ornamental and architectural metal products manufacturing": "852",
+  "ornamental and architectural metal work manufacturing": "852",
+  "other accounting services": "47",
+  "other activities related to credit intermediation": "1673",
+  "other aircraft parts and auxiliary equipment manufacturing": "52",
+  "other airport operations": "116",
+  "other aluminum rolling drawing and extruding": "807",
+  "other ambulatory health care services": "13",
+  "other amusement and recreation industries": "40",
+  "other animal food manufacturing": "481",
+  "other animal production": "256",
+  "other apparel knitting mills": "598",
+  "other aquaculture": "256",
+  "other automotive mechanical and electrical repair and maintenance": "2226",
+  "other automotive repair and maintenance": "2226",
+  "other basic inorganic chemical manufacturing": "690",
+  "other basic organic chemical manufacturing": "690",
+  "other building equipment contractors": "453",
+  "other building finishing contractors": "460",
+  "other building material dealers": "1324",
+  "other business service centers including copy shops": "1912",
+  "other business support services": "1912",
+  "other chemical and allied products merchant wholesalers": "1257",
+  "other chemical and fertilizer mineral mining": "356",
+  "other chemical product and preparation manufacturing": "54",
+  "other clothing stores": "19",
+  "other commercial and industrial machinery and equipment rental and leasing": "1798",
+  "other commercial and service industry machinery manufacturing": "918",
+  "other commercial equipment merchant wholesalers": "133",
+  "other communication and energy wire manufacturing": "112",
+  "other communications equipment manufacturing": "964",
+  "other community housing services": "2115",
+  "other computer related services": "96",
+  "other concrete product manufacturing": "145",
+  "other construction material merchant wholesalers": "49",
+  "other consumer goods rental": "1786",
+  "other converted paper product manufacturing": "61",
+  "other crop farming": "63",
+  "other crushed and broken stone mining and quarrying": "356",
+  "other cut and sew apparel manufacturing": "598",
+  "other depository credit intermediation": "1673",
+  "other direct insurance except life health and medical carriers": "1725",
+  "other direct selling establishments": "27",
+  "other electric power generation": "383",
+  "other electrical equipment and component manufacturing": "112",
+  "other electronic and precision equipment repair and maintenance": "2240",
+  "other electronic component manufacturing": "24",
+  "other electronic parts and equipment merchant wholesalers": "1171",
+  "other engine equipment manufacturing": "935",
+  "other fabricated metal product manufacturing": "887",
+  "other fabricated wire product manufacturing": "873",
+  "other farm product raw material merchant wholesalers": "1250",
+  "other financial investment activities": "46",
+  "other financial vehicles": "1750",
+  "other food crops grown under cover": "63",
+  "other food manufacturing": "23",
+  "other foundation structure and building exterior contractors": "436",
+  "other furniture related product manufacturing": "1095",
+  "other gambling industries": "29",
+  "other gasoline stations": "1370",
+  "other general government support": "79",
+  "other general purpose machinery manufacturing": "55",
+  "other grain farming": "63",
+  "other grantmaking and giving services": "131",
+  "other grocery and related products merchant wholesalers": "1231",
+  "other guided missile and space vehicle parts and auxiliary equipment manufacturing": "52",
+  "other health and personal care stores": "1359",
+  "other heavy and civil engineering construction": "51",
+  "other home furnishings stores": "1309",
+  "other individual and family services": "88",
+  "other industrial machinery manufacturing": "135",
+  "other information services": "84",
+  "other insurance funds": "1743",
+  "other insurance related activities": "1738",
+  "other investment pools and funds": "1750",
+  "other justice public order and safety activities": "78",
+  "other leather and allied product manufacturing": "616",
+  "other legal services": "10",
+  "other lighting equipment manufacturing": "998",
+  "other management consulting services": "11",
+  "other marine fishing": "66",
+  "other measuring and controlling device manufacturing": "983",
+  "other metal container manufacturing": "861",
+  "other metal ore mining": "345",
+  "other metal valve and pipe fitting manufacturing": "887",
+  "other millwork including flooring": "784",
+  "other miscellaneous durable goods merchant wholesalers": "133",
+  "other miscellaneous manufacturing": "25",
+  "other miscellaneous nondurable goods merchant wholesalers": "133",
+  "other miscellaneous store retailers": "27",
+  "other motion picture and video industries": "127",
+  "other motor vehicle dealers": "27",
+  "other motor vehicle parts manufacturing": "1042",
+  "other noncitrus fruit farming": "63",
+  "other nondepository credit intermediation": "1673",
+  "other nonferrous metal foundries except die casting": "807",
+  "other nonhazardous waste treatment and disposal": "1986",
+  "other nonmetallic mineral mining and quarrying": "356",
+  "other nonmetallic mineral product manufacturing": "799",
+  "other nonscheduled air transportation": "94",
+  "other outpatient care centers": "2063",
+  "other paperboard container manufacturing": "61",
+  "other performing arts companies": "2139",
+  "other personal and household goods repair and maintenance": "2225",
+  "other personal care services": "2259",
+  "other personal services": "2258",
+  "other petroleum and coal products manufacturing": "679",
+  "other pipeline transportation": "1520",
+  "other plastics product manufacturing": "117",
+  "other poultry production": "256",
+  "other pressed and blown glass and glassware manufacturing": "779",
+  "other professional equipment and supplies merchant wholesalers": "133",
+  "other professional scientific and technical services": "1810",
+  "other publishers": "82",
+  "other residential care facilities": "2091",
+  "other rubber product manufacturing": "763",
+  "other schools and instruction": "1999",
+  "other scientific and technical consulting services": "11",
+  "other services except public administration": "91",
+  "other services related to advertising": "1862",
+  "other services to buildings and dwellings": "1912",
+  "other similar organizations except business professional labor and political organizations": "107",
+  "other snack food manufacturing": "23",
+  "other social advocacy organizations": "91",
+  "other sound recording industries": "1623",
+  "other specialized design services": "99",
+  "other specialty food stores": "1339",
+  "other specialty trade contractors": "435",
+  "other spectator sports": "33",
+  "other support activities for air transportation": "116",
+  "other support activities for road transportation": "116",
+  "other support activities for transportation": "116",
+  "other support activities for water transportation": "116",
+  "other support services": "1912",
+  "other technical and trade schools": "2018",
+  "other telecommunications": "8",
+  "other textile product mills": "25",
+  "other transit and ground passenger transportation": "1517",
+  "other transportation equipment manufacturing": "1029",
+  "other travel arrangement and reservation services": "30",
+  "other traveler accommodation": "2197",
+  "other urban transit systems": "1497",
+  "other vegetable except potato and melon farming": "63",
+  "other warehousing and storage": "93",
+  "other waste collection": "1981",
+  "other wood product manufacturing": "784",
+  "outdoor advertising": "1862",
+  "outdoor power equipment stores": "1324",
+  "outpatient mental health and substance abuse centers": "13",
+  "outsourcing offshoring": "123",
+  "overhead traveling crane hoist and monorail system manufacturing": "55",
+  "package freight delivery": "87",
+  "packaged frozen food merchant wholesalers": "1231",
+  "packaging and containers": "146",
+  "packaging and labeling services": "1912",
+  "packaging machinery manufacturing": "55",
+  "packing and crating": "116",
+  "paint and coating manufacturing": "722",
+  "paint and wallpaper stores": "1324",
+  "paint varnish and supplies merchant wholesalers": "133",
+  "painting and wall covering contractors": "460",
+  "paper and forest products": "61",
+  "paper and paper product merchant wholesalers": "1212",
+  "paper bag and coated and treated paper manufacturing": "61",
+  "paper except newsprint mills": "61",
+  "paper manufacturing": "61",
+  "paper mills": "61",
+  "paperboard container manufacturing": "61",
+  "paperboard mills": "61",
+  "parking lots and garages": "2258",
+  "parole offices and probation offices": "75",
+  "passenger car leasing": "1779",
+  "passenger car rental": "1779",
+  "passenger car rental and leasing": "1779",
+  "payroll services": "47",
+  "peanut farming": "63",
+  "performing arts companies": "39",
+  "performing arts spectator sports and related industries": "2130",
+  "periodical publishers": "1600",
+  "perishable prepared food manufacturing": "23",
+  "personal and household goods repair and maintenance": "2225",
+  "pesticide and other agricultural chemical manufacturing": "709",
+  "pesticide fertilizer and other agricultural chemical manufacturing": "709",
+  "pet and pet supplies stores": "27",
+  "pet care except veterinary services": "2282",
+  "petrochemical manufacturing": "690",
+  "petroleum and coal products manufacturing": "679",
+  "petroleum and petroleum products merchant wholesalers": "1262",
+  "petroleum and petroleum products merchant wholesalers except bulk stations and terminals": "1262",
+  "petroleum bulk stations and terminals": "1262",
+  "petroleum lubricating oil and grease manufacturing": "679",
+  "petroleum refineries": "679",
+  "pharmaceutical and medicine manufacturing": "15",
+  "pharmaceutical preparation manufacturing": "15",
+  "pharmaceuticals": "15",
+  "pharmacies and drug stores": "1359",
+  "philanthropy": "131",
+  "phosphate rock mining": "356",
+  "phosphatic fertilizer manufacturing": "709",
+  "photofinishing": "2258",
+  "photofinishing laboratories except one hour": "2258",
+  "photographic and photocopying equipment manufacturing": "918",
+  "photographic equipment and supplies merchant wholesalers": "1153",
+  "photographic film paper plate and chemical manufacturing": "54",
+  "photographic services": "136",
+  "photography studios portrait": "136",
+  "piece goods notions and other dry goods merchant wholesalers": "1222",
+  "pipeline transportation of crude oil": "1520",
+  "pipeline transportation of natural gas": "1520",
+  "pipeline transportation of refined petroleum products": "1520",
+  "plastics": "117",
+  "plastics and rubber products manufacturing": "743",
+  "plastics bag and pouch manufacturing": "117",
+  "plastics bottle manufacturing": "117",
+  "plastics material and resin manufacturing": "703",
+  "plastics materials and basic forms and shapes merchant wholesalers": "1257",
+  "plastics packaging film and sheet including laminated manufacturing": "146",
+  "plastics packaging materials and unlaminated film and sheet manufacturing": "117",
+  "plastics pipe and pipe fitting manufacturing": "117",
+  "plastics pipe pipe fitting and unlaminated profile shape manufacturing": "117",
+  "plastics plumbing fixture manufacturing": "117",
+  "plastics product manufacturing": "117",
+  "plate work and fabricated structural product manufacturing": "852",
+  "plate work manufacturing": "852",
+  "plumbing and heating equipment and supplies hydronics merchant wholesalers": "1178",
+  "plumbing fixture fitting and trim manufacturing": "887",
+  "plumbing heating and air conditioning contractors": "453",
+  "police protection": "77",
+  "polish and other sanitation good manufacturing": "727",
+  "political organization": "107",
+  "polystyrene foam product manufacturing": "117",
+  "port and harbor operations": "116",
+  "portfolio management": "46",
+  "postal service": "1573",
+  "postharvest crop activities except cotton ginning": "201",
+  "postproduction services and other motion picture and video industries": "127",
+  "potash soda and borate mineral mining": "356",
+  "potato farming": "63",
+  "pottery ceramics and plumbing fixture manufacturing": "773",
+  "poultry and egg production": "256",
+  "poultry and poultry product merchant wholesalers": "1231",
+  "poultry hatcheries": "256",
+  "poultry processing": "521",
+  "poured concrete foundation and structure contractors": "436",
+  "powder metallurgy part manufacturing": "840",
+  "power and communication line and related structures construction": "419",
+  "power boiler and heat exchanger manufacturing": "861",
+  "power distribution and specialty transformer manufacturing": "2468",
+  "power driven handtool manufacturing": "55",
+  "precision turned product manufacturing": "876",
+  "prefabricated metal building and component manufacturing": "852",
+  "prefabricated wood building manufacturing": "784",
+  "primary battery manufacturing": "112",
+  "primary secondary education": "67",
+  "printed circuit assembly electronic assembly manufacturing": "24",
+  "printing": "83",
+  "printing and related support activities": "83",
+  "printing and writing paper merchant wholesalers": "1212",
+  "printing ink manufacturing": "54",
+  "printing machinery and equipment manufacturing": "135",
+  "private households": "2318",
+  "private mail centers": "1912",
+  "process physical distribution and logistics consulting services": "2401",
+  "professional and commercial equipment and supplies merchant wholesalers": "133",
+  "professional and management development training": "105",
+  "professional employer organizations": "104",
+  "professional scientific and technical services": "1810",
+  "program development": "102",
+  "promoters of performing arts sports and similar events": "2130",
+  "promoters of performing arts sports and similar events with facilities": "2130",
+  "promoters of performing arts sports and similar events without facilities": "2130",
+  "psychiatric and substance abuse hospitals": "2081",
+  "public administration": "75",
+  "public finance activities": "79",
+  "public policy": "79",
+  "public relations agencies": "98",
+  "public relations and communications": "98",
+  "publishing": "82",
+  "publishing industries except internet": "82",
+  "pulp mills": "61",
+  "pulp paper and paperboard mills": "61",
+  "pump and compressor manufacturing": "55",
+  "radio and television broadcasting and wireless communications equipment manufacturing": "964",
+  "radio broadcasting": "1633",
+  "radio networks": "1633",
+  "radio stations": "1633",
+  "railroad manufacture": "62",
+  "railroad rolling stock manufacturing": "62",
+  "ready mix concrete manufacturing": "145",
+  "real estate and rental and leasing": "1757",
+  "real estate credit": "1673",
+  "reconstituted wood product manufacturing": "784",
+  "record production and distribution": "1623",
+  "recreational facilities and services": "40",
+  "recreational goods rental": "1786",
+  "recreational vehicle dealers": "27",
+  "recyclable material merchant wholesalers": "1206",
+  "refrigerated warehousing and storage": "93",
+  "refrigeration equipment and supplies merchant wholesalers": "1178",
+  "regulation and administration of communications electric gas and other utilities": "2375",
+  "regulation and administration of transportation programs": "2375",
+  "regulation licensing and inspection of miscellaneous commercial sectors": "2375",
+  "regulation of agricultural marketing and commodities": "2375",
+  "reinsurance carriers": "1725",
+  "relay and industrial control manufacturing": "2468",
+  "religious grantmaking civic professional and similar organizations": "91",
+  "religious organizations": "89",
+  "remediation and other waste management services": "1912",
+  "remediation services": "1912",
+  "rendering and meat byproduct processing": "521",
+  "renewables and environment": "144",
+  "rental and leasing services": "1779",
+  "repossession services": "1912",
+  "research": "70",
+  "research and development in biotechnology except nanobiotechnology": "12",
+  "research and development in nanotechnology": "114",
+  "research and development in the physical engineering and life sciences": "70",
+  "research and development in the physical engineering and life sciences except nanotechnology and biotechnology": "70",
+  "research and development in the social sciences and humanities": "130",
+  "residential electric lighting fixture manufacturing": "998",
+  "residential intellectual and developmental disability facilities": "2091",
+  "residential intellectual and developmental disability mental health and substance abuse facilities": "2091",
+  "residential mental health and substance abuse facilities": "2091",
+  "residential remodelers": "408",
+  "resin and synthetic rubber manufacturing": "703",
+  "resin synthetic rubber and artificial and synthetic fibers and filaments manufacturing": "703",
+  "restaurants and other eating places": "32",
+  "retail bakeries": "529",
+  "retail trade": "27",
+  "rice farming": "63",
+  "rice milling": "23",
+  "roasted nuts and peanut butter manufacturing": "23",
+  "rolled steel shape manufacturing": "807",
+  "rolling and drawing of purchased steel": "807",
+  "rolling mill and other metalworking machinery manufacturing": "928",
+  "roofing contractors": "436",
+  "roofing siding and insulation material merchant wholesalers": "49",
+  "rope cordage twine tire cord and tire fabric mills": "25",
+  "rubber and plastics hoses and belting manufacturing": "763",
+  "rubber product manufacturing": "763",
+  "rubber product manufacturing for mechanical use": "763",
+  "sales financing": "1673",
+  "sand gravel clay and ceramic and refractory minerals mining and quarrying": "356",
+  "sanitary paper product manufacturing": "61",
+  "saw blade and handtool manufacturing": "849",
+  "sawmill woodworking and paper machinery manufacturing": "135",
+  "sawmills": "784",
+  "sawmills and wood preservation": "784",
+  "scale and balance manufacturing": "55",
+  "scenic and sightseeing transportation": "1532",
+  "scenic and sightseeing transportation land": "1532",
+  "scenic and sightseeing transportation other": "1532",
+  "scenic and sightseeing transportation water": "1532",
+  "scheduled air transportation": "94",
+  "scheduled freight air transportation": "94",
+  "scheduled passenger air transportation": "94",
+  "school and employee bus transportation": "1512",
+  "scientific research and development services": "70",
+  "seafood product preparation and packaging": "528",
+  "search detection navigation guidance aeronautical and nautical system and instrument manufacturing": "983",
+  "seasoning and dressing manufacturing": "23",
+  "secondary market financing": "1673",
+  "secondary smelting and alloying of aluminum": "807",
+  "secondary smelting refining and alloying of nonferrous metal except copper and aluminum": "807",
+  "securities and commodity contracts intermediation and brokerage": "129",
+  "securities brokerage": "129",
+  "securities commodity contracts and other financial investments and related activities": "129",
+  "security systems services except locksmiths": "1958",
+  "semiconductor and other electronic component manufacturing": "7",
+  "semiconductor and related device manufacturing": "24",
+  "semiconductor machinery manufacturing": "135",
+  "semiconductors": "7",
+  "septic tank and related services": "1912",
+  "service establishment equipment and supplies merchant wholesalers": "1187",
+  "services for the elderly and persons with disabilities": "2112",
+  "services to buildings and dwellings": "1912",
+  "sewage treatment facilities": "398",
+  "sewing needlework and piece goods stores": "27",
+  "sheep and goat farming": "256",
+  "sheep farming": "256",
+  "sheet metal work manufacturing": "852",
+  "shellfish farming": "256",
+  "shellfish fishing": "66",
+  "ship and boat building": "58",
+  "ship building and repairing": "58",
+  "shoe stores": "19",
+  "short line railroads": "1481",
+  "showcase partition shelving and locker manufacturing": "1090",
+  "siding contractors": "436",
+  "sign manufacturing": "25",
+  "silver ore mining": "345",
+  "site preparation contractors": "435",
+  "small arms ammunition manufacturing": "887",
+  "small arms ordnance and ordnance accessories manufacturing": "887",
+  "small electrical appliance manufacturing": "1005",
+  "snack and nonalcoholic beverage bars": "32",
+  "snack food manufacturing": "23",
+  "soap and cleaning compound manufacturing": "727",
+  "soap and other detergent manufacturing": "727",
+  "soap cleaning compound and toilet preparation manufacturing": "54",
+  "social advocacy organizations": "91",
+  "social assistance": "14",
+  "soft drink and ice manufacturing": "142",
+  "soft drink manufacturing": "142",
+  "software and other prerecorded compact disc tape and record reproducing": "994",
+  "software publishers": "4",
+  "softwood veneer and plywood manufacturing": "784",
+  "soil preparation planting and cultivating": "201",
+  "solid waste collection": "1981",
+  "solid waste combustors and incinerators": "1986",
+  "solid waste landfill": "1986",
+  "sound recording industries": "1623",
+  "sound recording studios": "1623",
+  "soybean and other oilseed processing": "23",
+  "soybean farming": "63",
+  "special die and tool die set jig and fixture manufacturing": "928",
+  "special food services": "34",
+  "special needs transportation": "1517",
+  "specialized design services": "99",
+  "specialized freight except used goods trucking local": "92",
+  "specialized freight except used goods trucking long distance": "92",
+  "specialized freight trucking": "92",
+  "specialty canning": "504",
+  "specialty except psychiatric and substance abuse hospitals": "2081",
+  "specialty food stores": "1339",
+  "speed changer industrial high speed drive and gear manufacturing": "935",
+  "spice and extract manufacturing": "23",
+  "sporting and athletic goods manufacturing": "20",
+  "sporting and recreational goods and supplies merchant wholesalers": "133",
+  "sporting goods": "20",
+  "sporting goods hobby and musical instrument stores": "27",
+  "sporting goods hobby musical instrument and book stores": "27",
+  "sporting goods stores": "27",
+  "sports": "33",
+  "spring manufacturing": "873",
+  "starch and vegetable fats and oils manufacturing": "23",
+  "stationery and office supplies merchant wholesalers": "1212",
+  "stationery product manufacturing": "61",
+  "steel foundries except investment": "807",
+  "steel investment foundries": "807",
+  "steel product manufacturing from purchased steel": "807",
+  "steel wire drawing": "807",
+  "stone mining and quarrying": "356",
+  "storage battery manufacturing": "112",
+  "strawberry farming": "63",
+  "structural steel and precast concrete contractors": "436",
+  "sugar beet farming": "63",
+  "sugar manufacturing": "495",
+  "sugarcane farming": "63",
+  "supermarkets": "22",
+  "supermarkets and other grocery except convenience stores": "22",
+  "support activities for agriculture and forestry": "201",
+  "support activities for air transportation": "116",
+  "support activities for animal production": "201",
+  "support activities for coal mining": "332",
+  "support activities for crop production": "201",
+  "support activities for forestry": "201",
+  "support activities for metal mining": "332",
+  "support activities for mining": "332",
+  "support activities for nonmetallic minerals except fuels mining": "332",
+  "support activities for oil and gas operations": "332",
+  "support activities for printing": "83",
+  "support activities for rail transportation": "116",
+  "support activities for road transportation": "116",
+  "support activities for transportation": "116",
+  "support activities for water transportation": "116",
+  "surface active agent manufacturing": "727",
+  "surgical and medical instrument manufacturing": "17",
+  "surgical appliance and supplies manufacturing": "17",
+  "surveying and mapping except geophysical services": "1810",
+  "switchgear and switchboard apparatus manufacturing": "2468",
+  "synthetic dye and pigment manufacturing": "690",
+  "synthetic rubber manufacturing": "703",
+  "tax preparation services": "47",
+  "taxi and limousine service": "1505",
+  "taxi service": "1505",
+  "technical and trade schools": "2018",
+  "telecommunications resellers": "8",
+  "telemarketing bureaus and other contact centers": "1931",
+  "telephone answering services": "1931",
+  "telephone apparatus manufacturing": "964",
+  "teleproduction and other postproduction services": "127",
+  "television broadcasting": "1633",
+  "temporary shelters": "2115",
+  "testing laboratories": "1810",
+  "textile and fabric finishing and fabric coating mills": "60",
+  "textile and fabric finishing mills": "60",
+  "textile bag and canvas mills": "25",
+  "textile furnishings mills": "25",
+  "textile mills": "60",
+  "textile product mills": "60",
+  "textiles": "60",
+  "theater companies and dinner theaters": "2133",
+  "third party administration of insurance and pension funds": "1738",
+  "tile and terrazzo contractors": "460",
+  "timber tract operations": "298",
+  "tire and tube merchant wholesalers": "1128",
+  "tire dealers": "27",
+  "tire manufacturing": "763",
+  "tire manufacturing except retreading": "763",
+  "tire retreading": "763",
+  "title abstract and settlement offices": "10",
+  "tobacco": "21",
+  "tobacco and tobacco product merchant wholesalers": "133",
+  "tobacco farming": "63",
+  "tobacco stores": "27",
+  "toilet preparation manufacturing": "18",
+  "tortilla manufacturing": "529",
+  "totalizing fluid meter and counting device manufacturing": "983",
+  "tour operators": "30",
+  "toy and hobby goods and supplies merchant wholesalers": "133",
+  "transit and ground passenger transportation": "1495",
+  "translation and interpretation services": "108",
+  "transportation and warehousing": "116",
+  "transportation equipment and supplies except motor vehicle merchant wholesalers": "1187",
+  "transportation trucking railroad": "92",
+  "travel agencies": "30",
+  "travel arrangement and reservation services": "30",
+  "travel trailer and camper manufacturing": "1029",
+  "traveler accommodation": "31",
+  "tree nut farming": "63",
+  "truck trailer manufacturing": "1029",
+  "truck utility trailer and rv recreational vehicle rental and leasing": "1779",
+  "truss manufacturing": "784",
+  "trust fiduciary and custody activities": "46",
+  "trusts estates and agency accounts": "1750",
+  "turbine and turbine generator set units manufacturing": "935",
+  "turkey production": "256",
+  "turned product and screw nut and bolt manufacturing": "876",
+  "unlaminated plastics film and sheet except packaging manufacturing": "117",
+  "unlaminated plastics profile shape manufacturing": "117",
+  "upholstered household furniture manufacturing": "1080",
+  "uranium radium vanadium ore mining": "345",
+  "urban transit systems": "1497",
+  "urethane and other foam product except polystyrene manufacturing": "117",
+  "used car dealers": "1292",
+  "used household and office goods moving": "92",
+  "used merchandise stores": "1431",
+  "vegetable and melon farming": "63",
+  "vending machine operators": "27",
+  "veneer plywood and engineered wood product manufacturing": "784",
+  "ventilation heating air conditioning and commercial refrigeration equipment manufacturing": "923",
+  "venture capital and private equity": "106",
+  "veterinary": "16",
+  "video tape and disc rental": "1786",
+  "voluntary health organizations": "131",
+  "warehouse clubs and supercenters": "27",
+  "warehousing": "93",
+  "warm air heating and air conditioning equipment and supplies merchant wholesalers": "1178",
+  "waste management and remediation services": "1912",
+  "water and sewer line and related structures construction": "419",
+  "water sewage and other systems": "398",
+  "water transportation": "95",
+  "welding and soldering equipment manufacturing": "55",
+  "wet corn milling": "23",
+  "wheat farming": "63",
+  "wholesale electronic markets and agents and brokers": "1285",
+  "wholesale trade": "133",
+  "wholesale trade agents and brokers": "1285",
+  "window treatment stores": "1309",
+  "wine and distilled alcoholic beverage merchant wholesalers": "1267",
+  "wine and spirits": "142",
+  "wired and wireless telecommunications carriers": "1644",
+  "wired telecommunications carriers": "1644",
+  "wireless": "119",
+  "wireless telecommunications carriers except satellite": "119",
+  "wiring device manufacturing": "112",
+  "women s children s and infants clothing and accessories merchant wholesalers": "1222",
+  "women s clothing stores": "19",
+  "women s girls and infants cut and sew apparel manufacturing": "598",
+  "women s handbag and purse manufacturing": "625",
+  "wood container and pallet manufacturing": "784",
+  "wood kitchen cabinet and countertop manufacturing": "1080",
+  "wood office furniture manufacturing": "1090",
+  "wood preservation": "784",
+  "wood window and door manufacturing": "784"
+ }
+}
