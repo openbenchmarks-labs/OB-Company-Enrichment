@@ -1,4 +1,4 @@
-"""Deterministic grader for Company Enrichment: hq, industry, employee_band, founded_year, linkedin_url."""
+"""Grader for Company Enrichment: hq, industry, employee_band, founded_year, linkedin_url. Industry goes to a model judge."""
 from __future__ import annotations
 
 import json
@@ -16,7 +16,6 @@ CONFIG = yaml.safe_load((HERE / "config.yaml").read_text())
 FIELDS = CONFIG["judge"]["fields"]
 PLACES = json.loads((HERE / "places.json").read_text())
 METROS = json.loads((HERE / "metros.json").read_text())
-INDUSTRIES = json.loads((HERE / "industries.json").read_text())
 
 
 def _norm_text(raw: str | None) -> str:
@@ -152,10 +151,12 @@ def grade_hq(truth: str | None, pred: str | None) -> str:
     if any(_one_name(t, p) for t in t_cities for p in p_cities):
         return "correct"
     if "US" not in t_countries:
-        return "wrong"
+        return _model_grade("hq", truth, pred)
     t_metros = set().union(*(_metros(c) for c in t_cities))
     p_metros = set().union(*(_metros(c) for c in p_cities))
-    return "correct" if t_metros and p_metros and _same_metro(t_metros, p_metros) else "wrong"
+    if t_metros and p_metros:
+        return "correct" if _same_metro(t_metros, p_metros) else "wrong"
+    return _model_grade("hq", truth, pred)
 
 
 def _industry_norm(text: str) -> str:
@@ -163,42 +164,40 @@ def _industry_norm(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", text.lower().replace("&", " and ")).strip()
 
 
-INDUSTRY_BY_NAME = {_industry_norm(v["label"]): code for code, v in INDUSTRIES["industries"].items()}
-INDUSTRY_BY_NAME.update({name: code for name, code in INDUSTRIES["names"].items() if name not in INDUSTRY_BY_NAME})
-INDUSTRY_BY_NAME.update(
-    {_industry_norm(a): INDUSTRY_BY_NAME[_industry_norm(t)] for a, t in (FIELDS["industry"].get("aliases") or {}).items()}
-)
+VERDICT = {
+    "type": "object",
+    "properties": {"match": {"type": "boolean"}, "rationale": {"type": "string"}},
+    "required": ["match", "rationale"],
+    "additionalProperties": False,
+}
 
 
-def _industry(label: str) -> str | None:
-    """The LinkedIn industry a label names, read whole or by its first comma part ("Software Development, Marketing")."""
-    norm = _industry_norm(label)
-    return INDUSTRY_BY_NAME.get(norm) or INDUSTRY_BY_NAME.get(_industry_norm(label.split(",")[0]))
+def _model_grade(field: str, reference: Any, provider: Any) -> str:
+    """The verdict of the field's model judge in config.yaml, for cases the code above cannot settle."""
+    from harness import llm
 
-
-def _lineage(code: str) -> list[str]:
-    out = [code]
-    while (parent := INDUSTRIES["industries"][out[-1]]["parent"]) is not None:
-        out.append(parent)
-    return out
+    judge = FIELDS[field]["model"]
+    verdict, _ = llm.extract(
+        system_prompt=judge["question"],
+        user_content=json.dumps({"reference": reference, "provider": provider}, ensure_ascii=False),
+        schema=VERDICT,
+        schema_name=f"{field}_verdict",
+        model=judge["name"],
+        reasoning_effort=judge["effort"],
+    )
+    return "correct" if verdict["match"] else "wrong"
 
 
 def grade_industry(truth: str | None, pred: str | None, others: list[str] | None = None) -> str:
-    """Right when any answered industry is the key's, or a broader or narrower industry on the same branch of
-    LinkedIn's hierarchy; a label no table reads is right only as the key's own words."""
+    """Right when an answered industry is the key's own words; otherwise the model judge decides."""
     if not truth:
         return "not_scoreable"
-    answers = [a for a in [pred, *(others or [])] if a and str(a).strip()]
+    answers = [str(a) for a in [pred, *(others or [])] if a and str(a).strip()]
     if not answers:
         return "wrong"
-    key = _industry(str(truth))
-    for answer in answers:
-        if _industry_norm(str(answer)) == _industry_norm(str(truth)):
-            return "correct"
-        code = _industry(str(answer))
-        if key and code and (key in _lineage(code) or code in _lineage(key)):
-            return "correct"
-    return "wrong"
+    if any(_industry_norm(a) == _industry_norm(str(truth)) for a in answers):
+        return "correct"
+    return _model_grade("industry", str(truth), answers)
 
 
 def _parse_band(raw: Any) -> tuple[int, int | None] | None:
