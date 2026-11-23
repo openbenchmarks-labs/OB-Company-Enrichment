@@ -95,17 +95,20 @@ class NimbleSearch(Adapter):
         response = http_client.request_json("POST", SEARCH_URL, headers=headers, json=request_body, timeout=SEARCH_TIMEOUT)
         body = response.body
         raw: dict[str, Any] = {"request": request_body, "response": body, "search_latency_ms": response.latency_ms}
-        status, value, error = "not_found", None, None
+        status, value, error, hits = "not_found", None, None, []
         try:
             if not isinstance(body, dict) or not isinstance(body.get("results"), list):
                 raise ValueError("Nimble returned no results array")
             hits = search_hits(body, request_body["max_results"])
             raw["search_evidence"] = hits
-            if hits:
-                value, raw["extraction"] = self.extract(company, hits)
-                status = "ok" if has_scored_value(value) else "not_found"
         except Exception as exc:
             status, error = "error", f"{type(exc).__name__}: {exc}"
+        if hits:
+            try:
+                value, raw["extraction"] = self.extract(company, hits)
+            except Exception as exc:  # our extraction model failed, not Nimble
+                raise RuntimeError(f"extraction failed: {type(exc).__name__}: {exc}") from exc
+            status = "ok" if has_scored_value(value) else "not_found"
         fields = {**company_record(value).fields(), "sources": value["sources"]} if status == "ok" and value else {}
         return self.answer(
             company, status, fields, latency_ms=round((time.perf_counter() - started) * 1000),
@@ -129,6 +132,10 @@ def _retry_seconds(retry_after: str | None) -> float:
             return 0
 
 
+class BackoffExpired(TimeoutError):
+    """The deadline passed while waiting out a 429, a 5xx or a transport failure."""
+
+
 def request_with_backoff(method: str, url: str, *, deadline: float, retries: list[dict[str, Any]], **kwargs: Any) -> Any:
     """Retry a rejected create only on 429; retry polls also on 403, 408, 5xx and transport failures.
 
@@ -140,8 +147,10 @@ def request_with_backoff(method: str, url: str, *, deadline: float, retries: lis
             with _RATE_LOCK:
                 wait = max(0.0, _COOLDOWN_UNTIL - time.monotonic())
             remaining = deadline - time.monotonic()
+            if remaining <= 0 and not wait and attempt == 0:
+                raise TimeoutError("Nimble agent run passed its deadline; the remote run may still be active")
             if remaining <= 0 or wait >= remaining:
-                raise TimeoutError("Nimble request deadline exceeded during backoff")
+                raise BackoffExpired("Nimble request deadline exceeded during backoff")
             if not wait:
                 break
             time.sleep(wait)
@@ -161,7 +170,7 @@ def request_with_backoff(method: str, url: str, *, deadline: float, retries: lis
                     _COOLDOWN_UNTIL = max(_COOLDOWN_UNTIL, time.monotonic() + delay)
             else:
                 if time.monotonic() + delay >= deadline:
-                    raise TimeoutError("Nimble request deadline exceeded during backoff") from exc
+                    raise BackoffExpired("Nimble request deadline exceeded during backoff") from exc
                 time.sleep(delay)
     raise AssertionError("unreachable")
 
@@ -220,6 +229,8 @@ class NimbleAgents(Adapter):
             value = parse_agent_result(result)
             raw["sources"] = value["sources"]
             status = "ok" if has_scored_value(value) else "not_found"
+        except (requests.Timeout, requests.ConnectionError, BackoffExpired):
+            raise
         except Exception as exc:
             error = f"{type(exc).__name__}: {exc}"
         fields = {**company_record(value).fields(), "sources": value["sources"]} if status == "ok" and value else {}
