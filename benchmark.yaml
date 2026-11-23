@@ -1,7 +1,7 @@
 name: OB-Company-Enrichment
 serves: Buyers choosing a company-data tool or research API who need each company's headquarters, industry, employee band, founding year, and LinkedIn URL.
 win: More of the five company fields match ground truth, across more companies, than the other setups.
-obkit: 0.4.0
+obkit: 0.5.1
 sets:
   public:
     path: data/sample.jsonl
