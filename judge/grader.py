@@ -72,6 +72,8 @@ SAME_AREA = [tuple(pair) for pair in HQ_RULES.get("same_area") or []]
 DIFFERENT_AREA = [tuple(pair) for pair in HQ_RULES.get("different_area") or []]
 PLACE_SPLIT = re.compile(r"\s+or\s+|\s+[-–]\s+|[,/()]")
 CITY_NAMES = set(CITY_MAP.values())
+# Countries that are one city: any city named inside them is the city.
+CITY_STATES = {"SG", "HK", "MO", "MC", "VA"}
 # US state names and postal codes, which vendors write between the city and the country.
 US_STATES = {_norm_text(s) for s in (
     "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
@@ -93,6 +95,15 @@ def _city(piece: str) -> str:
 
 def _metros(city: str) -> set[str]:
     return CITY_METROS.get(city) or CITY_METROS.get(_norm_text(city)) or set()
+
+
+def _one_name(a: str, b: str) -> bool:
+    """One place written two ways: "Frankfurt am Main" and "Frankfurt", "Alresford" and "New Alresford": the shorter
+    name's words all appear in the longer one, unless both are cities the table knows apart ("York", "New York")."""
+    if a in CITY_NAMES and b in CITY_NAMES:
+        return False
+    wa, wb = set(re.findall(r"[a-z0-9]+", a)), set(re.findall(r"[a-z0-9]+", b))
+    return bool(wa and wb) and (wa <= wb or wb <= wa)
 
 
 def _pair_in(pairs: list[tuple[str, str]], a: set[str], b: set[str]) -> bool:
@@ -136,7 +147,9 @@ def grade_hq(truth: str | None, pred: str | None) -> str:
     p_cities, p_countries = _parse_hq(pred)
     if not t_countries & p_countries:
         return "wrong"
-    if not t_cities or set(t_cities) & set(p_cities):
+    if not t_cities or set(t_cities) & set(p_cities) or t_countries <= CITY_STATES:
+        return "correct"
+    if any(_one_name(t, p) for t in t_cities for p in p_cities):
         return "correct"
     if "US" not in t_countries:
         return "wrong"
@@ -213,9 +226,10 @@ def _in_band(value: int, band: tuple[int, int | None], open_band: bool) -> bool:
     return low <= value and (high is None or value <= high)
 
 
-def grade_employee_band(truth: Any, pred: Any) -> str:
+def grade_employee_band(truth: Any, pred: Any, truth_count: Any = None) -> str:
     """The same band (a lower bound of 1 read as 2); else an exact count inside the other side's band; else two exact
-    counts within 5%; else bounds each within 1. An open band "10001+" holds any count of at least 10,001."""
+    counts within 5%; else bounds each within 1. An open band "10001+" holds any count of at least 10,001. The key's
+    exact count is `truth_count` when the set gives one (LinkedIn's member count beside its size band)."""
     t_band, p_band = _parse_band(truth), _parse_band(pred)
     if t_band is None:
         return "not_scoreable"
@@ -224,7 +238,7 @@ def grade_employee_band(truth: Any, pred: Any) -> str:
     if _lower_two(t_band) == _lower_two(p_band):
         return "correct"
     p_exact = p_band[0] if p_band[0] == p_band[1] else None
-    t_exact = t_band[0] if t_band[0] == t_band[1] else None
+    t_exact = int(truth_count) if truth_count is not None else t_band[0] if t_band[0] == t_band[1] else None
     if p_exact is not None and _in_band(p_exact, t_band, FIELDS["employee_band"]["open_band"]):
         return "correct"
     if t_exact is not None and _in_band(t_exact, p_band, True):
@@ -275,7 +289,7 @@ def grade_row(truth: dict[str, Any], pred: dict[str, Any]) -> dict[str, str]:
     return {
         "hq": grade_hq(truth.get("hq"), pred.get("hq")),
         "industry": grade_industry(truth.get("industry"), pred.get("industry"), others),
-        "employee_band": grade_employee_band(truth.get("employee_band"), pred.get("employee_band")),
+        "employee_band": grade_employee_band(truth.get("employee_band"), pred.get("employee_band"), truth.get("employee_count")),
         "founded_year": grade_founded_year(truth.get("founded_year"), pred.get("founded_year")),
         "linkedin_url": grade_linkedin_url(truth.get("linkedin_url"), pred.get("linkedin_url")),
     }

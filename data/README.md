@@ -19,5 +19,6 @@ This folder holds a 4-company public sample (`sample.jsonl`) for offline verific
 | `hq` | string | Headquarters city and country (for example, `San Francisco, United States`). |
 | `industry` | string | Ground-truth industry label. |
 | `employee_band` | string | Standardized employee count band (for example, `501-1000`). |
+| `employee_count` | integer, optional | The exact employee count beside the band, when the source gives one (LinkedIn's member count). An answer's exact count is checked against it. |
 | `founded_year` | integer | Year the company was founded. |
 | `linkedin_url` | string | Canonical company LinkedIn URL. |
