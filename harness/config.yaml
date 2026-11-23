@@ -7,15 +7,3 @@ fields:
 - linkedin_url
 boards:
 - private-282
-model:  # per setup, copied from tools/*.yaml; extraction models are not in the probe, so the lock digests them here
-  nimble-lite: gpt-5.6-terra
-  nimble-standard: gpt-5.6-terra
-  parallel-research: parallel
-effort:  # per setup, copied from tools/*.yaml
-  nimble-agents: high
-  nimble-agents-medium: medium
-  nimble-lite: medium
-  nimble-standard: medium
-  parallel-research: medium
-limits:
-  http_attempts: 3  # harness/http_client.py request default; nimble's adapter sets its own MAX_REQUEST_ATTEMPTS (7)
