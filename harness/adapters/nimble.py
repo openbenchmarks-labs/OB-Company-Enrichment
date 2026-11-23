@@ -147,6 +147,8 @@ def request_with_backoff(method: str, url: str, *, deadline: float, retries: lis
             with _RATE_LOCK:
                 wait = max(0.0, _COOLDOWN_UNTIL - time.monotonic())
             remaining = deadline - time.monotonic()
+            if remaining <= 0 and not wait and attempt == 0:
+                raise TimeoutError("Nimble agent run passed its deadline; the remote run may still be active")
             if remaining <= 0 or wait >= remaining:
                 raise BackoffExpired("Nimble request deadline exceeded during backoff")
             if not wait:

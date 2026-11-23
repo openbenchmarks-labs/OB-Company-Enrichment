@@ -1,20 +1,27 @@
 """obkit hooks: one setup's answer per company, what the setups see first, and the request each setup sends."""
 from __future__ import annotations
 
+import contextlib
 import hashlib
 import json
 import os
 import re
 import subprocess
+import threading
 from typing import Any
 from unittest import mock
 
 from . import http_client, registry
 from .adapters.nimble import EXTRACT_SYSTEM_PROMPT
 from .models import FIELDS, Company
+from .runner import _Pacer
 from .web_research import OUTPUT_SCHEMA, instruction
 
 PROBE_COMPANY = Company("example.com", "Example Inc")
+# Settings that pace requests and change no answer, so they stay out of the setup's version.
+PACING = ("max_workers", "seconds_between_requests", "domains_per_call", "domains_per_request")
+_GATES: dict[str, tuple[_Pacer, Any]] = {}
+_GATES_LOCK = threading.Lock()
 
 
 def answer(question: dict[str, Any], setup: str, *, dry: bool, tracer: Any = None) -> dict[str, Any]:
@@ -29,7 +36,7 @@ def answer(question: dict[str, Any], setup: str, *, dry: bool, tracer: Any = Non
     if dry:
         return _canned(question, setup)
     try:
-        found = registry.build(setup).lookup(company)
+        found = _lookup(registry.build(setup), company)
     except http_client.HTTPError as exc:
         return _failed(exc.status, str(exc))
     except ValueError as exc:  # the vendor's answer did not parse
@@ -83,7 +90,20 @@ def probe(setup: str) -> dict[str, Any]:
                 raise
     if not sent:
         raise RuntimeError(f"{setup} sent no request for the probe company")
+    sent["settings"] = {k: v for k, v in adapter.settings.items() if k not in PACING}
     return sent
+
+
+def _lookup(adapter: Any, company: Company) -> Any:
+    """`adapter.lookup`, keeping the setup's `max_workers` and `seconds_between_requests` across obkit's threads."""
+    with _GATES_LOCK:
+        if adapter.setup not in _GATES:
+            slots = threading.BoundedSemaphore(adapter.max_workers) if adapter.max_workers else contextlib.nullcontext()
+            _GATES[adapter.setup] = (_Pacer(adapter.seconds_between_requests), slots)
+        pacer, slots = _GATES[adapter.setup]
+    with slots:
+        pacer.wait()
+        return adapter.lookup(company)
 
 
 def _company(question: dict[str, Any]) -> Company:
@@ -104,8 +124,8 @@ def _failed(code: int | None, message: str) -> dict[str, Any]:
 
 
 def _status_code(error: str | None) -> int | None:
-    """The status in an error such as "HTTP 429: ..." or "HTTPError: HTTP 402 from ..."."""
-    match = re.search(r"\bHTTP (\d{3})\b", error or "")
+    """The status that leads an error, as in "HTTP 429: ..." or "HTTPError: HTTP 402 from ..."."""
+    match = re.match(r"(?:\w+: )?HTTP (\d{3})\b", error or "")
     return int(match.group(1)) if match else None
 
 
