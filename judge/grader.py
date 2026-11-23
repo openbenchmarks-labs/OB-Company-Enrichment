@@ -67,9 +67,23 @@ HQ_RULES = FIELDS["hq"]["metro"]["rules"]
 CITY_METROS = {_norm_text(row["name"]): set(row.get("metros") or []) for row in METROS.get("cities") or []}
 CITY_METROS.update({_norm_text(name): {code} for name, code in (HQ_RULES.get("city_metros") or {}).items()})
 CBSA = {code: row["cbsa"] for code, row in METROS["metros"].items()}
+NO_PLACE = {_norm_text(name) for name in HQ_RULES.get("key_no_place") or []}
 SAME_AREA = [tuple(pair) for pair in HQ_RULES.get("same_area") or []]
 DIFFERENT_AREA = [tuple(pair) for pair in HQ_RULES.get("different_area") or []]
 PLACE_SPLIT = re.compile(r"\s+or\s+|\s+[-–]\s+|[,/()]")
+CITY_NAMES = set(CITY_MAP.values())
+# US state names and postal codes, which vendors write between the city and the country.
+US_STATES = {_norm_text(s) for s in (
+    "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
+    "District of Columbia", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas",
+    "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri",
+    "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina",
+    "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota",
+    "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming", "AL",
+    "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME",
+    "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA",
+    "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY",
+)}
 
 
 def _city(piece: str) -> str:
@@ -101,7 +115,13 @@ def _parse_hq(raw: str | None) -> tuple[list[str], set[str]]:
     if not parts:
         return [], set()
     countries = {COUNTRY_MAP.get(_norm_text(c), _norm_text(c)) for c in re.split(r"\s+or\s+|/", parts[-1]) if c.strip()}
-    cities = [_city(p) for part in parts[:-1] for p in PLACE_SPLIT.split(part) if _norm_text(p)]
+    cities = []
+    for i, part in enumerate(parts[:-1]):
+        for piece in PLACE_SPLIT.split(part):
+            norm = _norm_text(piece)
+            # After the first part, keep only known cities: "Buffalo, New York" names the state, not New York City.
+            if norm and (i == 0 or (norm not in US_STATES and _city(piece) in CITY_NAMES)):
+                cities.append(_city(piece))
     return cities, countries
 
 
@@ -111,6 +131,8 @@ def grade_hq(truth: str | None, pred: str | None) -> str:
     if not pred:
         return "wrong"
     t_cities, t_countries = _parse_hq(truth)
+    if t_cities and set(t_cities) <= NO_PLACE:
+        return "not_scoreable"
     p_cities, p_countries = _parse_hq(pred)
     if not t_countries & p_countries:
         return "wrong"

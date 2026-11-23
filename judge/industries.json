@@ -753,11 +753,11 @@
   },
   "562": {
    "label": "Breweries",
-   "parent": null
+   "parent": "23"
   },
   "564": {
    "label": "Distilleries",
-   "parent": null
+   "parent": "23"
   },
   "598": {
    "label": "Apparel Manufacturing",
@@ -1557,7 +1557,7 @@
   },
   "2500": {
    "label": "Wineries",
-   "parent": null
+   "parent": "23"
   },
   "2934": {
    "label": "Landscaping Services",

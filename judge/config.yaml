@@ -18,13 +18,18 @@ judge:
           city_metros:
             Brooklyn: '35614'
             New York City: '35614'
+          key_no_place:
+          - bundesweit
+          same_area:
+          - ['41884', '41940']
+          - ['36084', '41940']
           different_area:
           - ['35614', '35004']
     industry:
       comparator: industry_tree
       table:
         file: judge/industries.json
-        sha256: eee1e17bb8a3a49eb3f750761469c74e84616ac43c0ff2098903437f6530fc87
+        sha256: b22b9458db4f3dd818535f380fcb9132619e606302468661735732d563cbf50a
       aliases:
         construccion: Construction
         finance: Financial Services
