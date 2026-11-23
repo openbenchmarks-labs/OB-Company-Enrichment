@@ -11,5 +11,4 @@ Open decisions:
 - The public set has 4 companies. The obkit contract asks for at least 10. Adding questions changes the public set, so it needs a decision.
 - Board unit: fields. Five per company, 20 graded fields in the public set. The README already describes per-field grading; it is not changed here.
 - A field whose ground truth cannot be scored returns None in `judge/obkit.py` and is left out of the board.
-- Industry is graded by LinkedIn's hierarchy in code. On the 5,288 saved answers it agrees with the old model judge on 88.0%; the rest are mostly labels from other taxonomies ("Business Services") that the model judge accepted. Outside the US, a suburb named instead of the key's city is wrong: there is no metro table outside the US.
 - Cost of failed calls: a vendor error row records 0 cost. Spend on those calls is not counted.

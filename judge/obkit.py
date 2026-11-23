@@ -13,5 +13,5 @@ VERDICT = {"correct": True, "wrong": False, "not_scoreable": None}
 
 
 def grade(question: dict[str, Any], answer: str) -> dict[str, bool | None]:
-    verdicts = grade_row(question, json.loads(answer))
+    verdicts = grade_row({f: question[f] for f in FIELDS}, json.loads(answer))
     return {field: VERDICT[verdicts[field]] for field in FIELDS}

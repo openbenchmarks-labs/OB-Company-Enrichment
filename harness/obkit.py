@@ -212,8 +212,6 @@ def _company(question: dict[str, Any]) -> Company:
 
 def _row(status: str, fields: dict[str, Any] | None = None, *, error: str | None = None, cost_usd: float = 0.0) -> dict[str, Any]:
     values = {f: (fields or {}).get(f) for f in FIELDS}
-    if (fields or {}).get("industries"):
-        values["industries"] = fields["industries"]  # every industry the vendor gave is graded, not only the first
     return {"status": status, "answer": json.dumps(values), "error": error, "cost_usd": cost_usd}
 
 
