@@ -34,5 +34,5 @@ The same adapters and grader also run through obkit 0.5.1 (`harness/obkit.py`, `
 - **Adding or tuning a tool:** Create or edit `tools/<tool>.yaml`. A new tool also needs `harness/adapters/<tool>.py`, and its API key in `.env.example`. Then run `selftest`.
 - **Paid runs need `--execute`:** `harness.run run` only prints the plan without it.
 - **No secrets or raw run logs in git:** Keep API keys in `.env` and run outputs in `runs/` (both gitignored).
-- **Dependencies are pinned:** list direct ones in `requirements.in`, then `uv pip compile --universal --no-header requirements.in -o requirements.txt`. obkit refuses a venv that differs from `requirements.txt`, since package versions are part of each setup's version.
+- **Dependencies are pinned:** list direct ones in `harness/requirements.in`, then `uv pip compile --universal --no-header harness/requirements.in -o requirements.txt`. obkit refuses a venv that differs from `requirements.txt`, since package versions are part of each setup's version.
 - **Consistent terminology:** Use `tool`, `setup`, `question`, `ground truth`, `board`, `main score`.
