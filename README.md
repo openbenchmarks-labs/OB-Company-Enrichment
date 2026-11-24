@@ -1,4 +1,4 @@
-# OB-Company-Enrichment-Firmographics
+# OB-Company-Enrichment (Firmographics)
 
 Open, independent benchmark of company enrichment APIs on 282 human-reviewed companies. Every tool receives the same company domain and returns five firmographic fields: headquarters, industry, employee band, founding year and LinkedIn URL. Each field is graded against verified ground truth. Tools measured: Apollo, People Data Labs, ZoomInfo, Explorium, CompanyEnrich, PredictLeads, Nimble, Parallel, Exa and Seltz.
 

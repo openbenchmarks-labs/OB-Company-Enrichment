@@ -1,4 +1,4 @@
-# AGENTS.md — OB-Company-Enrichment-Firmographics
+# AGENTS.md — OB-Company-Enrichment (Firmographics)
 
 Quick navigation guide for coding agents working in `OB-Company-Enrichment-Firmographics`.
 
