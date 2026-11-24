@@ -11,7 +11,7 @@ Published and maintained by **[OpenBenchmarks Labs](https://openbenchmarks.com)*
 Every tool receives the same company domains and is evaluated on five structured fields:
 
 - `hq`: Headquarters city and country (normalized via `judge/places.json` and US metro-area mappings in `judge/metros.json`; city names come from [GeoNames](https://www.geonames.org) under CC BY 4.0, metros from US Census Bureau data). A city those tables cannot place, such as a district outside the US, goes to the model judge in `judge/config.yaml`.
-- `industry`: Right when an answered industry is the key's own words. Otherwise a model judge (`gpt-5.6-terra`, question in `judge/config.yaml`) accepts the same industry, a synonym, a broader or narrower one, or an adjacent label for the same main business. Needs `OPENAI_API_KEY`.
+- `industry`: Right when an answered industry is the key's own words. Otherwise a model judge (`gpt-5.6-terra`, question in `judge/config.yaml`) accepts the same industry, a synonym, a broader or narrower one, or an adjacent label for the same main business. Needs Azure OpenAI or OpenAI credentials (see `.env.example`).
 - `employee_band`: Headcount range: the same band, an exact count inside it, or an open band such as `10001+` holding any larger count.
 - `founded_year`: Founding year.
 - `linkedin_url`: Canonical or verified alternate company LinkedIn URL.
@@ -50,7 +50,7 @@ uv venv && uv pip install -r requirements.txt
 .venv/bin/python -B -m harness.run selftest --tasks data/sample.jsonl
 ```
 
-Run the tools on your own companies file (one JSON object per line with `domain` and `company`). Without `--execute` this only prints the plan; with it, it calls the tools and costs money:
+Run the tools on a companies file: a Hugging Face dataset file such as `data/eval.jsonl`, or one JSON object per line with `domain` and `company`. Without `--execute` this only prints the plan; with it, it calls the tools and costs money:
 
 ```sh
 cp .env.example .env   # then add the keys for the tools you run
@@ -60,10 +60,10 @@ cp .env.example .env   # then add the keys for the tools you run
 
 Each setup's answers land in `runs/my-run/<setup>.jsonl`.
 
-Grade a local predictions file against ground truth:
+Grade a run against the same file. This prints each setup's accuracy per field and saves every verdict to `runs/my-run/graded.json` (see [`harness/README.md`](harness/README.md#what-grade-writes)). Industry, and a headquarters the place tables cannot place, go to the model judge, which needs Azure OpenAI or OpenAI credentials (see `.env.example`):
 
 ```sh
-.venv/bin/python -B -m harness.run grade --tasks data/sample.jsonl --predictions runs/preds.jsonl
+.venv/bin/python -B -m harness.run grade --tasks data/sample.jsonl --run runs/my-run
 ```
 
 List configured tools:

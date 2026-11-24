@@ -5,6 +5,7 @@ import os
 from abc import ABC, abstractmethod
 from typing import Any
 
+from . import llm
 from .models import Answer, Company
 
 
@@ -24,7 +25,8 @@ class Adapter(ABC):
         self.max_workers = int(self.settings.get("max_workers") or 0) or None
 
     def missing_env(self) -> list[str]:
-        return [name for name in self.env if not os.getenv(name)]
+        # The model key is met by OpenAI or by Azure OpenAI; see harness/llm.py.
+        return [name for name in self.env if not os.getenv(name) and not (name == "OPENAI_API_KEY" and llm.provider())]
 
     def key(self, name: str) -> str:
         value = os.getenv(name)

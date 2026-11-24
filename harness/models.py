@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import dataclasses
+from datetime import datetime, timezone
 from typing import Any
 
 # The fields `harness.run grade` scores. Every adapter fills these keys, with None for a value it did not return.
@@ -27,6 +28,8 @@ class Answer:
     cost_unit: str | None = None
     error: str | None = None
     raw: Any = None  # The vendor's responses, with API keys removed. Saved apart from the answer row.
+    queried_at: str = dataclasses.field(
+        default_factory=lambda: datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
 
     def row(self) -> dict[str, Any]:
         """The line written to `<run>/<setup>.jsonl`, which `harness.run grade` reads."""
@@ -35,5 +38,5 @@ class Answer:
         return {
             "domain": self.domain, **values, "status": self.status, "error": self.error,
             "latency_ms": self.latency_ms, "cost_units": self.cost_units, "cost_unit": self.cost_unit,
-            "setup": self.setup, **({"extra": extra} if extra else {}),
+            "queried_at": self.queried_at, "setup": self.setup, **({"extra": extra} if extra else {}),
         }
