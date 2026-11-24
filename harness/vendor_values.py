@@ -51,6 +51,8 @@ def parse_employee_range(value: Any) -> tuple[int | None, int | None]:
         number = int(value)
         return number, number
     text = str(value).replace(",", "")
+    if text.strip().lower() == "myself only":  # LinkedIn's size label for a one-person company
+        return 1, 1
     numbers = [int(v) for v in re.findall(r"\d+", text)]
     if not numbers:
         return None, None
