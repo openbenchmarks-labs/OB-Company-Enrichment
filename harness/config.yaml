@@ -1,9 +1,0 @@
-subject: tool_call
-fields:
-- hq
-- industry
-- employee_band
-- founded_year
-- linkedin_url
-boards:
-- private-282

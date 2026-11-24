@@ -1,16 +1,21 @@
-"""The question, output schema and response parsing shared by the web-research tools.
+"""Provider-neutral contract for web-research company-enrichment APIs.
 
-Exa, Parallel, Seltz and Nimble get the same company identity, the same instruction and the same output schema, so
-they stay comparable. A change to the research task belongs here, not in one adapter.
+Parallel and Exa have different transport envelopes, but receive the exact
+same identity input, instruction, and output schema. Keep product-specific
+request logic in provider adapters; changes to the research task belong here
+so web-research providers remain comparable to one another.
 """
+
 from __future__ import annotations
 
 import json
 from typing import Any
 from urllib.parse import urlparse
 
-from .company import CompanyRecord
+from harness.common import CompanyCase, NormalizedCompany
 
+
+PROMPT_VERSION = "firmographic-web-research-v1.0"
 OUTPUT_SCHEMA: dict[str, Any] = {
     "type": "object",
     "properties": {
@@ -27,18 +32,25 @@ OUTPUT_SCHEMA: dict[str, Any] = {
         "sources": {"type": "array", "items": {"type": "string"}},
     },
     "required": [
-        "legal_name", "primary_domain", "hq_country", "hq_city", "founded_year", "industry", "industries",
-        "linkedin_url", "headcount_min", "headcount_max", "sources",
+        "legal_name", "primary_domain", "hq_country", "hq_city",
+        "founded_year", "industry", "industries", "linkedin_url",
+        "headcount_min", "headcount_max", "sources",
     ],
     "additionalProperties": False,
 }
-# Exa's /search accepts at most ten schema properties. The ten scored fields fit; Exa returns citations in its own
-# grounding envelope, and the parser adds them back as `sources`.
+# Exa's current structured-output endpoint accepts at most ten properties. The
+# ten scored fields fit exactly; citations are returned separately in Exa's
+# grounding envelope and restored into the canonical schema after decoding.
 EXA_OUTPUT_SCHEMA: dict[str, Any] = {
     **OUTPUT_SCHEMA,
-    "properties": {k: v for k, v in OUTPUT_SCHEMA["properties"].items() if k != "sources"},
-    "required": [k for k in OUTPUT_SCHEMA["required"] if k != "sources"],
+    "properties": {
+        key: value for key, value in OUTPUT_SCHEMA["properties"].items() if key != "sources"
+    },
+    "required": [key for key in OUTPUT_SCHEMA["required"] if key != "sources"],
 }
+# Exa recommends concise, described schemas and handling behavioural guidance
+# through `systemPrompt`. Its `/search` endpoint accepts at most ten schema
+# properties, so citations remain in the native grounding envelope.
 EXA_V2_OUTPUT_SCHEMA: dict[str, Any] = {
     **EXA_OUTPUT_SCHEMA,
     "properties": {
@@ -58,7 +70,7 @@ SCORING_FIELDS = tuple(key for key in OUTPUT_SCHEMA["properties"] if key != "sou
 
 
 def instruction(input_name: str | None, input_domain: str) -> str:
-    """The research instruction every web-research tool gets."""
+    """The invariant research instruction for every web-research provider."""
     return f"""Research the company identified by this website: {input_domain}.
 The supplied company name is {input_name!r}. Return a company-enrichment record
 for that exact company. Do not substitute a parent, subsidiary, similarly named
@@ -71,12 +83,13 @@ sources. Return only the supplied JSON-schema object."""
 
 
 def exa_v2_query(input_name: str | None, input_domain: str) -> str:
-    """Short retrieval query. Exa reads the system prompt for how to answer."""
+    """Short retrieval query; Exa uses systemPrompt for synthesis behaviour."""
     name = input_name or input_domain
     return f'Company profile for "{name}" ({input_domain}).'
 
 
 def exa_v2_system_prompt(input_name: str | None, input_domain: str) -> str:
+    """Documented Exa system prompt for grounded company enrichment."""
     return f"""Research the exact company identified by supplied name {input_name!r}
 and website {input_domain!r}. Prefer the company website and LinkedIn company
 page, then reputable business sources. Extract every requested value that is
@@ -87,8 +100,18 @@ unsupported lists. For headcount, return a range only when supported. Never
 invent values. Return only the object required by outputSchema."""
 
 
+def request_contract(case: CompanyCase) -> dict[str, Any]:
+    """Auditable, provider-independent input record (no reference values)."""
+    return {
+        "prompt_version": PROMPT_VERSION,
+        "input": {"company_name": case.input_name, "company_domain": case.input_domain},
+        "instruction": instruction(case.input_name, case.input_domain),
+        "output_schema": OUTPUT_SCHEMA,
+    }
+
+
 def extract_response_text(body: dict[str, Any]) -> str | None:
-    """The first text item of an OpenAI-Responses-shaped body."""
+    """Read an OpenAI-Responses-shaped text response without provider guessing."""
     for item in body.get("output", []):
         if not isinstance(item, dict):
             continue
@@ -99,7 +122,7 @@ def extract_response_text(body: dict[str, Any]) -> str | None:
 
 
 def parse_structured_value(value: Any) -> dict[str, Any]:
-    """Check that a decoded answer has exactly the schema's keys and that its list fields are lists."""
+    """Validate the normalized schema object after a provider-specific decode."""
     if not isinstance(value, dict):
         raise ValueError("response JSON was not an object")
     expected = set(OUTPUT_SCHEMA["properties"])
@@ -111,7 +134,7 @@ def parse_structured_value(value: Any) -> dict[str, Any]:
 
 
 def parse_response(body: dict[str, Any]) -> dict[str, Any]:
-    """Decode the JSON text returned by Parallel Responses."""
+    """Decode the JSON-text envelope returned by Parallel Responses."""
     text = extract_response_text(body)
     if not text:
         raise ValueError("response had no output text")
@@ -123,6 +146,7 @@ def parse_response(body: dict[str, Any]) -> dict[str, Any]:
 
 
 def parse_exa_response(body: dict[str, Any]) -> dict[str, Any]:
+    """Decode Exa deep-reasoning's object envelope (as used by funding)."""
     output = body.get("output")
     content = output.get("content") if isinstance(output, dict) else None
     if not isinstance(content, dict):
@@ -138,10 +162,12 @@ def parse_exa_response(body: dict[str, Any]) -> dict[str, Any]:
 
 
 def parse_exa_v2_response(body: dict[str, Any], *, input_domain: str) -> dict[str, Any]:
-    """Exa's structured answer, with empty fields filled from the company entity Exa itself retrieved.
+    """Recover supported scalar facts from Exa's retrieved organization entity.
 
-    Exa can cite a scalar field while leaving it null in `output.content`. This only fills a null from Exa's own
-    search results; it never uses a second model or reference data.
+    Exa currently returns citations for scalar fields while serializing those
+    same fields as null in `output.content`. This only fills a null output from
+    Exa's own structured search result; it never adds a second model or uses
+    benchmark reference data.
     """
     value = parse_exa_response(body)
     results = [row for row in body.get("results", []) if isinstance(row, dict)]
@@ -149,7 +175,10 @@ def parse_exa_v2_response(body: dict[str, Any], *, input_domain: str) -> dict[st
         entity for row in results for entity in row.get("entities", []) or []
         if isinstance(entity, dict) and entity.get("type") == "company"
     ]
-    properties = next((e.get("properties") for e in entities if isinstance(e.get("properties"), dict)), {})
+    properties = next(
+        (entity.get("properties") for entity in entities if isinstance(entity.get("properties"), dict)),
+        {},
+    )
     if not isinstance(properties, dict):
         properties = {}
 
@@ -169,8 +198,9 @@ def parse_exa_v2_response(body: dict[str, Any], *, input_domain: str) -> dict[st
         set_if_missing("headcount_max", workforce["total"])
 
     target = input_domain.lower().removeprefix("www.")
-    # Only a LinkedIn result tied to the entity Exa retrieved from the company's own website counts. Search results
-    # often include other companies' LinkedIn pages.
+    # Only a LinkedIn result attached to the entity retrieved from the input
+    # website can represent this company. Search results often include other
+    # companies' LinkedIn pages as topical neighbors.
     target_entity_ids = {
         entity.get("id")
         for row in results
@@ -188,15 +218,16 @@ def parse_exa_v2_response(body: dict[str, Any], *, input_domain: str) -> dict[st
         if hostname == target:
             set_if_missing("primary_domain", target)
         linked_entity_ids = {
-            e.get("id") for e in row.get("entities", []) or [] if isinstance(e, dict) and e.get("id")
+            entity.get("id") for entity in row.get("entities", []) or []
+            if isinstance(entity, dict) and entity.get("id")
         }
         if hostname == "linkedin.com" and parsed.path.lower().startswith("/company/") and target_entity_ids & linked_entity_ids:
             set_if_missing("linkedin_url", f"https://www.linkedin.com{parsed.path.rstrip('/')}")
     return parse_structured_value(value)
 
 
-def company_record(value: dict[str, Any]) -> CompanyRecord:
-    return CompanyRecord(
+def normalized_company(value: dict[str, Any]) -> NormalizedCompany:
+    return NormalizedCompany(
         legal_name=value.get("legal_name"),
         primary_domain=value.get("primary_domain"),
         hq_country=value.get("hq_country"),

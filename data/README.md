@@ -1,24 +1,15 @@
 # data
 
-This folder holds a 4-company public sample (`sample.jsonl`) for offline verification (`selftest`) and schema reference.
+`sample.json` holds the 10 public companies from [`openbenchmarks/OB-Company-Enrichment-Firmographics`](https://huggingface.co/datasets/openbenchmarks/OB-Company-Enrichment-Firmographics). Pass another file with `--cases`.
 
-## Public vs. held-out evaluation sets
+The file is `{"cases": [...]}`. Each case has the fields of `CompanyCase` in `harness/common.py`:
 
-- **Public split:** 10 companies published on Hugging Face at [`openbenchmarks/OB-Company-Enrichment`](https://huggingface.co/datasets/openbenchmarks/OB-Company-Enrichment).
-- **Public sample (`sample.jsonl`):** 4 well-known companies (`stripe.com`, `figma.com`, `vercel.com`, `linear.app`) used to verify the CLI and grader without API keys.
-- **Held-out split (private):** The evaluation cohort used for the published leaderboard stays private so providers cannot train on it. Pass your own JSONL file with `--tasks <path>`.
+| Field | Meaning |
+|---|---|
+| `case_slug`, `company_id` | Stable id of the company. |
+| `slice` | Sampling slice. |
+| `input_name`, `input_domain` | What the providers get. |
+| `reference` | The answer key: `hq_country`, `hq_city`, `founded_year`, `industry`, `industries`, `linkedin_url`, `linkedin_url_alternates`, `headcount_min`, `headcount_max`, `headcount_exact`. A missing value is `null` and the field is not scored for that company. |
+| `source_metadata.reference_status` | `linkedin_live_ground_truth_v1`: score against `reference`. |
 
-## Files and schema
-
-- `sample.jsonl` — One JSON object per line.
-
-| Field | Type | Description |
-|---|---|---|
-| `domain` | string | Canonical company domain (for example, `stripe.com`). |
-| `company` | string | Company name. |
-| `hq` | string | Headquarters city and country (for example, `San Francisco, United States`). |
-| `industry` | string | Ground-truth industry label. |
-| `employee_band` | string | Standardized employee count band (for example, `501-1000`). |
-| `employee_count` | integer, optional | The exact employee count beside the band, when the source gives one (LinkedIn's member count). An answer's exact count is checked against it. |
-| `founded_year` | integer | Year the company was founded. |
-| `linkedin_url` | string | Canonical company LinkedIn URL. |
+`identity-redirects.json` lists audited domain and LinkedIn redirects and inactive input domains. It is empty for the public companies.
