@@ -1,7 +1,0 @@
-name: OB-Company-Enrichment
-order:
-  serves: Buyers choosing a company-data tool or research API who need each company's headquarters, industry, employee band, founding year, and LinkedIn URL.
-  win: More of the five company fields match ground truth, across more companies, than the other setups.
-  budget_usd: 0
-  refresh_days: 30
-  not_measured_max: 0.1

@@ -1,0 +1,295 @@
+{
+  "source": "https://huggingface.co/datasets/openbenchmarks/OB-Company-Enrichment-Firmographics",
+  "cases": [
+    {
+      "case_slug": "public-long-tail-waterstreet-com",
+      "company_id": "public-long-tail-waterstreet-com",
+      "slice": "public",
+      "input_name": "Water Street Healthcare Partners",
+      "input_domain": "waterstreet.com",
+      "reference": {
+        "legal_name": null,
+        "primary_domain": null,
+        "alternate_primary_domains": [],
+        "hq_country": "United States",
+        "hq_city": "Chicago",
+        "founded_year": 2005,
+        "industry": "investment management",
+        "industries": [
+          "investment management",
+          "venture capital & private equity"
+        ],
+        "linkedin_url": "https://www.linkedin.com/company/water-street-healthcare-partners-llc",
+        "linkedin_url_alternates": [],
+        "headcount_min": 51,
+        "headcount_max": 200,
+        "headcount_exact": 79,
+        "funding_stage": null
+      },
+      "source_metadata": {
+        "reference_status": "linkedin_live_ground_truth_v1"
+      }
+    },
+    {
+      "case_slug": "public-long-tail-integrateitsupport-com",
+      "company_id": "public-long-tail-integrateitsupport-com",
+      "slice": "public",
+      "input_name": "Integrate IT Support",
+      "input_domain": "integrateitsupport.com",
+      "reference": {
+        "legal_name": null,
+        "primary_domain": null,
+        "alternate_primary_domains": [],
+        "hq_country": "United States",
+        "hq_city": "Artesia",
+        "founded_year": 2019,
+        "industry": "information technology & services",
+        "industries": [
+          "information technology & services"
+        ],
+        "linkedin_url": "https://www.linkedin.com/company/integrate-it-support",
+        "linkedin_url_alternates": [],
+        "headcount_min": 11,
+        "headcount_max": 50,
+        "headcount_exact": 18,
+        "funding_stage": null
+      },
+      "source_metadata": {
+        "reference_status": "linkedin_live_ground_truth_v1"
+      }
+    },
+    {
+      "case_slug": "public-long-tail-doublestardrilling-ca",
+      "company_id": "public-long-tail-doublestardrilling-ca",
+      "slice": "public",
+      "input_name": "Double Star Drilling 2021 Ltd.",
+      "input_domain": "doublestardrilling.ca",
+      "reference": {
+        "legal_name": null,
+        "primary_domain": null,
+        "alternate_primary_domains": [],
+        "hq_country": "Canada",
+        "hq_city": "Acheson",
+        "founded_year": 1986,
+        "industry": "construction",
+        "industries": [
+          "construction",
+          "civil engineering"
+        ],
+        "linkedin_url": "https://www.linkedin.com/company/doublestar-drilling-2021-ltd",
+        "linkedin_url_alternates": [],
+        "headcount_min": 11,
+        "headcount_max": 50,
+        "headcount_exact": 41,
+        "funding_stage": null
+      },
+      "source_metadata": {
+        "reference_status": "linkedin_live_ground_truth_v1"
+      }
+    },
+    {
+      "case_slug": "public-long-tail-lo-se",
+      "company_id": "public-long-tail-lo-se",
+      "slice": "public",
+      "input_name": "LANDSORGANISATIONEN I SVERIGE",
+      "input_domain": "lo.se",
+      "reference": {
+        "legal_name": null,
+        "primary_domain": null,
+        "alternate_primary_domains": [],
+        "hq_country": "Sweden",
+        "hq_city": "Stockholm",
+        "founded_year": 1898,
+        "industry": "civic & social organization",
+        "industries": [
+          "civic & social organization"
+        ],
+        "linkedin_url": "https://www.linkedin.com/company/lo-sverige",
+        "linkedin_url_alternates": [],
+        "headcount_min": 51,
+        "headcount_max": 200,
+        "headcount_exact": 103,
+        "funding_stage": null
+      },
+      "source_metadata": {
+        "reference_status": "linkedin_live_ground_truth_v1"
+      }
+    },
+    {
+      "case_slug": "public-long-tail-thecountdowncompany-ch",
+      "company_id": "public-long-tail-thecountdowncompany-ch",
+      "slice": "public",
+      "input_name": "The Countdown Company",
+      "input_domain": "thecountdowncompany.ch",
+      "reference": {
+        "legal_name": null,
+        "primary_domain": null,
+        "alternate_primary_domains": [],
+        "hq_country": "Switzerland",
+        "hq_city": "Orbe",
+        "founded_year": 2020,
+        "industry": "machinery",
+        "industries": [
+          "machinery",
+          "aviation & aerospace",
+          "mechanical or industrial engineering"
+        ],
+        "linkedin_url": "https://www.linkedin.com/company/thecountdowncompany",
+        "linkedin_url_alternates": [],
+        "headcount_min": 11,
+        "headcount_max": 50,
+        "headcount_exact": 14,
+        "funding_stage": null
+      },
+      "source_metadata": {
+        "reference_status": "linkedin_live_ground_truth_v1"
+      }
+    },
+    {
+      "case_slug": "public-long-tail-balmondstudio-com",
+      "company_id": "public-long-tail-balmondstudio-com",
+      "slice": "public",
+      "input_name": "Balmond Studio",
+      "input_domain": "balmondstudio.com",
+      "reference": {
+        "legal_name": null,
+        "primary_domain": null,
+        "alternate_primary_domains": [],
+        "hq_country": "United Kingdom",
+        "hq_city": "London",
+        "founded_year": 2010,
+        "industry": "design",
+        "industries": [
+          "design",
+          "architecture & planning"
+        ],
+        "linkedin_url": "https://www.linkedin.com/company/balmond-studio",
+        "linkedin_url_alternates": [],
+        "headcount_min": 51,
+        "headcount_max": 200,
+        "headcount_exact": 54,
+        "funding_stage": null
+      },
+      "source_metadata": {
+        "reference_status": "linkedin_live_ground_truth_v1"
+      }
+    },
+    {
+      "case_slug": "public-long-tail-lifexmd-com",
+      "company_id": "public-long-tail-lifexmd-com",
+      "slice": "public",
+      "input_name": "LifeXMD, LLC",
+      "input_domain": "lifexmd.com",
+      "reference": {
+        "legal_name": null,
+        "primary_domain": null,
+        "alternate_primary_domains": [],
+        "hq_country": "United States",
+        "hq_city": "Jupiter",
+        "founded_year": 2012,
+        "industry": "health, wellness & fitness",
+        "industries": [
+          "health, wellness & fitness",
+          "medical practice",
+          "mental health care",
+          "hospital & health care"
+        ],
+        "linkedin_url": "https://www.linkedin.com/company/lifexmd",
+        "linkedin_url_alternates": [],
+        "headcount_min": 11,
+        "headcount_max": 50,
+        "headcount_exact": 11,
+        "funding_stage": null
+      },
+      "source_metadata": {
+        "reference_status": "linkedin_live_ground_truth_v1"
+      }
+    },
+    {
+      "case_slug": "public-rebranded-or-domain-changed-informedmomentum-com",
+      "company_id": "public-rebranded-or-domain-changed-informedmomentum-com",
+      "slice": "public",
+      "input_name": "The Informed Momentum Company",
+      "input_domain": "informedmomentum.com",
+      "reference": {
+        "legal_name": null,
+        "primary_domain": null,
+        "alternate_primary_domains": [],
+        "hq_country": "United States",
+        "hq_city": "Solana Beach",
+        "founded_year": 2007,
+        "industry": "investment management",
+        "industries": [
+          "investment management"
+        ],
+        "linkedin_url": "https://www.linkedin.com/company/informed-momentum-company",
+        "linkedin_url_alternates": [],
+        "headcount_min": 11,
+        "headcount_max": 50,
+        "headcount_exact": 21,
+        "funding_stage": null
+      },
+      "source_metadata": {
+        "reference_status": "linkedin_live_ground_truth_v1"
+      }
+    },
+    {
+      "case_slug": "public-rebranded-or-domain-changed-backstory-ai",
+      "company_id": "public-rebranded-or-domain-changed-backstory-ai",
+      "slice": "public",
+      "input_name": "Backstory",
+      "input_domain": "backstory.ai",
+      "reference": {
+        "legal_name": null,
+        "primary_domain": null,
+        "alternate_primary_domains": [],
+        "hq_country": "United States",
+        "hq_city": "San Francisco",
+        "founded_year": 2016,
+        "industry": "information technology & services",
+        "industries": [
+          "information technology & services",
+          "computer software"
+        ],
+        "linkedin_url": "https://www.linkedin.com/company/people.ai",
+        "linkedin_url_alternates": [],
+        "headcount_min": 51,
+        "headcount_max": 200,
+        "headcount_exact": 114,
+        "funding_stage": null
+      },
+      "source_metadata": {
+        "reference_status": "linkedin_live_ground_truth_v1"
+      }
+    },
+    {
+      "case_slug": "public-rebranded-or-domain-changed-clerk-ai",
+      "company_id": "public-rebranded-or-domain-changed-clerk-ai",
+      "slice": "public",
+      "input_name": "Clerk AI",
+      "input_domain": "clerk.ai",
+      "reference": {
+        "legal_name": null,
+        "primary_domain": null,
+        "alternate_primary_domains": [],
+        "hq_country": "United States",
+        "hq_city": "San Francisco",
+        "founded_year": 2016,
+        "industry": "information technology & services",
+        "industries": [
+          "information technology & services",
+          "computer software"
+        ],
+        "linkedin_url": "https://www.linkedin.com/company/clerk-ai",
+        "linkedin_url_alternates": [],
+        "headcount_min": 11,
+        "headcount_max": 50,
+        "headcount_exact": 48,
+        "funding_stage": null
+      },
+      "source_metadata": {
+        "reference_status": "linkedin_live_ground_truth_v1"
+      }
+    }
+  ]
+}
