@@ -1,0 +1,18 @@
+tool: coresignal
+name: Coresignal
+env:
+- CORESIGNAL_API_KEY
+setups:
+  coresignal:
+    class: main
+    endpoint: GET https://api.coresignal.com/cdapi/v2/company_multi_source/enrich
+    settings:
+      params:
+        website: <domain>
+        bundle: core_company_data
+      max_workers: 1
+    pricing:
+      usd: 0.007
+      unit: credit
+      source: https://coresignal.com/pricing/
+      note: A core company record costs 10 credits; only successful requests are charged. $0.007 per credit is the Growth plan (150,000 credits a month); the price per credit changes with plan size.
