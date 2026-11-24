@@ -16,10 +16,12 @@ Published and maintained by **[OpenBenchmarks Labs](https://openbenchmarks.com)*
 
 | Kind | Providers | Code |
 |---|---|---|
-| Data APIs | `apollo`, `company-enrich`, `explorium`, `fiber`, `ocean`, `people-data-labs`, `predictleads` | `harness/run_data_apis.py` |
+| Data APIs | `apollo`, `company-enrich`, `coresignal`, `explorium`, `fiber`, `ocean`, `people-data-labs`, `predictleads` | `harness/run_data_apis.py` |
 | Research APIs | `parallel-research`, `exa-research`, `exa-research-v2` | `harness/run_research.py`, `harness/web_research.py` |
 | Answer, search and agent APIs | `seltz-companies`, `seltz-news`, `nimble-lite`, `nimble-standard`, `nimble-agents`, `company-enrich-v2` | `harness/run_extension.py` |
 | Batch CLI | `zoominfo` | `harness/run_zoominfo.py` |
+
+`coresignal` is not in main-bench. It comes from this repo's earlier code (PR #10) with its request and normalization unchanged.
 
 One adapter per provider lives in `harness/providers/`.
 

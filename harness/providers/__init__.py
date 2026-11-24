@@ -1,6 +1,7 @@
 from . import (
     apollo,
     company_enrich,
+    coresignal,
     explorium,
     fiber,
     ocean_enrichment,
@@ -17,4 +18,5 @@ REGISTRY = {
     people_data_labs.VENDOR_SLUG: people_data_labs,
     ocean_enrichment.VENDOR_SLUG: ocean_enrichment,
     company_enrich.VENDOR_SLUG: company_enrich,
+    coresignal.VENDOR_SLUG: coresignal,
 }
