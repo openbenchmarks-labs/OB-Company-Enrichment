@@ -14,31 +14,38 @@ judge:
         table:
           file: judge/metros.json
           sha256: a04feddf65f7ece5f152c67f59a2f4eac744a51ea29ff00e0916ebf7b056660b
+        rules:
+          city_metros:
+            Brooklyn: '35614'
+            New York City: '35614'
+          key_no_place:
+          - bundesweit
+          same_area:
+          - ['41884', '41940']
+          - ['36084', '41940']
+          different_area:
+          - ['35614', '35004']
       model:
-        question: "You are an independent benchmark judge. Use only the supplied reference and provider\
-          \ values; do not add outside knowledge. Return one verdict for every case, mark a missing provider\
-          \ value not_returned/false, and give a short value-specific rationale.\n\nCompare only reference\
-          \ country/city components supplied. Country names and ISO country codes match; explicitly treat\
-          \ England, the United Kingdom, UK, and GB as equivalent for this benchmark. Accept conventional\
-          \ city aliases, accents, transliterations, and a specific locality when it lies within the broader\
-          \ reference city/metro. If both reference country and city exist, both must match after these\
-          \ equivalences.\n\nGrading principle, which decides every case the rules above leave open: an\
-          \ answer is correct when a buyer of this data (a sales team assigning the company to a territory)\
-          \ would act the same as with the reference location, and wrong when they would act differently.\
-          \ Use your knowledge of geography only to tell whether two places lie in the same metropolitan\
-          \ area.\n- Same metropolitan area is correct in either direction, a suburb for its core city or\
-          \ the core city for its suburb.\n- A different metropolitan area is wrong, even when it is nearby\
-          \ or in the same state."
+        name: gpt-5.6-terra
+        effort: medium
+        question: |-
+          You are an independent benchmark judge. Use only the supplied reference and provider values; do not add outside knowledge. Return one verdict for every case, mark a missing provider value not_returned/false, and give a short value-specific rationale.
+
+          Compare only reference country/city components supplied. Country names and ISO country codes match; explicitly treat England, the United Kingdom, UK, and GB as equivalent for this benchmark. Accept conventional city aliases, accents, transliterations, and a specific locality when it lies within the broader reference city/metro (for example Dafni–Ymittos/Attica and Athens). Explicitly treat New Delhi and Gurgaon as equivalent National Capital Region locations. If both reference country and city exist, both must match after these equivalences.
+
+          Owner's grading principle, which decides every case the rules above leave open: an answer is correct when a buyer of this data (a sales team assigning the company to a territory) would act the same as with the reference location, and wrong when they would act differently. Use your knowledge of geography only to tell whether two places lie in the same metropolitan area.
+          - Same metropolitan area is correct in either direction, a suburb for its core city or the core city for its suburb: reference Bellevue, provider Seattle; reference Washington, provider Reston; reference Burlingame, provider San Francisco.
+          - A different metropolitan area is wrong, even when it is nearby or in the same state: reference Stony Brook, provider New York City.
+          - A reference city that names no place (bundesweit, nationwide) gives nothing to act on: such records are not scored and are not sent to you.
     industry:
       comparator: model
-      question: 'You are an independent benchmark judge. Use only the supplied reference and provider
-        values; do not add outside knowledge. Return one verdict for every case, mark a missing provider
-        value not_returned/false, and give a short value-specific rationale.
+      model:
+        name: gpt-5.6-terra
+        effort: medium
+        question: |-
+          You are an independent benchmark judge. Use only the supplied reference and provider values; do not add outside knowledge. Return one verdict for every case, mark a missing provider value not_returned/false, and give a short value-specific rationale.
 
-
-        Match if any provider industry is the same, a synonym, a broader category containing the reference,
-        a narrower specialization within it, or an adjacent taxonomy label that still describes the same
-        primary business. Reject materially different sectors or contradictory specific subsectors.'
+          Match if any provider industry is the same, a synonym, a broader category containing the reference, a narrower specialization within it, or an adjacent taxonomy label that still describes the same primary business. Reject materially different sectors or contradictory specific subsectors. Do not treat a broad industrial/manufacturing label as equivalent to a specialized research category merely because both are technical or industrial.
     employee_band:
       comparator: employee_band
       open_band: true

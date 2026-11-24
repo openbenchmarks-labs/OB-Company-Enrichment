@@ -10,9 +10,9 @@ Published and maintained by **[OpenBenchmarks Labs](https://openbenchmarks.com)*
 
 Every tool receives the same company domains and is evaluated on five structured fields:
 
-- `hq`: Headquarters city and country (normalized via `judge/places.json` and US metro-area mappings in `judge/metros.json`; city names come from [GeoNames](https://www.geonames.org) under CC BY 4.0, metros from US Census Bureau data).
-- `industry`: Normalized industry classification.
-- `employee_band`: Standardized headcount range.
+- `hq`: Headquarters city and country (normalized via `judge/places.json` and US metro-area mappings in `judge/metros.json`; city names come from [GeoNames](https://www.geonames.org) under CC BY 4.0, metros from US Census Bureau data). A city those tables cannot place, such as a district outside the US, goes to the model judge in `judge/config.yaml`.
+- `industry`: Right when an answered industry is the key's own words. Otherwise a model judge (`gpt-5.6-terra`, question in `judge/config.yaml`) accepts the same industry, a synonym, a broader or narrower one, or an adjacent label for the same main business. Needs `OPENAI_API_KEY`.
+- `employee_band`: Headcount range: the same band, an exact count inside it, or an open band such as `10001+` holding any larger count.
 - `founded_year`: Founding year.
 - `linkedin_url`: Canonical or verified alternate company LinkedIn URL.
 
