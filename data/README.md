@@ -4,7 +4,7 @@ This folder holds a 4-company public sample (`sample.jsonl`) for offline verific
 
 ## Public vs. held-out evaluation sets
 
-- **Public split:** 10 companies published on Hugging Face at [`openbenchmarks/OB-Company-Enrichment`](https://huggingface.co/datasets/openbenchmarks/OB-Company-Enrichment).
+- **Public split:** 10 companies published on Hugging Face at [`openbenchmarks/OB-Company-Enrichment-Firmographics`](https://huggingface.co/datasets/openbenchmarks/OB-Company-Enrichment-Firmographics).
 - **Public sample (`sample.jsonl`):** 4 well-known companies (`stripe.com`, `figma.com`, `vercel.com`, `linear.app`) used to verify the CLI and grader without API keys.
 - **Held-out split (private):** The evaluation cohort used for the published leaderboard stays private so providers cannot train on it. Pass your own JSONL file with `--tasks <path>`.
 

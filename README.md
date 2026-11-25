@@ -1,8 +1,8 @@
-# OB-Company-Enrichment
+# OB-Company-Enrichment (Firmographics)
 
 Open, independent benchmark of company enrichment APIs on 282 human-reviewed companies. Every tool receives the same company domain and returns five firmographic fields: headquarters, industry, employee band, founding year and LinkedIn URL. Each field is graded against verified ground truth. Tools measured: Apollo, People Data Labs, ZoomInfo, Explorium, CompanyEnrich, PredictLeads, Nimble, Parallel, Exa and Seltz.
 
-**Live leaderboard:** [openbenchmarks.com/company-enrichment](https://openbenchmarks.com/company-enrichment) · **Public dataset:** [`openbenchmarks/OB-Company-Enrichment`](https://huggingface.co/datasets/openbenchmarks/OB-Company-Enrichment)
+**Live leaderboard:** [openbenchmarks.com/company-enrichment](https://openbenchmarks.com/company-enrichment) · **Public dataset:** [`openbenchmarks/OB-Company-Enrichment-Firmographics`](https://huggingface.co/datasets/openbenchmarks/OB-Company-Enrichment-Firmographics)
 
 Published and maintained by **[OpenBenchmarks Labs](https://openbenchmarks.com)**.
 
@@ -26,7 +26,7 @@ Every tool receives the same company domains and is evaluated on five structured
 
 ## Dataset
 
-- **Public split:** 10 companies published on Hugging Face at [`openbenchmarks/OB-Company-Enrichment`](https://huggingface.co/datasets/openbenchmarks/OB-Company-Enrichment).
+- **Public split:** 10 companies published on Hugging Face at [`openbenchmarks/OB-Company-Enrichment-Firmographics`](https://huggingface.co/datasets/openbenchmarks/OB-Company-Enrichment-Firmographics).
 - **Public sample:** 4 example companies are committed in [`data/sample.jsonl`](data/sample.jsonl) for offline verification (`selftest`) and schema reference.
 - **Held-out split:** The full evaluation cohort used for the published leaderboard (spanning stable-large companies, long-tail companies, subsidiaries, and verified rebrands) is kept private so vendors cannot train on it.
 
@@ -82,12 +82,12 @@ List configured tools:
 
 - [Live leaderboard](https://openbenchmarks.com/company-enrichment)
 - [JSON API](https://openbenchmarks.com/api/benchmarks/company-enrichment)
-- [Hugging Face dataset](https://huggingface.co/datasets/openbenchmarks/OB-Company-Enrichment)
+- [Hugging Face dataset](https://huggingface.co/datasets/openbenchmarks/OB-Company-Enrichment-Firmographics)
 - [`llms.txt`](https://openbenchmarks.com/llms.txt)
 
 ## Related benchmarks
 
-- [OB-Company-Funding](https://github.com/openbenchmarks-labs/OB-Company-Funding): Latest funding round accuracy and freshness ([leaderboard](https://openbenchmarks.com/company-funding))
+- [OB-Company-Enrichment-Funding](https://github.com/openbenchmarks-labs/OB-Company-Enrichment-Funding): Latest funding round accuracy and freshness ([leaderboard](https://openbenchmarks.com/company-funding))
 - [OB-Company-Search-Lookalikes](https://github.com/openbenchmarks-labs/OB-Company-Search-Lookalikes): Company lookalike discovery ([leaderboard](https://openbenchmarks.com/lookalikes))
 - [OB-Company-Search-Multi-Turn](https://github.com/openbenchmarks-labs/OB-Company-Search-Multi-Turn): Multi-hop company research agents ([leaderboard](https://openbenchmarks.com/multi-turn-company-search))
 - [All OpenBenchmarks leaderboards](https://openbenchmarks.com)

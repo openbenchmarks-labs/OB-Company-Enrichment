@@ -1,6 +1,6 @@
-# AGENTS.md — OB-Company-Enrichment
+# AGENTS.md — OB-Company-Enrichment (Firmographics)
 
-Quick navigation guide for coding agents working in `OB-Company-Enrichment`.
+Quick navigation guide for coding agents working in `OB-Company-Enrichment-Firmographics`.
 
 ## Structure (Zero Overlap)
 
