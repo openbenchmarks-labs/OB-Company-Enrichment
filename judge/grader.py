@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import math
 import re
+import time
 import unicodedata
 from pathlib import Path
 from typing import Any
@@ -164,6 +165,12 @@ def _industry_norm(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", text.lower().replace("&", " and ")).strip()
 
 
+class Verdict(str):
+    """A verdict: "correct", "wrong" or "not_scoreable". `rationale` is the model judge's reason when the model decided."""
+
+    rationale: str | None = None
+
+
 VERDICT = {
     "type": "object",
     "properties": {"match": {"type": "boolean"}, "rationale": {"type": "string"}},
@@ -172,20 +179,30 @@ VERDICT = {
 }
 
 
-def _model_grade(field: str, reference: Any, provider: Any) -> str:
-    """The verdict of the field's model judge in config.yaml, for cases the code above cannot settle."""
+def _model_grade(field: str, reference: Any, provider: Any) -> Verdict:
+    """The verdict of the field's model judge in config.yaml, for cases the code above cannot settle. A failed call is
+    tried twice more before the error is raised."""
     from harness import llm
 
     judge = FIELDS[field]["model"]
-    verdict, _ = llm.extract(
-        system_prompt=judge["question"],
-        user_content=json.dumps({"reference": reference, "provider": provider}, ensure_ascii=False),
-        schema=VERDICT,
-        schema_name=f"{field}_verdict",
-        model=judge["name"],
-        reasoning_effort=judge["effort"],
-    )
-    return "correct" if verdict["match"] else "wrong"
+    for attempt in range(3):
+        try:
+            answer, _ = llm.extract(
+                system_prompt=judge["question"],
+                user_content=json.dumps({"reference": reference, "provider": provider}, ensure_ascii=False),
+                schema=VERDICT,
+                schema_name=f"{field}_verdict",
+                model=judge["name"],
+                reasoning_effort=judge["effort"],
+            )
+            break
+        except Exception:
+            if attempt == 2:
+                raise
+            time.sleep(2 ** (attempt + 1))
+    verdict = Verdict("correct" if answer["match"] else "wrong")
+    verdict.rationale = answer["rationale"]
+    return verdict
 
 
 def grade_industry(truth: str | None, pred: str | None, others: list[str] | None = None) -> str:
@@ -275,14 +292,15 @@ def _linkedin_slug(raw: str | None) -> str:
     return parts[-1] if parts else ""
 
 
-def grade_linkedin_url(truth: str | None, pred: str | None) -> str:
+def grade_linkedin_url(truth: str | None, pred: str | None, alternates: list[str] | None = None) -> str:
+    """Right when the answer's page is the key's page or one of the key's accepted alternate pages."""
     t_slug = _linkedin_slug(truth)
     if not t_slug:
         return "not_scoreable"
     p_slug = _linkedin_slug(pred)
     if not p_slug:
         return "wrong"
-    return "correct" if t_slug == p_slug else "wrong"
+    return "correct" if p_slug in {t_slug, *(_linkedin_slug(a) for a in alternates or [])} else "wrong"
 
 
 def grade_row(truth: dict[str, Any], pred: dict[str, Any]) -> dict[str, str]:
@@ -292,7 +310,8 @@ def grade_row(truth: dict[str, Any], pred: dict[str, Any]) -> dict[str, str]:
         "industry": grade_industry(truth.get("industry"), pred.get("industry"), others),
         "employee_band": grade_employee_band(truth.get("employee_band"), pred.get("employee_band"), truth.get("employee_count")),
         "founded_year": grade_founded_year(truth.get("founded_year"), pred.get("founded_year")),
-        "linkedin_url": grade_linkedin_url(truth.get("linkedin_url"), pred.get("linkedin_url")),
+        "linkedin_url": grade_linkedin_url(truth.get("linkedin_url"), pred.get("linkedin_url"),
+                                           truth.get("linkedin_url_alternates")),
     }
 
 

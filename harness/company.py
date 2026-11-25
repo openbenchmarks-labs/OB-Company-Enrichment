@@ -96,6 +96,8 @@ class CompanyRecord:
             "linkedin_url": self.linkedin_url,
             "legal_name": self.legal_name,
             "primary_domain": self.primary_domain,
+            "hq_city": self.hq_city,
+            "hq_country": self.hq_country,
             "domains": self.domains,
             "aliases": self.aliases,
             "industries": self.industries,

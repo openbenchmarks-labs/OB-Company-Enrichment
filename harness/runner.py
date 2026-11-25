@@ -8,18 +8,45 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any
 
+from .company import employee_band
 from .http_client import redact
 from .models import Answer, Company
 from .tool_base import Adapter
 
 
+def load_rows(path: Path) -> list[dict[str, Any]]:
+    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+
+
+def company_of(row: dict[str, Any]) -> Company:
+    """A task row is either a Hugging Face dataset row (`input_domain`, `input_name`) or a flat row (`domain`, `company`)."""
+    domain = row.get("input_domain") or row["domain"]
+    return Company(domain=str(domain).strip().lower(), name=row.get("input_name") or row.get("company"))
+
+
+def truth_of(row: dict[str, Any]) -> dict[str, Any]:
+    """The ground truth in the fields `judge/grader.py` reads. A flat row has them already; a dataset row keeps the
+    headquarters and the employee band in parts, and some rows give the alternate LinkedIn pages as one comma-separated
+    string."""
+    if "input_domain" not in row:
+        return row
+    alternates = row.get("linkedin_url_alternates") or []
+    if isinstance(alternates, str):
+        alternates = [url.strip() for url in alternates.split(",") if url.strip()]
+    return {
+        "domain": company_of(row).domain,
+        "hq": ", ".join(str(v).strip() for v in (row.get("hq_city"), row.get("hq_country")) if v) or None,
+        "industry": row.get("industry"),
+        "employee_band": employee_band(row.get("headcount_min"), row.get("headcount_max")),
+        "employee_count": row.get("headcount_exact"),
+        "founded_year": row.get("founded_year"),
+        "linkedin_url": row.get("linkedin_url"),
+        "linkedin_url_alternates": alternates,
+    }
+
+
 def load_companies(path: Path) -> list[Company]:
-    companies = []
-    for line in path.read_text(encoding="utf-8").splitlines():
-        if line.strip():
-            row = json.loads(line)
-            companies.append(Company(domain=str(row["domain"]).strip().lower(), name=row.get("company")))
-    return companies
+    return [company_of(row) for row in load_rows(path)]
 
 
 def answers_path(out: Path, setup: str) -> Path:
