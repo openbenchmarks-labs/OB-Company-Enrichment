@@ -26,9 +26,13 @@ def company_of(row: dict[str, Any]) -> Company:
 
 def truth_of(row: dict[str, Any]) -> dict[str, Any]:
     """The ground truth in the fields `judge/grader.py` reads. A flat row has them already; a dataset row keeps the
-    headquarters and the employee band in parts."""
+    headquarters and the employee band in parts, and some rows give the alternate LinkedIn pages as one comma-separated
+    string."""
     if "input_domain" not in row:
         return row
+    alternates = row.get("linkedin_url_alternates") or []
+    if isinstance(alternates, str):
+        alternates = [url.strip() for url in alternates.split(",") if url.strip()]
     return {
         "domain": company_of(row).domain,
         "hq": ", ".join(str(v).strip() for v in (row.get("hq_city"), row.get("hq_country")) if v) or None,
@@ -37,7 +41,7 @@ def truth_of(row: dict[str, Any]) -> dict[str, Any]:
         "employee_count": row.get("headcount_exact"),
         "founded_year": row.get("founded_year"),
         "linkedin_url": row.get("linkedin_url"),
-        "linkedin_url_alternates": row.get("linkedin_url_alternates") or [],
+        "linkedin_url_alternates": alternates,
     }
 
 

@@ -102,15 +102,13 @@ def cmd_grade(tasks_path: Path, run_dir: Path, setup_names: list[str] | None, wo
     specs = registry.setups()
     jobs = []
     for setup in setups:
-        # A resumed run appends; the last answer for a company is the one that counts. An error is not an answer:
-        # `run` asks again for it, so it is not graded.
+        # A resumed run appends; the last answer for a company is the one that counts. A company with no answer or an
+        # error is graded wrong, as on the board; `run` asks again for it.
         answers = {a["domain"]: a for a in runner.load_rows(runner.answers_path(run_dir, setup))}
-        answers = {domain: a for domain, a in answers.items() if a.get("status") != "error"}
-        missing = [company.domain for _, company, _ in tasks if company.domain not in answers]
+        missing = [company.domain for _, company, _ in tasks if answers.get(company.domain, {}).get("status") in (None, "error")]
         if missing:
-            print(f"{setup}: no answer for {len(missing)} of {len(tasks)} companies (missing or error); run it again to fill them")
-        jobs += [(setup, row, company, truth, answers[company.domain]) for row, company, truth in tasks
-                 if company.domain in answers]
+            print(f"{setup}: no answer for {len(missing)} of {len(tasks)} companies (missing or error), graded wrong; run it again to fill them")
+        jobs += [(setup, row, company, truth, answers.get(company.domain, {})) for row, company, truth in tasks]
 
     def grade(job: tuple) -> dict[str, Any]:
         setup, row, company, truth, answer = job
