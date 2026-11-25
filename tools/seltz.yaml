@@ -16,3 +16,21 @@ setups:
       unit: request
       source: https://docs.seltz.ai/changelog/2026-07-answer-pro
       note: Answer, Base tier, $6 per 1,000. The request names no tier, and an unset tier runs Base.
+  seltz-search-web:
+    class: main
+    endpoint: POST https://api.seltz.ai/v1/search
+    env:
+    - SELTZ_API_KEY
+    - OPENAI_API_KEY
+    settings:
+      scope: web
+      max_results: 10
+      extractor:
+        model: gpt-5.6-terra
+        reasoning_effort: medium
+      max_workers: 6
+    pricing:
+      usd: 0.005
+      unit: request
+      source: https://docs.seltz.ai/pricing
+      note: Search, $5 per 1,000 requests. A company profile is read as Seltz returns it; when no profile names the company's website, extraction-model tokens are billed on top.
