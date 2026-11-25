@@ -41,4 +41,4 @@ runs/<run>/
   - `reference_correct_<field>`: 1 or 0 for each field the ground truth has, with `judge_method` (`code` or `model`) and the model judge's `rationale`.
   - `reference_accuracy_when_present_pct` and `correct_field_yield_pct`: correct fields over fields returned, and over fields in the ground truth.
 
-Field names in `graded.json` are `hq_location`, `industry`, `headcount_band`, `founded_year` and `linkedin_url`. A company with no answer in a setup's file, or only an error, is left out and counted in the output; run the setup again to fill it.
+Field names in `graded.json` are `hq_location`, `industry`, `headcount_band`, `founded_year` and `linkedin_url`. A company with no answer in a setup's file, or only an error, is graded wrong on every field it has ground truth for, as on the board; `grade` prints how many, and `run` asks again for them.
