@@ -1,0 +1,15 @@
+tool: cufinder
+name: CUFinder
+env:
+- CUFINDER_API_KEY
+setups:
+  cufinder:
+    class: main
+    endpoint: POST https://api.cufinder.io/v3/companies/enrich
+    settings:
+      body:
+        query: <domain>
+      max_workers: 1
+    pricing:
+      usd: null
+      unit: credit
