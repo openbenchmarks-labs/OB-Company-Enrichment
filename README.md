@@ -14,9 +14,9 @@ Every tool receives the same company domains and is evaluated on five structured
 - `industry`: Right when an answered industry is the key's own words. Otherwise a model judge (`gpt-5.6-terra`, question in `judge/config.yaml`) accepts the same industry, a synonym, a broader or narrower one, or an adjacent label for the same main business. Needs `OPENAI_API_KEY`.
 - `employee_band`: Headcount range: the same band, an exact count inside it, or an open band such as `10001+` holding any larger count.
 - `founded_year`: Founding year.
-- `linkedin_url`: Canonical or verified alternate company LinkedIn URL.
+- `linkedin_url`: The company's LinkedIn page, matched by its page name (the part after `/company/`).
 
-`judge/grader.py` scores each field deterministically against ground truth and computes per-field accuracy and 95% confidence intervals across all evaluated companies.
+`judge/grader.py` grades each field against ground truth: code decides the founding year, the LinkedIn page, the employee band and most headquarters, and the model judge decides the industry when the words differ and the headquarters the tables cannot place. It computes per-field accuracy and 95% confidence intervals across all evaluated companies.
 
 ## Tools evaluated
 
@@ -37,7 +37,7 @@ See [`data/README.md`](data/README.md) for the file schema.
 - [`data/`](data/README.md): Input schema documentation and 4-row public sample (`sample.jsonl`) for offline checks.
 - [`harness/`](harness/README.md): CLI runner (`selftest`, `run`, `grade`, `list-tools`) and one adapter per tool.
 - [`tools/`](tools/README.md): One `<tool>.yaml` config per enrichment provider (11 tools).
-- [`judge/`](judge/README.md): Deterministic field grader, place/metro normalization tables, and confidence interval math.
+- [`judge/`](judge/README.md): Field grader (code rules, plus a model judge for industry and some headquarters), place/metro normalization tables, and confidence interval math.
 - [`benchmark.yaml`](benchmark.yaml): Benchmark contract, scope, and refresh cadence.
 - [`AGENTS.md`](AGENTS.md): Entry guide for coding agents.
 

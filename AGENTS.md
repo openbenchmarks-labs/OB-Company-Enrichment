@@ -9,7 +9,7 @@ Quick navigation guide for coding agents working in `OB-Company-Enrichment`.
 | **`data/`** | Dataset schema & public sample rows | `data/README.md`, `data/sample.jsonl` |
 | **`harness/`** | Execution only: CLI runner, tool adapters, registry, HTTP client, extraction model | `harness/run.py`, `harness/runner.py`, `harness/registry.py`, `harness/adapters/<tool>.py`, `harness/company.py`, `harness/web_research.py`, `harness/http_client.py`, `harness/llm.py`, `harness/config.yaml` |
 | **`tools/`** | Tool setups, request settings & prices (one file per tool for clean PRs) | `tools/<tool>.yaml` (11 tools, 14 setups) |
-| **`judge/`** | Deterministic grader, rules, board math, place/metro tables | `judge/grader.py`, `judge/config.yaml`, `judge/metros.json`, `judge/places.json` |
+| **`judge/`** | Grader (code rules plus a model judge), rules, board math, place/metro tables | `judge/grader.py`, `judge/config.yaml`, `judge/metros.json`, `judge/places.json` |
 
 Benchmark order & win condition live at the root in `benchmark.yaml`.
 
