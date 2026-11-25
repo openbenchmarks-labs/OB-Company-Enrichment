@@ -16,13 +16,13 @@ FIELDS = ("hq", "industry", "employee_band", "founded_year", "linkedin_url")
 
 
 def load_jsonl(path: Path) -> list[dict[str, Any]]:
-    return [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
+    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
 
 
 def load_tools() -> dict[str, dict[str, Any]]:
     tools = {}
     for p in sorted((ROOT / "tools").glob("*.yaml")):
-        doc = yaml.safe_load(p.read_text()) or {}
+        doc = yaml.safe_load(p.read_text(encoding="utf-8")) or {}
         tools[doc.get("tool", p.stem)] = doc.get("setups") or {}
     return tools
 

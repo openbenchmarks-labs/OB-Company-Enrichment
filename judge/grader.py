@@ -12,10 +12,10 @@ from urllib.parse import unquote, urlsplit
 import yaml
 
 HERE = Path(__file__).resolve().parent
-CONFIG = yaml.safe_load((HERE / "config.yaml").read_text())
+CONFIG = yaml.safe_load((HERE / "config.yaml").read_text(encoding="utf-8"))
 FIELDS = CONFIG["judge"]["fields"]
-PLACES = json.loads((HERE / "places.json").read_text())
-METROS = json.loads((HERE / "metros.json").read_text())
+PLACES = json.loads((HERE / "places.json").read_text(encoding="utf-8"))
+METROS = json.loads((HERE / "metros.json").read_text(encoding="utf-8"))
 
 
 def _norm_text(raw: str | None) -> str:

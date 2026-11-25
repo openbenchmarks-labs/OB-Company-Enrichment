@@ -15,7 +15,7 @@ from .tool_base import Adapter
 
 def load_companies(path: Path) -> list[Company]:
     companies = []
-    for line in path.read_text().splitlines():
+    for line in path.read_text(encoding="utf-8").splitlines():
         if line.strip():
             row = json.loads(line)
             companies.append(Company(domain=str(row["domain"]).strip().lower(), name=row.get("company")))
@@ -31,7 +31,7 @@ def done_domains(out: Path, setup: str) -> set[str]:
     path = answers_path(out, setup)
     if not path.exists():
         return set()
-    rows = [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
+    rows = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
     return {row["domain"] for row in rows if row.get("status") != "error"}
 
 
@@ -70,10 +70,13 @@ def run_setup(adapter: Adapter, companies: list[Company], out: Path, workers: in
     def save(answers: list[Answer]) -> None:
         with write_lock:
             raw_dir.mkdir(parents=True, exist_ok=True)
-            with answers_path(out, adapter.setup).open("a") as handle:
+            with answers_path(out, adapter.setup).open("a", encoding="utf-8") as handle:
                 for a in answers:
                     if a.raw is not None:
-                        (raw_dir / f"{a.domain}.json").write_text(json.dumps(redact(a.raw), indent=1, default=str))
+                        (raw_dir / f"{a.domain}.json").write_text(
+                            json.dumps(redact(a.raw), indent=1, default=str),
+                            encoding="utf-8",
+                        )
                     handle.write(json.dumps(a.row(), default=str) + "\n")
                     counts[a.status] = counts.get(a.status, 0) + 1
 
