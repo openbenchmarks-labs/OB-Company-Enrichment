@@ -1,16 +1,31 @@
-"""Structured extraction with an OpenAI model, for setups whose tool returns search results instead of answers."""
+"""Structured answers from an OpenAI model: the extraction step of the Nimble search setups and the model judge.
+
+The model is served by Azure OpenAI when `AZURE_OPENAI_BASE_URL` (the deployment's OpenAI v1 URL, ending in
+`/openai/v1`) and `AZURE_OPENAI_API_KEY` are set, and by OpenAI with `OPENAI_API_KEY` otherwise. On Azure, the model
+names in the configs are deployment names.
+"""
 from __future__ import annotations
 
 import json
+import os
 import time
 from functools import cache
 from typing import Any
+
+
+def provider() -> str | None:
+    """"azure" or "openai", by the credentials set; None when neither is."""
+    if os.getenv("AZURE_OPENAI_BASE_URL") and os.getenv("AZURE_OPENAI_API_KEY"):
+        return "azure"
+    return "openai" if os.getenv("OPENAI_API_KEY") else None
 
 
 @cache
 def _client() -> Any:
     from openai import OpenAI
 
+    if provider() == "azure":
+        return OpenAI(base_url=os.environ["AZURE_OPENAI_BASE_URL"].rstrip("/"), api_key=os.environ["AZURE_OPENAI_API_KEY"])
     return OpenAI()
 
 
