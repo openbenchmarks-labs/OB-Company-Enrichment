@@ -76,10 +76,11 @@ class CompanyRecord:
         self.founded_year = _year(self.founded_year)
         self.headcount_min = _clean_int(self.headcount_min)
         self.headcount_max = _clean_int(self.headcount_max)
-        if self.headcount_min is not None and self.headcount_min <= 0:
-            self.headcount_min = None
         if self.headcount_max is not None and self.headcount_max <= 0:
             self.headcount_max = None
+        # LinkedIn's smallest band is "0-1"; a 0 with no upper bound says nothing.
+        if self.headcount_min is not None and (self.headcount_min < 0 or (self.headcount_min == 0 and self.headcount_max is None)):
+            self.headcount_min = None
         self.industries = _unique([str(v).strip() for v in [self.industry, *self.industries] if v and str(v).strip()])
         if not self.industry and self.industries:
             self.industry = self.industries[0]
