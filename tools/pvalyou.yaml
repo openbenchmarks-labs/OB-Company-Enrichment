@@ -1,0 +1,15 @@
+tool: pvalyou
+name: Pvalyou
+env:
+- PVALYOU_API_KEY
+setups:
+  pvalyou:
+    class: main
+    endpoint: POST https://company-file-api-559961100092.europe-west1.run.app/v1/company
+    settings:
+      tier: basic
+      max_workers: 1
+    pricing:
+      usd: null
+      unit: usd billed per record
+    note: A company that is not on file is read live and answers as a job. The adapter polls it every 10 s for up to 900 s.
