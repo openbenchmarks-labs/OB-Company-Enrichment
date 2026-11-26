@@ -20,9 +20,9 @@ Every tool receives the same company domains and is evaluated on five structured
 
 ## Tools evaluated
 
-11 tools configured in [`tools/`](tools/README.md):
+12 tools configured in [`tools/`](tools/README.md):
 
-`apollo`, `company-enrich`, `coresignal`, `exa`, `explorium`, `nimble`, `parallel`, `people-data-labs`, `predictleads`, `seltz`, `zoominfo`
+`apollo`, `company-enrich`, `coresignal`, `exa`, `explorium`, `nimble`, `parallel`, `people-data-labs`, `predictleads`, `seltz`, `specstream`, `zoominfo`
 
 ## Dataset
 
@@ -36,7 +36,7 @@ See [`data/README.md`](data/README.md) for the file schema.
 
 - [`data/`](data/README.md): Input schema documentation and 4-row public sample (`sample.jsonl`) for offline checks.
 - [`harness/`](harness/README.md): CLI runner (`selftest`, `run`, `grade`, `list-tools`) and one adapter per tool.
-- [`tools/`](tools/README.md): One `<tool>.yaml` config per enrichment provider (11 tools).
+- [`tools/`](tools/README.md): One `<tool>.yaml` config per enrichment provider (12 tools).
 - [`judge/`](judge/README.md): Field grader (code rules, plus a model judge for industry and some headquarters), place/metro normalization tables, and confidence interval math.
 - [`benchmark.yaml`](benchmark.yaml): Benchmark contract, scope, and refresh cadence.
 - [`AGENTS.md`](AGENTS.md): Entry guide for coding agents.

@@ -9,7 +9,7 @@ Runs the benchmark and calls each tool. No grading logic lives here.
 - `adapters/` — The request and response code for each tool, one file per tool.
 - `models.py` — The shapes of a company and of one setup's answer.
 - `company.py` — The company record every adapter returns, and how it turns into the graded fields.
-- `web_research.py` — The question, output schema and response parsing that Exa, Parallel, Seltz and Nimble share, and the model step that reads search results for Nimble's and Seltz's search setups.
+- `web_research.py`: The question, output schema and response parsing that Exa, Parallel, Seltz and Nimble share, and the model step that reads search results for the Nimble, Seltz and SpecStream search setups.
 - `vendor_values.py` — Helpers for reading values out of responses whose field names vary.
 - `http_client.py` — Sends HTTP requests with retries and timing, and removes API keys before anything is saved.
 - `llm.py` — Structured answers from an OpenAI model, on Azure OpenAI or OpenAI: the Nimble search setups' extraction and the model judge.
