@@ -88,17 +88,6 @@ unsupported lists. For headcount, return a range only when supported. Never
 invent values. Return only the object required by outputSchema."""
 
 
-def extract_response_text(body: dict[str, Any]) -> str | None:
-    """The first text item of an OpenAI-Responses-shaped body."""
-    for item in body.get("output", []):
-        if not isinstance(item, dict):
-            continue
-        for content in item.get("content", []) or []:
-            if isinstance(content, dict) and isinstance(content.get("text"), str):
-                return content["text"]
-    return None
-
-
 def parse_structured_value(value: Any) -> dict[str, Any]:
     """Check that a decoded answer has exactly the schema's keys and that its list fields are lists."""
     if not isinstance(value, dict):
@@ -109,18 +98,6 @@ def parse_structured_value(value: Any) -> dict[str, Any]:
     if not isinstance(value.get("industries"), list) or not isinstance(value.get("sources"), list):
         raise ValueError("response list fields were not arrays")
     return value
-
-
-def parse_response(body: dict[str, Any]) -> dict[str, Any]:
-    """Decode the JSON text returned by Parallel Responses."""
-    text = extract_response_text(body)
-    if not text:
-        raise ValueError("response had no output text")
-    try:
-        value = json.loads(text)
-    except json.JSONDecodeError as exc:
-        raise ValueError("response text was not valid JSON") from exc
-    return parse_structured_value(value)
 
 
 def parse_exa_response(body: dict[str, Any]) -> dict[str, Any]:
