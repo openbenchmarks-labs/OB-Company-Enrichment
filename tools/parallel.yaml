@@ -3,15 +3,14 @@ name: Parallel
 env:
 - PARALLEL_API_KEY
 setups:
-  parallel-research:
+  parallel-task:
     class: main
-    endpoint: POST https://api.parallel.ai/v1/responses
+    endpoint: POST https://api.parallel.ai/v1/tasks/runs
     settings:
-      model: parallel
-      reasoning_effort: medium
+      processor: core
       output_schema: enrichment
       max_workers: 8
     pricing:
-      usd: 0.05
-      unit: request
+      usd: 0.025
+      unit: run
       source: https://docs.parallel.ai/getting-started/pricing

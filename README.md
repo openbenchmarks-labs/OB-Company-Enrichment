@@ -54,8 +54,8 @@ Run the tools on a companies file: a Hugging Face dataset file such as `data/eva
 
 ```sh
 cp .env.example .env   # then add the keys for the tools you run
-.venv/bin/python -B -m harness.run run --tasks data/sample.jsonl --setups apollo,parallel-research
-.venv/bin/python -B -m harness.run run --tasks data/sample.jsonl --setups apollo,parallel-research --out runs/my-run --execute
+.venv/bin/python -B -m harness.run run --tasks data/sample.jsonl --setups apollo,parallel-task
+.venv/bin/python -B -m harness.run run --tasks data/sample.jsonl --setups apollo,parallel-task --out runs/my-run --execute
 ```
 
 Each setup's answers land in `runs/my-run/<setup>.jsonl`.
