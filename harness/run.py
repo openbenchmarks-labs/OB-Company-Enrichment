@@ -25,7 +25,7 @@ GRADED_NAMES = {"hq": "hq_location", "industry": "industry", "employee_band": "h
 def load_tools() -> dict[str, dict[str, Any]]:
     tools = {}
     for p in sorted((ROOT / "tools").glob("*.yaml")):
-        doc = yaml.safe_load(p.read_text()) or {}
+        doc = yaml.safe_load(p.read_text(encoding="utf-8")) or {}
         tools[doc.get("tool", p.stem)] = doc.get("setups") or {}
     return tools
 
@@ -113,7 +113,7 @@ def cmd_grade(tasks_path: Path, run_dir: Path, setup_names: list[str] | None, wo
     def grade(job: tuple) -> dict[str, Any]:
         setup, row, company, truth, answer = job
         raw_path = run_dir / "raw" / setup / f"{company.domain}.json"
-        raw = json.loads(raw_path.read_text()) if raw_path.exists() else None
+        raw = json.loads(raw_path.read_text(encoding="utf-8")) if raw_path.exists() else None
         spec = specs[setup].spec if setup in specs else {}
         return _graded_run(setup, spec, row.get("case_id") or company.domain, answer, grade_row(truth, answer), raw)
 
@@ -131,7 +131,7 @@ def cmd_grade(tasks_path: Path, run_dir: Path, setup_names: list[str] | None, wo
         "providers": setups,
         "cases": cases,
         "runs": graded,
-    }, indent=1, ensure_ascii=False, default=str) + "\n")
+    }, indent=1, ensure_ascii=False, default=str) + "\n",encoding="utf-8")
 
     for setup in setups:
         print(setup)

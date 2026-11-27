@@ -34,7 +34,7 @@ class SetupSpec:
 def setups() -> dict[str, SetupSpec]:
     out: dict[str, SetupSpec] = {}
     for path in sorted(TOOLS_DIR.glob("*.yaml")):
-        doc = yaml.safe_load(path.read_text()) or {}
+        doc = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
         tool = doc.get("tool", path.stem)
         for name, spec in (doc.get("setups") or {}).items():
             if name in out:
