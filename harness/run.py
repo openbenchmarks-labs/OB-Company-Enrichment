@@ -145,6 +145,18 @@ def cmd_grade(tasks_path: Path, run_dir: Path, setup_names: list[str] | None, wo
     return 0
 
 
+def cmd_report(tasks_path: Path, run_dir: Path, json_out: Path | None = None) -> int:
+    from .analytics import compare_run_dir, format_comparison_table
+
+    truth_rows = [runner.truth_of(r) for r in runner.load_rows(tasks_path)]
+    summaries = compare_run_dir(truth_rows, run_dir)
+    print(format_comparison_table(summaries))
+    if json_out is not None:
+        json_out.parent.mkdir(parents=True, exist_ok=True)
+        json_out.write_text(json.dumps(summaries, indent=2), encoding="utf-8")
+    return 0
+
+
 def cmd_run(tasks_path: Path, setup_names: list[str] | None, out: Path, execute: bool, workers: int) -> int:
     from dotenv import load_dotenv
 
@@ -188,6 +200,10 @@ def main() -> int:
     p_grade.add_argument("--run", type=Path, required=True, help="Run folder; graded.json is written into it")
     p_grade.add_argument("--setups", help="Comma-separated setup names (default: every setup in the run folder)")
     p_grade.add_argument("--workers", type=int, default=8, help="Companies graded at once (model judge calls)")
+    p_report = sub.add_parser("report", help="Compare all setup JSONLs in a run folder (accuracy, cost, latency, errors)")
+    p_report.add_argument("--tasks", type=Path, required=True)
+    p_report.add_argument("--run-dir", type=Path, required=True)
+    p_report.add_argument("--json", type=Path, default=None, help="Optional path to write comparison JSON")
     sub.add_parser("list-tools", help="List configured tools and setups")
     args = parser.parse_args()
     if args.cmd == "selftest":
@@ -201,6 +217,8 @@ def main() -> int:
     if args.cmd == "grade":
         names = [s.strip() for s in args.setups.split(",") if s.strip()] if args.setups else None
         return cmd_grade(args.tasks, args.run, names, args.workers)
+    if args.cmd == "report":
+        return cmd_report(args.tasks, args.run_dir, json_out=args.json)
     if args.cmd == "list-tools":
         for tool, setups in load_tools().items():
             print(f"{tool}: {', '.join(setups)}")
