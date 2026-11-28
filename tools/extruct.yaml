@@ -1,0 +1,16 @@
+tool: extruct
+name: Extruct
+env:
+- EXTRUCT_API_TOKEN
+setups:
+  extruct-deep-research:
+    class: main
+    endpoint: POST https://api.extruct.ai/v1/deep_research_tasks
+    settings:
+      depth: high
+      output_schema: extruct
+      max_workers: 3
+    pricing:
+      usd: null
+      unit: credit
+    note: The brief is the shared web-research instruction plus Extruct's own notes on LinkedIn pages, size bands, industry, founding year and HQ. Its schema has no null values; an unknown field is left out.
